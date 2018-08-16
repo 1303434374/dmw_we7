@@ -7,6 +7,7 @@ function _defineProperty(e, t, a) {
     }) : e[t] = a, e;
 }
 //sb
+//fsafas
 var app = getApp();
 
 Page(
