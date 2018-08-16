@@ -227,6 +227,7 @@ Page(
         });
     },
     goMySubPage: function(e) {
+      console.log(this.data.myList[5])
         wx.navigateTo({
             url: e.currentTarget.dataset.id + "/" + e.currentTarget.dataset.id
         });
