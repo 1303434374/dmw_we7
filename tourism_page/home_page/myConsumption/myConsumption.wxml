@@ -1,0 +1,30 @@
+<view class="onlinePay">
+    <view class="payText">
+        <view>在线支付</view>
+        <view>余额：0.00</view>
+    </view>
+    <view class="payRecord">
+        <view>2018-4-10</view>
+        <view>-0.30</view>
+    </view>
+</view>
+<view class="onlinePay">
+    <view class="payText">
+        <view>支付</view>
+        <view>余额：0.00</view>
+    </view>
+    <view class="payRecord">
+        <view>2018-4-10</view>
+        <view>-0.30</view>
+    </view>
+</view>
+<view class="onlinePay">
+    <view class="payText">
+        <view>收费</view>
+        <view>余额：0.00</view>
+    </view>
+    <view class="payRecord">
+        <view>2018-4-10</view>
+        <view>-0.30</view>
+    </view>
+</view>

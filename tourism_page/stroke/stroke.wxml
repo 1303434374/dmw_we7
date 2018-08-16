@@ -1,0 +1,58 @@
+<swiper autoplay="{{inputFocus}}" bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
+    <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="i">
+        <view class="topSearch">
+            <view class="searchInput">
+                <image src="../resource/icon/search.png"></image>
+                <input bindconfirm="goSearch" bindtap="stopSwiper" placeholder="请输入地名进行查询..." placeholderStyle="color:#fff;" value="{{inputVal}}"></input>
+            </view>
+        </view>
+        <view class="swiper-item">
+            <view class="swiperIdx-box">
+                <view class="swiperIdx {{currentItem==index?'currentIdx':''}}" wx:for="{{swiperIdx}}" wx:key="{{swiperIdx}}"></view>
+            </view>
+            <view bindtap="bannerInto" class="slide-image" data-id="{{item.jd_id}}">
+                <image src="{{item.banner}}"></image>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<view class="dynamic-item" wx:for="{{new_PlayRecordList}}" wx:for-index="manIdx" wx:for-item="List">
+    <view class="dynamic-top">
+        <view class="dynamic-left">
+            <view class="userAvatarUrl">
+                <image src="{{List.avatar}}"></image>
+            </view>
+            <view class="nameAndTime">
+                <view class="nickName">
+            {{List.nickname}}
+          </view>
+                <view class="time">{{List.create_time}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="goStrokeDeails" class="dynamic-text" data-id="{{List.id}}">
+      {{List.content}}
+    </view>
+    <view class="dynamic-img">
+        <view bindtap="previewImg" class="dynamic-img-item" data-id="{{index}}" data-mainId="{{manIdx}}" wx:for="{{List.image}}" wx:for-item="img">
+            <image src="{{img}}"></image>
+        </view>
+    </view>
+    <view class="dynamic-infor">
+        <view class="browse">
+            <image src="../resource/images/my/liulan.png"></image>
+            <view>{{List.look_num}}</view>
+        </view>
+        <view bindtap="goStrokeDeails" class="comment" data-id="{{List.id}}">
+            <image src="../resource/images/release/comment.png"></image>
+            <view>{{List.message}}</view>
+        </view>
+        <view bindtap="changeLikeStatus" class="like" data-id="{{List.id}}" data-mainId="{{manIdx}}">
+            <image src="../resource/images/release/{{List.member_status?'like1':'like'}}.png"></image>
+            <view style="color:{{List.member_status?'#15e4d1;':''}}">{{List.praise}}</view>
+        </view>
+    </view>
+</view>
+<view bindtap="look_more" class="lookMore" hidden="{{PlayRecordList.length<4}}">
+  {{list_sum>=PlayRecordList.length?'没有更多了':'查看更多评论'}}
+</view>

@@ -1,0 +1,89 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view bindtap="goAddress" class="order-address">
+    <view class="address-img">
+        <image mode="widthFix" src="../../resource/images/my/dingwei.png"></image>
+    </view>
+    <view class="address-deails" wx:if="{{receiving_info}}">
+        <view class="address_info">
+            <view space="emsp">收货人：{{receiving_info.name}}</view>
+            <view>{{receiving_info.tel}}</view>
+        </view>
+        <view class="address_detail">收货地址：{{receiving_info.address}}</view>
+    </view>
+    <view class="address-deails not_address" hidden="{{receiving_info}}">
+        <view>暂无收货地址</view>
+        <view>点击添加收获地址</view>
+    </view>
+    <view class="changeAddress">></view>
+</view>
+<view class="order-deails">
+    <view class="order-titInfor">
+        <view class="tit-left">
+            <image mode="widthFix" src="../../resource/images/my/dianpu.png"></image>
+            <text space="ensp">  订单发票 ></text>
+        </view>
+    </view>
+    <view class="order">
+        <image class="orderImg" src="{{ActiveInfo.image}}"></image>
+        <view class="orderInfor">
+            <view class="order-tit">{{ActiveInfo.active_title}}</view>
+            <view class="order-tit order-subtit">{{ActiveInfo.jd_title}}</view>
+            <view class="order-priceAndSum">￥{{ActiveInfo.total}}
+        <text style="text-decoration:line-through">￥{{ActiveInfo.original_price}}</text>
+                <text space="emsp" style="color:#999;" wx:for="{{ActiveInfo.active_type==2}}">  4人团</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="people_info">
+    <view class="insurance_tit">联系人</view>
+    <view class="people_input">
+        <text>
+            <text style="color:red;">*</text>联系人姓名</text>
+        <input bindinput="people_info" data-type="name" placeholder="请填写联系人姓名" type="text"></input>
+    </view>
+    <view class="people_input">
+        <text>
+            <text style="color:red;">*</text>联系人电话</text>
+        <input bindinput="people_info" data-type="tel" maxlength="11" placeholder="请填写联系人电话" type="number"></input>
+    </view>
+</view>
+<radio-group bindchange="radioChange">
+    <view class="insurance_tit">保险</view>
+    <view class="insurance_item" wx:for="{{radio_arr}}" wx:key="i">
+        <view>{{item.title}}</view>
+        <view class="insurance_item_right">
+            <radio hidden checked="{{item.checked}}" id="{{item.title}}" value="{{item.title}}"></radio>
+            <view class="insurance_item_price">￥{{item.price}}</view>
+            <label for="{{item.title}}">
+                <view bindtap="hide_checked" class="insurance_item_r" data-idx="{{index}}">
+                    <icon size="16" type="success_no_circle" wx:if="{{item.checked}}"></icon>
+                </view>
+            </label>
+        </view>
+        <image bindtap="show_tip" class="insurance_item_tip" data-id="{{item.id}}" src="../../resource/images/wen.png"></image>
+    </view>
+</radio-group>
+<view bindtap="hide_tip" class="insurance_item_mask" wx:if="{{show_tip}}">
+    <view class="insurance_item_mask_tip_tit">{{insurance_info.title}}</view>
+    <template is="wxParse" data="{{wxParseData:infomation.nodes}}"></template>
+</view>
+<view class="contact-seller">
+    <view>
+        <image mode="widthFix" src="../../resource/images/my/duanxin.png"></image>
+        <text space="ensp"> 联系卖家</text>
+        <button bindcontact="getContact" openType="contact"></button>
+    </view>
+    <view bindtap="makeCall">
+        <image mode="widthFix" src="../../resource/images/my/dianhua.png"></image>
+        <text space="ensp"> 拨打电话</text>
+    </view>
+</view>
+<view class="nowPay">
+    <view class="nowPay-text">
+        <text>实付款：</text>
+        <text space="ensp" style="color:red;">
+            <text style="font-size:34rpx;">￥</text>{{ActiveInfo.newTotal?ActiveInfo.newTotal:ActiveInfo.total}} </text>
+    </view>
+    <view bindtap="{{s_order?'':'nowPay'}}" class="nowPay-btn" style="background:{{s_order?'#999':'#e02e24;'}}">去付款</view>
+</view>

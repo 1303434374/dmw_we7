@@ -1,0 +1,210 @@
+.user_info {
+    position: relative;
+    width: 100vw;
+    padding: 20rpx 3vw;
+    box-sizing: border-box;
+    background: #15e4d1;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    border-bottom: 1px solid #fff;
+}
+
+.zhangdan {
+    position: absolute;
+    right: 20rpx;
+    bottom: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.zhangdan image {
+    width: 80rpx;
+}
+
+.user_left {
+    position: relative;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+
+.user_left image {
+    width: 100%;
+    height: 100%;
+}
+
+.user_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.price_cont {
+    position: relative;
+    background: #15e4d1;
+    width: 100vw;
+    padding: 20rpx 3vw;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.success_price {
+    font-size: 42rpx;
+    margin-bottom: 30rpx;
+}
+
+.success_price_tit {
+    font-size: 30rpx;
+    margin-bottom: 6rpx;
+}
+
+.can_price {
+    font-size: 34rpx;
+}
+
+.can_price_tit {
+    font-size: 24rpx;
+    margin-bottom: 10rpx;
+}
+
+.withdraw {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+    border: 1px solid #fff;
+    padding: 2rpx 20rpx;
+}
+
+.partSale_cont {
+    width: 100vw;
+    overflow: hidden;
+}
+
+.partSale_item {
+    float: left;
+    width: 33.33vw;
+    height: 33.33vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    font-size: 24rpx;
+}
+
+.partSale_item:nth-child(3n) {
+    border-right: none;
+}
+
+.partSale_item image {
+    width: 80rpx;
+}
+
+.partSale_item_name {
+    font-size: 26rpx;
+    margin: 10rpx 0;
+}
+
+.outline_people image {
+    width: 76rpx;
+}
+
+.share_hb image {
+    width: 70rpx;
+}
+
+.share_poster {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    z-index: 99;
+    font-size: 0;
+}
+
+.share_poster image {
+    width: 100%;
+}
+
+.options_mask {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+}
+
+.hb_options {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.hb_options button {
+    border-radius: 0;
+    margin-top: 4rpx;
+}
+
+.price_mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.price_model {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 10rpx;
+    width: 70vw;
+    padding: 40rpx 40rpx 80rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+}
+
+.price_tit {
+    font-size: 32rpx;
+    text-align: center;
+    margin: 20rpx 0;
+}
+
+.price_input {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #999;
+    padding-bottom: 10rpx;
+}
+
+.ky_price {
+    margin: 20rpx 0 40rpx;
+}
+
+.price_btn {
+    width: 100%;
+    padding: 10rpx 0;
+    margin: 0 auto;
+    background: #15e4d1;
+    color: #fff;
+    text-align: center;
+}
+
+.price_btn::after {
+    border: none;
+    outline: none;
+}

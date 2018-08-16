@@ -1,0 +1,136 @@
+.pageBg {
+    position: relative;
+    width: 100vw;
+    height: 422rpx;
+    overflow: hidden;
+}
+
+.pageBg>image {
+    width: 100%;
+}
+
+.add-cover {
+    position: absolute;
+    right: 20rpx;
+    bottom: 20rpx;
+    padding: 4rpx 20rpx;
+    border-radius: 20rpx;
+    background: rgba(255,255,255,0.8);
+    font-size: 30rpx;
+}
+
+.travels-cont {
+    position: relative;
+    width: 94vw;
+    padding: 0 3vw;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    left: 4%;
+    width: 6rpx;
+    z-index: 5;
+    background: #15e4d1;
+}
+
+.travels-item {
+    position: relative;
+    margin-top: 30rpx;
+}
+
+.point {
+    position: absolute;
+    z-index: 6;
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background: #15e4d1;
+    left: -0.6%;
+    top: 1%;
+    box-sizing: border-box;
+}
+
+.user-dynamic {
+    margin-left: 6%;
+}
+
+.time {
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}
+
+.text {
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.img {
+    width: 100%;
+    font-size: 0;
+}
+
+.img image {
+    width: 28.4vw;
+    height: 28.4vw;
+    margin: 1vw 1vw 0 0;
+}
+
+.img image:nth-child(3n) {
+    margin-right: 0;
+}
+
+.dynamic-infor {
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+    padding: 10rpx 0 10rpx;
+    margin: 20rpx auto 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 26rpx;
+}
+
+.dynamic-infor>view {
+    display: flex;
+    align-items: center;
+}
+
+.dynamic-infor>view>image {
+    margin-right: 8rpx;
+}
+
+.browse>image {
+    width: 36rpx;
+}
+
+.comment>image {
+    width: 36rpx;
+}
+
+.like>image {
+    width: 30rpx;
+}
+
+.notOrder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100vw;
+    text-align: center;
+    font-size: 32rpx;
+    color: #666;
+}
+
+.notOrder>image {
+    width: 150rpx;
+    height: 158rpx;
+}
+
+.lookMore {
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin: 20rpx 0;
+}

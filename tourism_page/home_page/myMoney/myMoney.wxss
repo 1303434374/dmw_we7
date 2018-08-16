@@ -1,0 +1,45 @@
+page {
+    background: #f5f5f5;
+}
+
+.accountBalance {
+    width: 90vw;
+    padding: 0 5vw;
+    background: #15e4d1;
+}
+
+.accountBalance-tit {
+    color: #cfe4fb;
+    font-size: 28rpx;
+}
+
+.money {
+    color: #fff;
+    font-size: 88rpx;
+    padding: 40rpx 0;
+}
+
+.list-item {
+    width: 90vw;
+    padding: 0rpx 5vw;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item-left {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.list-item-left>image {
+    width: 40rpx;
+    margin-right: 20rpx;
+}
+
+.list-item-right {
+    font-size: 74rpx;
+    color: #ddd;
+}

@@ -1,0 +1,91 @@
+<view class="topRecommend">
+    <image src="{{HotAddressIn.icon}}"></image>
+    <view class="city">{{HotAddressIn.title}}</view>
+    <view class="recommend-sum">{{HotAddressIn.like_num}}位游客已为您推荐</view>
+</view>
+<view class="sort">
+    <view bindtap="goSort" class="sort-item" data-id="0">
+        <image src="../../resource/icon/attractions.png"></image>
+        <view>景点</view>
+    </view>
+    <view bindtap="goSort" class="sort-item" data-id="1">
+        <image src="../../resource/icon/food.png"></image>
+        <view>美食</view>
+    </view>
+    <view bindtap="goSort" class="sort-item" data-id="2">
+        <image src="../../resource/icon/stay.png"></image>
+        <view>住宿</view>
+    </view>
+    <view bindtap="goSort" class="sort-item" data-id="3">
+        <image src="../../resource/icon/shopping.png"></image>
+        <view>购物</view>
+    </view>
+    <view bindtap="goSort" class="sort-item" data-id="4">
+        <image src="../../resource/icon/zhuti.png"></image>
+        <view>主题</view>
+    </view>
+</view>
+<view class="theme">
+    <view class="theme-tit">
+        <view class="theme-tit-left"></view>
+        <view class="theme-tit-text">主题推荐</view>
+    </view>
+    <view class="theme-cont" hidden="{{HotZhuti.length==0}}">
+        <view bindtap="goArticle" class="theme-item" data-tuwenid="{{item.id}}" wx:for="{{HotZhuti}}">
+            <image class="theme-item-img" src="{{item.icon}}"></image>
+            <view class="theme-item-mask">
+                <view class="theme-item-tit">{{item.title}}</view>
+                <view class="theme-item-subTit">{{item.Introduction}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="{{HotZhuti.length==0?'':'moreTheme'}}" class="moreTheme" style="color:{{HotZhuti.length==0?'#999':''}}">{{HotZhuti.length==0?'暂无信息':'更多主题推荐'}}</view>
+</view>
+<view class="route">
+    <view class="theme-tit route-tit">
+        <view class="theme-tit-left"></view>
+        <view class="theme-tit-text">路线推荐</view>
+    </view>
+    <view class="route-cont" hidden="{{strategy.length==0}}">
+        <view bindtap="goRouteDeails" class="route-item" data-id="{{item.id}}" wx:for="{{strategy}}" wx:key="i">
+            <view class="route-item-img">
+                <image src="{{item.image}}"></image>
+            </view>
+            <view class="route-item-tit">{{item.title}}</view>
+            <view class="route-item-route">{{item.labelling}}</view>
+        </view>
+    </view>
+    <view bindtap="{{strategy.length==0?'':'moreRoute'}}" class="moreTheme" style="color:{{strategy.length==0?'#999':''}}">
+    {{strategy.length==0?'暂无信息':'更多路线推荐'}}</view>
+</view>
+<view class="classic">
+    <view class="theme-tit classic-tit">
+        <view class="theme-tit-left"></view>
+        <view class="theme-tit-text">经典资讯</view>
+    </view>
+    <view class="classic-cont" hidden="{{new_infor.length==0}}">
+        <view bindtap="goClassicDeails" class="classic-item" data-informationid="{{item.id}}" wx:for="{{new_infor}}">
+            <image src="{{item.icon}}"></image>
+            <view class="classic-introduction">{{item.title}}</view>
+        </view>
+    </view>
+    <view bindtap="moreClassic" class="moreTheme" hidden="{{infor_num==information.length-1}}" wx:if="{{information.length>2}}">更多经典资讯
+  </view>
+    <view class="moreTheme" style="color:#999" wx:if="{{new_infor.length==0}}">暂无信息</view>
+</view>
+<view class="play">
+    <view class="theme-tit play-tit">
+        <view class="theme-tit-left"></view>
+        <view class="theme-tit-text">游玩度假</view>
+    </view>
+    <view class="play-cont" hidden="{{attractions.length==0}}">
+        <view bindtap="goOrdinaryDeails" class="play-item" data-attractionsid="{{item.id}}" wx:for="{{attractions}}">
+            <image src="{{item.image}}"></image>
+            <view class="play-item-tit">{{item.title}}</view>
+            <view class="play-item-city">{{item.cf_area}} - {{item.jd_area}}</view>
+            <view class="play-item-price">￥ {{item.price}} 起</view>
+        </view>
+    </view>
+    <view bindtap="{{attractions.length==0?'':'morePlay'}}" class="moreTheme" style="color:{{attractions.length==0?'#999':''}}">
+    {{attractions.length==0?'暂无信息':'更多游玩度假'}}</view>
+</view>

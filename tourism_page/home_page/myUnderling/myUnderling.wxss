@@ -1,0 +1,115 @@
+page {
+    background: rgb(245,245,245);
+}
+
+.container {
+    width: 100vw;
+}
+
+.underling-tit {
+    width: 90vw;
+    padding: 0 5vw;
+    height: 80rpx;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+
+.explanation {
+    width: 90vw;
+    padding: 0 5vw;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    line-height: 80rpx;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.explanation>image {
+    width: 36rpx;
+    height: 36rpx;
+    margin: 0 20rpx 0 0;
+}
+
+.underling-item {
+    width: 94vw;
+    padding: 0 3vw;
+    height: 140rpx;
+    background: #fff;
+}
+
+.underling-avatarUrl {
+    float: left;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    margin-top: 10rpx;
+    overflow: hidden;
+}
+
+.underling-avatarUrl image {
+    width: 100%;
+    height: 100%;
+}
+
+.underling-infor {
+    float: left;
+    width: 58vw;
+    height: 80rpx;
+    margin: 30rpx 0 0 20rpx;
+    padding-right: 10rpx;
+    border-right: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.underling-name {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+}
+
+.underling-name image {
+    width: 36rpx;
+    height: 36rpx;
+    margin: 0 10rpx 0 0;
+}
+
+.underling-time {
+    font-size: 22rpx;
+    color: #999;
+}
+
+.underling-underling {
+    float: right;
+    font-size: 24rpx;
+    height: 80rpx;
+    margin: 30rpx 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.underling-underling view:first-child {
+    font-size: 28rpx;
+}
+
+.notUnderling {
+    width: 100vw;
+    text-align: center;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.notUnderling>image {
+    width: 150rpx;
+    margin: 250rpx 0 20rpx;
+}

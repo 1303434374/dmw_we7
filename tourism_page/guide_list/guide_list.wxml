@@ -1,0 +1,28 @@
+<view class="recommend_cont">
+    <view bindtap="link_detail" class="guide_item" data-id="{{item.id}}" wx:for="{{GuideList}}" wx:key="guide">
+        <view class="head_img">
+            <image src="{{item.head}}"></image>
+        </view>
+        <view>
+            <view class="name">{{item.name}}<text class="status">{{item.class}}</text>
+            </view>
+            <view class="cost">￥<text>{{item.spotprices}}</text>
+            </view>
+            <view class="num">已带队{{item.sentiment}}次</view>
+        </view>
+        <view bindtap="call" class="tel" data-tel="{{item.phone}}">
+            <image mode="aspectFit" src="../resource/images/tel.png"></image>
+        </view>
+    </view>
+    <view class="tips1">
+        <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{ismore}}">
+            <icon size="20" type="waiting"></icon>
+            <text>玩命的加载中...</text>
+        </view>
+        <view wx:else>
+            <text>没有更多内容了</text>
+        </view>
+    </view>
+</view>
+<import src="../template/template.wxml"></import>
+<template is="home_page" data></template>

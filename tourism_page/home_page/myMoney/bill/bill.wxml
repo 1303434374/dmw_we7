@@ -1,0 +1,40 @@
+<view class="bill-tit">
+    <view class="bill-tit-left">
+        <view class="currentMonth">{{showTime==thisTime?'本月':showTime}}</view>
+        <view>
+            <text space="ensp">支出 ￥ 30,533.46  </text>
+            <text space="ensp">收入 ￥ 30,533.46</text>
+        </view>
+    </view>
+    <picker bindchange="changeShowTime" end="{{thisTime}}" fields="month" mode="date" start="{{startTime}}" value="{{showTime}}">
+        <image class="allBillBtn" mode="widthFix" src="../../../resource/images/my/rili.png"></image>
+    </picker>
+</view>
+<view class="consum-cont">
+    <view class="consum-cont-item">
+        <view class="consumImg-box">
+            <image class="consumImg" src="../../../resource/images/my/shangjia.png"></image>
+        </view>
+        <view class="consumInfor">
+            <view>
+                <view class="consumPeople">滴滴快车-xxx师傅</view>
+                <view class="consumType">[交通出行]</view>
+                <view class="consumTime">今天 08:20</view>
+            </view>
+            <view class="consum-price">-13.95</view>
+        </view>
+    </view>
+    <view class="consum-cont-item">
+        <view class="consumImg-box">
+            <image class="consumImg" src="../../../resource/images/my/shangjia.png"></image>
+        </view>
+        <view class="consumInfor">
+            <view>
+                <view class="consumPeople">滴滴快车-xxx师傅</view>
+                <view class="consumType">[交通出行]</view>
+                <view class="consumTime">今天 08:20</view>
+            </view>
+            <view class="consum-price">-13.95</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,31 @@
+<view class="currentSeason">
+    <view class="currentSeason-tit">
+        <view class="currentSeason-tit-left"></view>
+        <view>当季大众推荐</view>
+    </view>
+    <view class="currentSeason-cont">
+        <view bindtap="goRaidersDeails" class="currentSeason-item" data-id="{{item.id}}" wx:for="{{new_StrategyList}}" wx:key="i">
+            <view class="currentSeason-item-img">
+                <image src="{{item.image}}"></image>
+            </view>
+            <view class="currentSeason-name">{{item.title}}</view>
+            <view class="currentSeason-price">{{item.labelling}}</view>
+        </view>
+        <view bindtap="look_more" class="lookMore" hidden="{{StrategyList.length<4}}">
+      {{list_sum>=StrategyList.length?'没有更多了':'查看更多'}}
+    </view>
+    </view>
+</view>
+<view class="specified-attractions" wx:for="{{address_strategy}}" wx:for-item="address">
+    <view class="currentSeason-tit">
+        <view class="currentSeason-tit-left"></view>
+        <view>{{address.title}}</view>
+        <view class="currentSeason-tit-right">{{address.Introduction}}</view>
+    </view>
+    <view class="attractions-cont">
+        <view bindtap="goRaidersDeails" class="attractions-item" data-id="{{strategy.id}}" wx:for="{{address.strategy}}" wx:for-item="strategy">
+            <image src="{{strategy.image}}" style="width:100%;height:200rpx;"></image>
+            <view class="hotCity">{{strategy.title}}</view>
+        </view>
+    </view>
+</view>

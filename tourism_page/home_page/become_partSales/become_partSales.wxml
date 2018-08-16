@@ -1,0 +1,60 @@
+<swiper autoplay indicatorDots class="top_swiper">
+    <swiper-item wx:for="{{banner}}" wx:key="i">
+        <image bindtap="bannerInto" data-id="{{item.jd_id}}" src="{{item.banner}}"></image>
+    </swiper-item>
+</swiper>
+<view class="welcome">欢迎加入，请填写申请信息</view>
+<view class="form_cont">
+    <form bindsubmit="partSales_info">
+        <view class="form_item" wx:if="{{status==1}}">
+            <view class="l">邀请人</view>
+            <view class="invite_r">
+                <text style="color:red;">{{UpNickname}}</text>
+                (请核对)
+            </view>
+        </view>
+        <view class="form_item" wx:if="{{status==-1}}">
+            <view class="l">邀请码</view>
+            <input name="invite_num" placeholder="请填写邀请码(选填)" placeholderStyle="color:#666;" type="text"></input>
+        </view>
+        <view class="form_item">
+            <view class="l">
+                <text style="color:red;">*</text>
+                姓名
+            </view>
+            <input name="name" placeholder="请填写真实姓名，用于结算" placeholderStyle="color:#666;" type="text"></input>
+        </view>
+        <view class="form_item">
+            <view class="l">
+                <text style="color:red;">*</text>
+                手机号
+            </view>
+            <input maxlength="11" name="tel" placeholder="请填写手机号码方便联系" placeholderStyle="color:#666;" type="number"></input>
+        </view>
+        <view class="form_item">
+            <view class="l">微信号</view>
+            <input name="wx_num" placeholder="请填写微信号" placeholderStyle="color:#666;" type="text"></input>
+        </view>
+        <button formType="submit">申请成为分销商</button>
+    </form>
+</view>
+<view class="privilege_cont">
+    <view class="privilege_tit privilege_item">
+        <image mode="widthFix" src="../../resource/icon/privilege.png"></image>
+        <text>分销商特权</text>
+    </view>
+    <view class="privilege_item privilege_one">
+        <image mode="widthFix" src="../../resource/icon/privilege1.png"></image>
+        <view>
+            <view>发展下线</view>
+            <view>拥有自己的推广二维码</view>
+        </view>
+    </view>
+    <view class="privilege_item privilege_two">
+        <image mode="widthFix" src="../../resource/icon/privilege2.png"></image>
+        <view>
+            <view>销售拿佣金</view>
+            <view>成为分销商后,您的下线成功下单后，您可以获得佣金;</view>
+        </view>
+    </view>
+</view>

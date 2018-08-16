@@ -1,0 +1,279 @@
+@import "../staging_detail/staging_detail.wxss";
+
+@import "../../wxParse/wxParse.wxss";
+
+.appraise {
+    padding: 20rpx 0 40rpx;
+    margin: 20rpx 0 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2rpx solid #dedede;
+    border-bottom: 8rpx solid #dedede;
+}
+
+.appraise .label {
+    padding: 5rpx 10rpx;
+    border: 2rpx solid #289AF6;
+    color: #289AF6;
+    margin-right: 10rpx;
+    font-size: 24rpx;
+}
+
+.departureLocation {
+    width: 400rpx;
+    height: 30rpx;
+    color: #fff;
+    font-size: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #ccc;
+    padding: 0 10rpx;
+}
+
+.appraise-share {
+    position: relative;
+    width: 44rpx;
+    height: 44rpx;
+}
+
+.appraise-share .shareBtn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    top: 8rpx;
+}
+
+.appraise-share .shareBtn::after {
+    border: none;
+}
+
+.appraise-share>image {
+    width: 100%;
+    height: 100%;
+}
+
+.likeAndComment {
+    width: 92vw;
+    padding: 20rpx 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.likeAndComment-left {
+    display: flex;
+    align-items: center;
+}
+
+.likeAndComment-right {
+    display: flex;
+    align-items: center;
+}
+
+.comment {
+    margin-right: 30rpx;
+}
+
+.comment,.like {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.comment>image {
+    width: 34rpx;
+    margin-right: 10rpx;
+}
+
+.like>image {
+    width: 30rpx;
+    margin-right: 10rpx;
+}
+
+.friendSum-img {
+    display: flex;
+    align-items: center;
+}
+
+.friendSum-img>view:first-child {
+    margin-left: 0;
+}
+
+.friendSum-img>view {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    margin-left: -6rpx;
+    overflow: hidden;
+}
+
+.friendSum-img>view image {
+    vertical-align: none;
+}
+
+.friendSum-sum {
+    margin-left: 20rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.appraise .star {
+    width: 25rpx;
+    height: 25rpx;
+    margin-top: -5rpx;
+}
+
+.bank_part {
+    margin: 20rpx 0;
+    padding: 20rpx;
+}
+
+.bank_part .title {
+    padding: 0;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #dedede;
+}
+
+.bank_part .go_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bank_part .go_list .go_item {
+    margin-top: 20rpx;
+    font-size: 20rpx;
+    text-align: center;
+    width: 22%;
+    margin-right: 2%;
+    border: 2rpx solid #dedede;
+    height: 64rpx;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bank_part .go_list .go_item.hold_on {
+    font-size: 40rpx;
+}
+
+.scrollview {
+    padding: 10rpx 0;
+    padding-left: 20rpx;
+}
+
+.scrollview text {
+    display: inline-block;
+    padding-right: 20rpx;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.scrollview text.onon {
+    color: #289AF6;
+}
+
+.tianshu {
+    border-top: 1rpx solid #dedede;
+    border-bottom: 1rpx solid #dedede;
+}
+
+.zanwu {
+    width: 100%;
+    font-size: 28rpx;
+    color: #dedede;
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+.comment-cont {
+    min-height: 200rpx;
+}
+
+.comment-item {
+    width: 94vw;
+    padding: 20rpx 3vw;
+    background: #fff;
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+}
+
+.comment-info>view:first-child {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+    overflow: hidden;
+}
+
+.comment-info>view {
+    font-size: 30rpx;
+}
+
+.comment-time {
+    font-size: 24rpx;
+    color: #666;
+    margin: 20rpx 0;
+}
+
+.comment-text {
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+
+.comment-img {
+    padding: 20rpx 0;
+}
+
+.comment-img>image {
+    width: 30.6vw;
+    height: 30.6vw;
+    display: inline-flex;
+    margin-right: 1vw;
+}
+
+.comment-img>image:nth-child(3n) {
+    margin-right: 0;
+}
+
+.dynamic-infor {
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+    width: 94vw;
+    padding: 20rpx 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 26rpx;
+}
+
+.dynamic-infor>view {
+    display: flex;
+    align-items: center;
+}
+
+.dynamic-infor>view>image {
+    margin-right: 8rpx;
+}
+
+.browse>image {
+    width: 36rpx;
+}
+
+.comment>image {
+    width: 36rpx;
+}
+
+.like>image {
+    width: 30rpx;
+}

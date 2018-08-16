@@ -1,0 +1,96 @@
+page {
+    background: #efefef;
+}
+
+.box {
+    width: 100%;
+    padding: 50rpx 30rpx;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+}
+
+.box image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.box text {
+    font-size: 35rpx;
+    color: #000;
+    margin-left: 5rpx;
+    position: relative;
+    top: -12rpx;
+}
+
+.erweima {
+    width: 100%;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.erweima-title {
+    width: 100%;
+    padding: 30rpx 20rpx;
+    background: #1285F8;
+    font-size: 32rpx;
+    color: #fff;
+    box-sizing: border-box;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.erweima-img {
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 150rpx 0 60rpx;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+
+.erweima-img image {
+    display: block;
+    width: 450rpx;
+    height: 500rpx;
+    margin: 0 auto;
+}
+
+.erweima-img text {
+    display: block;
+    width: 450rpx;
+    height: 80rpx;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30rpx;
+    color: #888888;
+    margin-top: 20rpx;
+    position: relative;
+    top: -90rpx;
+    background: #fff;
+}
+
+.fanhui {
+    width: 70rpx;
+    height: 70rpx;
+    position: fixed;
+    top: 80%;
+    right: 5%;
+    font-size: 25rpx;
+    color: #fff;
+    background: #1285F8;
+    border-radius: 50%;
+    padding: 10rpx;
+}
+
+.fanhui image {
+    display: block;
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 auto;
+}
+
+.fanhui text {
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,129 @@
+@import "../../../__wuBaseWxss__/3.wxss";
+
+page {
+    background: #f0f0f0;
+}
+
+.df {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    padding: 20rpx;
+    background: #fff;
+    position: relative;
+}
+
+.item_title {
+    font-size: 26rpx;
+    width: 25%;
+    margin-right: 10rpx;
+}
+
+.order_status .status {
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.order_status .time {
+    font-size: 24rpx;
+    color: #919191;
+}
+
+.order_detail {
+    border-bottom: 20rpx solid #E8EDF3;
+    border-top: 20rpx solid #E8EDF3;
+}
+
+.travel_name {
+    font-size: 30rpx;
+    position: relative;
+    padding: 10rpx 0;
+}
+
+.arrow_right {
+    width: 16rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    right: 20rpx;
+    transform: translateY(-50%);
+}
+
+.order_item .order_name {
+    font-size: 24rpx;
+    color: #919191;
+    width: 25%;
+}
+
+.order_item .right {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.order_item {
+    margin: 20rpx 0;
+    align-items: center;
+}
+
+.beizhu {
+    font-size: 24rpx;
+    padding: 20rpx;
+}
+
+.erweimahexiao {
+    font-size: 28rpx;
+}
+
+.item image.item-img {
+    display: block;
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.zjezhao {
+    width: 100%;
+    height: 75rpx;
+    background: #fff;
+    position: absolute;
+    bottom: 20rpx;
+    left: 0;
+}
+
+.order-address {
+    position: relative;
+    width: 100vw;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 20rpx solid #dedede;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.address-deails {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 28rpx;
+}
+
+.address_info {
+    margin-bottom: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.address_info>view:first-child {
+    margin-right: 10rpx;
+}
+
+.changeAddress {
+    font-size: 34rpx;
+    color: #999;
+    margin-left: 20rpx;
+}

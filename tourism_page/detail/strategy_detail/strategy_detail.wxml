@@ -1,0 +1,23 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="strategy_wrap" wx:for="{{Strategy}}">
+    <view class="music_icon">
+        <image bindtap="contral_music" class="{{musicStatus?'rotateRight':''}}" data-audio="{{item.audio}}" src="../../resource/images/music.png"></image>
+    </view>
+    <view class="title">{{item.title}}</view>
+    <view class="describe">{{item.attractions}}</view>
+    <view class="label_list">
+        <text class="label">{{item.labelling}}</text>
+    </view>
+    <view class="cover_img ">
+        <image mode="widthFix" src="{{item.image}}"></image>
+    </view>
+    <view style="text-align: center;margin:20rpx 0;font-size:26rpx;margin-bottom:40rpx;">
+        <view class="arrow_down_icon">
+            <image src="../../resource/images/arrow_down.png"></image>
+        </view>
+        <view>听听|来自推荐的声音</view>
+    </view>
+    <view>
+        <template is="wxParse" data="{{wxParseData:text.nodes}}"></template>
+    </view>
+</view>

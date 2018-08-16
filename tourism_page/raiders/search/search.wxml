@@ -1,0 +1,7 @@
+<view bindtap="goRaidersDeails" class="searchPage-item" data-address_id="{{item.id}}" wx:for="{{Address}}">
+    <image class="search-img" src="{{item.icon}}"></image>
+    <view class="searchPage-item-info">
+        <view class="info-tit">{{item.title}}</view>
+        <view>{{item.Introduction}}</view>
+    </view>
+</view>

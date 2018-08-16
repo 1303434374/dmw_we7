@@ -1,0 +1,51 @@
+<view class="user-item">
+    <view class="user-info">
+        <view>
+            <image src="{{MessageInfo.avatar}}"></image>
+        </view>
+        <view>{{MessageInfo.nickname}}</view>
+    </view>
+    <view class="user-time">
+        <text space="emsp">{{MessageInfo.create_time}}</text>
+    </view>
+    <view class="user-text">
+    {{MessageInfo.content}}
+  </view>
+    <view class="user-img">
+        <image bindtap="previewImg" data-id="{{index}}" src="{{item}}" wx:for="{{MessageInfo.image}}"></image>
+    </view>
+</view>
+<view class="dynamic-infor">
+    <view class="browse">
+        <image mode="widthFix" src="../../resource/images/my/liulan.png"></image>
+        <view>{{look_num}}</view>
+    </view>
+    <view bindtap="commentBox" class="comment11" data-id="0" data-idx="-1">
+        <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+        <view>{{OrderReply.length}}</view>
+    </view>
+    <view bindtap="touchLike" class="like">
+        <image mode="widthFix" src="../../resource/images/release/{{MessageInfo.praise_status==1?'like1':'like'}}.png"></image>
+        <view style="color:{{MessageInfo.praise_status==1?'#15e4d1;':''}}">{{PraiseNum}}</view>
+    </view>
+</view>
+<view class="allComment">
+    <view class="comment-list">
+        <block wx:for="{{falseComment_list1}}" wx:for-item="comment_list" wx:key="i">
+            <view bindtap="commentBox" class="people-comment-item" data-id="{{comment_list.id}}" data-idx="{{index}}" data-name="{{comment_list.nickname}}">
+                <view style="color:#15e4d1;">{{comment_list.nickname}}</view>
+                <view>：{{comment_list.content}}</view>
+            </view>
+            <view class="people-reply-item people-comment-item" wx:for="{{comment_list.replyIn}}" wx:for-item="reply" wx:key="i">
+                <view style="color:#15e4d1;">{{reply.nickname}}
+            <text style="color:#000;"> 回复 </text>{{reply.reply_name}}</view>
+                <view>：{{reply.content}}</view>
+            </view>
+        </block>
+        <view bindtap="{{newCommentSum>=OrderReply.length?'packUpComment':'addAllComment'}}" class="look-allComment" hidden="{{OrderReply.length<10}}">{{newCommentSum>=OrderReply.length?'收起评论':'查看更多评论'}}</view>
+    </view>
+    <view bindtap="commentBox" class="input-mask" data-id="-1" data-idx="-1" wx:if="{{showCommentBox}}"></view>
+    <view class="input-box" wx:if="{{showCommentBox}}">
+        <input bindconfirm="sendComment" cursorSpacing="20" focus="{{showCommentBox}}" placeholder="{{reply_name?'回复给'+reply_name:'评论'}}" value="{{eVal}}"></input>
+    </view>
+</view>

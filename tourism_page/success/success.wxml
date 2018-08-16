@@ -1,0 +1,17 @@
+<view class="box">
+    <image src="../resource/images/dds.png"></image>
+    <text>购买成功</text>
+</view>
+<view class="fanhui">
+    <navigator openType="redirect" url="/tourism_page/index/index">
+        <image src="../resource/images/fanhui.png"></image>
+        <text>首页</text>
+    </navigator>
+</view>
+<view class="erweima">
+    <view class="erweima-title">{{PaySuccess.scenicspot}}</view>
+    <view class="erweima-img">
+        <image src="{{PaySuccess.verification}}"></image>
+        <text>（订单二维码）</text>
+    </view>
+</view>

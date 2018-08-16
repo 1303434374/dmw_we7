@@ -1,0 +1,294 @@
+page {
+    background: #f5f5f5;
+    padding-bottom: 100rpx;
+}
+
+.order-address {
+    position: relative;
+    width: 100vw;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    padding: 20rpx 0;
+}
+
+.address-img {
+    width: 12%;
+    text-align: center;
+}
+
+.address-img image {
+    width: 34rpx;
+}
+
+.address-deails {
+    width: 88%;
+    box-sizing: border-box;
+    padding-right: 10vw;
+    font-size: 30rpx;
+}
+
+.not_address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.address_info {
+    margin-bottom: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.address_info>view:first-child {
+    margin-right: 10rpx;
+}
+
+.changeAddress {
+    position: absolute;
+    right: 4vw;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 34rpx;
+    color: #999;
+}
+
+.order-deails {
+    width: 100vw;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.order-titInfor {
+    width: 95vw;
+    height: 80rpx;
+    border-bottom: 1px solid #999;
+    padding: 0 3vw 0 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tit-left {
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+}
+
+.tit-left>image {
+    width: 42rpx;
+}
+
+.tit-right {
+    font-size: 28rpx;
+    color: red;
+}
+
+.order {
+    position: relative;
+    width: 90vw;
+    padding: 0 5vw;
+    height: 170rpx;
+    margin: 30rpx 0 0 0;
+}
+
+.orderImg {
+    float: left;
+    width: 140rpx;
+    height: 140rpx;
+    margin-top: 15rpx;
+}
+
+.orderInfor {
+    float: left;
+    font-size: 26rpx;
+    margin: 22rpx 0 0 20rpx;
+}
+
+.order-subtit {
+    margin: 16rpx 0;
+}
+
+.order-options {
+    margin: 15rpx 0 15rpx 16rpx;
+}
+
+.order-priceAndSum {
+    margin-left: 16rpx;
+}
+
+.payPrice {
+    width: 95vw;
+    text-align: right;
+    font-size: 26rpx;
+    padding: 12rpx 5vw 12rpx 0;
+}
+
+.contact-seller {
+    width: 100vw;
+    height: 100rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.contact-seller>view {
+    position: relative;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    font-size: 30rpx;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+}
+
+.contact-seller>view>image {
+    width: 42rpx;
+}
+
+.contact-seller>view>button {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.contact-seller>view>button::after {
+    border: none;
+}
+
+.contact-seller>view:last-child {
+    border-right: none;
+}
+
+.nowPay {
+    position: fixed;
+    bottom: 0;
+    width: 90vw;
+    padding: 0 5vw;
+    height: 100rpx;
+    background: #fff;
+}
+
+.nowPay-text,.nowPay-btn {
+    float: left;
+    text-align: center;
+}
+
+.nowPay-text {
+    width: 70vw;
+    background: #fff;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    text-align: right;
+}
+
+.nowPay-btn {
+    width: 20vw;
+    height: 60rpx;
+    margin-top: 20rpx;
+    border-radius: 5px;
+    background: #e02e24;
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 60rpx;
+}
+
+.insurance_tit {
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    background: #fff;
+    margin-bottom: 2px;
+}
+
+.insurance_item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    background: #fff;
+    margin-bottom: 2px;
+}
+
+.insurance_item_r {
+    width: 40rpx;
+    height: 40rpx;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.insurance_item_r icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.insurance_item_tip {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    color: #000;
+}
+
+.insurance_item_price {
+    margin-right: 20rpx;
+}
+
+.insurance_item_mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.insurance_item_mask_tip_tit {
+    text-align: center;
+    padding: 20rpx 0;
+    border-bottom: 1px solid #fff;
+    font-size: 30rpx;
+}
+
+.insurance_item_right {
+    display: flex;
+    align-items: center;
+}
+
+.people_info {
+    width: 100vw;
+    background: #fff;
+    margin: 20rpx 0;
+}
+
+.people_input {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    border-top: 2px solid #f5f5f5;
+}
+
+.people_input input {
+    border: none;
+    background: none;
+    margin-left: 20rpx;
+}

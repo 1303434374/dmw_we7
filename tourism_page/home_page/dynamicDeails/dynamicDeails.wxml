@@ -1,0 +1,108 @@
+<view class="dynamic-item">
+    <view class="dynamic-top">
+        <view class="dynamic-left">
+            <view class="userAvatarUrl">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="nameAndTime">
+                <view class="nickName">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view class="time">2018-04-13 15:44:32</view>
+            </view>
+        </view>
+    </view>
+    <view class="dynamic-text">
+        马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎马扎
+    </view>
+    <view class="dynamic-img">
+        <view class="dynamic-img-item">
+            <image src="{{banner[0]}}"></image>
+        </view>
+        <view class="dynamic-img-item">
+            <image src="{{banner[0]}}"></image>
+        </view>
+        <view class="dynamic-img-item">
+            <image src="{{banner[0]}}"></image>
+        </view>
+        <view class="dynamic-img-item">
+            <image src="{{banner[0]}}"></image>
+        </view>
+        <view class="dynamic-img-item">
+            <image src="{{banner[0]}}"></image>
+        </view>
+    </view>
+    <view class="dynamic-infor">
+        <view class="browse">浏览1000次</view>
+        <view bindtap="showCommentInput" class="comment">
+            <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+            <view>{{commentSum+commentList.length}}</view>
+        </view>
+        <view bindtap="changeLikeStatus" class="like">
+            <image mode="widthFix" src="../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+            <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
+        </view>
+    </view>
+    <view class="dynamic-bottom">
+        <view class="people-like">
+            <view class="people-like-img">
+                <image mode="widthFix" src="../../resource/images/release/people-like.png"></image>
+            </view>
+            <view>
+                <open-data type="userNickName"></open-data> 、 </view>
+            <view>
+                <open-data type="userNickName"></open-data> 、 </view>
+            <view>
+                <open-data type="userNickName"></open-data> 、 </view>
+            <view>等19人觉得很赞</view>
+        </view>
+        <view class="people-comment">
+            <view class="people-comment-item">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-reply-item people-comment-item">
+                <view style="color:#15e4d1;">aaa<text style="color:#000;"> 回复 </text>
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-comment-item">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-comment-item" wx:if="{{lookMore}}">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-comment-item" wx:if="{{lookMore}}">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-comment-item" wx:if="{{lookMore}}">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：照片不错，很好看</view>
+            </view>
+            <view class="people-comment-item" wx:for="{{commentList}}" wx:key="{{commentList}}">
+                <view style="color:#15e4d1;">
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>：{{item}}</view>
+            </view>
+            <view bindtap="{{lookMore?'notlookMore':'lookMore'}}" class="lookMore">{{lookMore?'收起评论':'查看更多'}}</view>
+        </view>
+        <view class="commentInput" wx:if="{{showCommentInput}}">
+            <input bindconfirm="releaseComment" cursorSpacing="20" focus="{{showCommentInput}}" placeholder="评论" value="{{commentVal}}"></input>
+        </view>
+    </view>
+</view>

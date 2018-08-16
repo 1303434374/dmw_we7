@@ -1,0 +1,11 @@
+<view class="recharge">
+    <view class="recharge-tit">微信钱包</view>
+    <view class="recharge-cont">
+        <view class="recharge-cont-tit">充值金额</view>
+        <view class="price">
+            <text>￥</text>
+            <input bindinput="getPrice" maxlength="7" type="number"></input>
+        </view>
+    </view>
+    <view bindtap="send" class="sendBtn">确认充值</view>
+</view>

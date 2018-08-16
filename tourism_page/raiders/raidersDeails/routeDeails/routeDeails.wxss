@@ -1,0 +1,101 @@
+page {
+    background: #dfdfdf;
+}
+
+.foreword {
+    width: 100vw;
+    background: #fff;
+    padding-bottom: 10rpx;
+}
+
+.foreword-img {
+    width: 100vw;
+    height: 460rpx;
+}
+
+.foreword-img>image {
+    width: 100%;
+    height: 100%;
+}
+
+.foreword-tit {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: bold;
+    margin: 20rpx 0;
+}
+
+.foreword-text {
+    width: 90vw;
+    padding: 0 5vw;
+    font-size: 24rpx;
+    line-height: 54rpx;
+}
+
+.article {
+    width: 90vw;
+    padding: 0 5vw 20rpx;
+    background: #f6f6f6;
+}
+
+.article-tit {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: bold;
+    padding: 20rpx 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.article-text {
+    font-size: 24rpx;
+    line-height: 54rpx;
+}
+
+.article-img {
+    width: 90vw;
+    height: 456rpx;
+}
+
+.article-img>image {
+    width: 100%;
+    height: 100%;
+}
+
+.music_icon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 50rpx;
+    right: 20rpx;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.music_icon>image {
+    width: 100%;
+    height: 100%;
+}
+
+.rotateRight {
+    animation: rotate360 5s linear infinite;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

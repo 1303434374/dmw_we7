@@ -1,0 +1,15 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="foreword">
+    <view class="foreword-img">
+        <image src="{{Strategy.image}}"></image>
+    </view>
+    <view class="foreword-tit">{{Strategy.title}}</view>
+    <view class="foreword-text">
+        <view class="">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="music_icon">
+    <image bindtap="contral_music" class="{{musicStatus?'rotateRight':''}}" data-audio="{{item.audio}}" src="../../../resource/images/music.png"></image>
+</view>

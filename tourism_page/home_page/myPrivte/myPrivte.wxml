@@ -1,0 +1,26 @@
+<view class="order-item" wx:for="{{MyOrderList}}">
+    <view class="order-tit">
+      {{item.destination}}
+    </view>
+    <view class="order-name">出游人：{{item.name}}</view>
+    <view class="order-tel reset-order">
+        <view>联系方式：{{item.phone}}</view>
+        <view>{{item.status}}</view>
+    </view>
+    <view class="order-line"></view>
+    <view class="order-text">订单号：{{item.orders}}</view>
+    <view class="reset-order">
+        <view>出游方式：{{item.mode}}</view>
+        <view>导游性别：{{item.guide}}</view>
+    </view>
+    <view class="reset-order">
+        <view class="order-price">预算金额：￥{{item.buget}}</view>
+        <view class="order-time">定制时间：{{item.time}}</view>
+    </view>
+    <view class="left-circle circle"></view>
+    <view class="right-circle circle"></view>
+</view>
+<view class="notOrder" wx:if="{{MyOrderList.length==0}}">
+    <image src="../../resource/icon/notOrder.png"></image>
+    <view>暂无订单</view>
+</view>

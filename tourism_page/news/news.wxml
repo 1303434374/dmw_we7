@@ -1,0 +1,41 @@
+<!--pages/news/news.wxml-->
+<view class='contain'>
+  <view class='con'>
+    <view class='img'><image src='../resource/icon/xttz.png' mode='widthFix'></image></view>
+    <view class='txt'>
+      系统通知
+      <text>\n最新系统收入消息</text>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='img'><image src='../resource/icon/xpsx.png' mode='widthFix'></image></view>
+    <view class='txt'>
+      新品上线
+      <text>\n最新产品上线收入消息</text>
+    </view>
+  </view>
+</view>
+
+<view class='contain'>
+  <view class='con'>
+    <view class='img'><image src='../resource/icon/yjsrtx.png' mode='widthFix'></image></view>
+    <view class='txt'>
+      佣金收入提醒
+      <text>\n最新佣金收入提醒收入消息</text>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='img'><image src='../resource/icon/ddtz.png' mode='widthFix'></image></view>
+    <view class='txt'>
+      订单通知
+      <text>\n系统自动生成购票订单、二维码链接</text>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='img'><image src='../resource/icon/kfxx.png' mode='widthFix'></image></view>
+    <view class='txt'>
+      客服消息
+      <text>\n最新客服收入消息</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,259 @@
+page {
+    background: #f6f6f6;
+}
+
+.topRecommend {
+    position: relative;
+    width: 100vw;
+    height: 422rpx;
+}
+
+.topRecommend>image {
+    width: 100%;
+    height: 100%;
+}
+
+.city,.recommend-sum {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    color: #fff;
+}
+
+.city {
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 44rpx;
+}
+
+.recommend-sum {
+    bottom: 22%;
+    font-size: 26rpx;
+}
+
+.sort {
+    width: 94vw;
+    padding: 30rpx 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sort-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.sort-item>image {
+    width: 92rpx;
+    height: 92rpx;
+    margin-bottom: 10rpx;
+}
+
+.theme {
+    width: 100vw;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.theme-tit {
+    width: 94vw;
+    padding: 20rpx 3vw;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    background: #fff;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.theme-tit-left {
+    width: 4rpx;
+    height: 28rpx;
+    background: #15e4d1;
+    margin-right: 10rpx;
+}
+
+.theme-cont {
+    width: 94vw;
+    margin: 0 auto;
+    padding: 30rpx 0;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.theme-item {
+    position: relative;
+    width: 100%;
+    height: 395rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-item:last-child {
+    margin-bottom: 0;
+}
+
+.theme-item-img {
+    width: 100%;
+    height: 100%;
+}
+
+.theme-item-mask {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.theme-item-tit {
+    text-align: center;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.theme-item-subTit {
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}
+
+.moreTheme {
+    width: 100vw;
+    padding: 30rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    color: #15e4d1;
+}
+
+.route {
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.route-cont {
+    width: 94vw;
+    padding: 0 3vw;
+}
+
+.route-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx 0 30rpx;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.route-item-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rpx;
+}
+
+.route-item-img>image {
+    width: 100%;
+    height: 397rpx;
+}
+
+.route-item-tit {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.route-item-route {
+    font-size: 24rpx;
+    color: #868686;
+}
+
+.classic {
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.classic-cont {
+    width: 94vw;
+    padding: 0 3vw;
+}
+
+.classic-item {
+    width: 100%;
+    padding: 20rpx 0 30rpx;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.classic-item>image {
+    width: 100%;
+    height: 422rpx;
+    margin-bottom: 20rpx;
+}
+
+.classic-introduction {
+    font-size: 28rpx;
+    text-align: center;
+}
+
+.play {
+    background: #fff;
+}
+
+.play-cont {
+    width: 94vw;
+    padding: 0 3vw 30rpx;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.play-item {
+    width: 45.5vw;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    padding: 20rpx 0 0 0;
+    margin: 0 3vw 0 0;
+}
+
+.play-item:nth-child(2),.play-item:last-child {
+    margin: 0;
+}
+
+.play-item>image {
+    width: 100%;
+    height: 194rpx;
+    margin-bottom: 10rpx;
+}
+
+.play-item-tit {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10rpx;
+}
+
+.play-item-city {
+    color: #a6a6a6;
+    margin-bottom: 10rpx;
+}
+
+.play-item-price {
+    color: #15e4d1;
+    font-size: 30rpx;
+}

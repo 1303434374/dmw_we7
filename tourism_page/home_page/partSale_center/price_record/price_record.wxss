@@ -1,0 +1,48 @@
+.txjl_list {
+    width: 100%;
+    padding: 20rpx 4%;
+    border-bottom: 2rpx solid #ededed;
+    color: #333;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.txjl_tit {
+    display: flex;
+    align-items: center;
+}
+
+.txjl_tit image {
+    width: 70rpx;
+    margin-right: 20rpx;
+}
+
+.txjl_tit view {
+    display: flex;
+    flex-direction: column;
+}
+
+.txjl_tit view text:first-child {
+    margin-bottom: 10rpx;
+}
+
+.txjl_txje {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.txjl_txje text:first-child {
+    font-size: 32rpx;
+}
+
+.nomore {
+    text-align: center;
+    color: #333;
+    font-size: 32rpx;
+    margin-top: 50rpx;
+}

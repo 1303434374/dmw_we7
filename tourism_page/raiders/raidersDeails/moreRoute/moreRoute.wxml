@@ -1,0 +1,12 @@
+<view class="topNav">
+    <view bindtap="changeNav" class="nav {{currentNav==item.id?'currentNav':''}}" data-id="{{item.id}}" wx:for="{{StrategyNav}}">{{item.title}}</view>
+</view>
+<view class="route-cont">
+    <view bindtap="goRouteDeails" class="route-item" data-strategy_id="{{StrategyNav[currentNav-1].strategy[index].id}}" wx:for="{{StrategyNav[currentNav-1].strategy}}">
+        <view class="route-item-img">
+            <image src="{{StrategyNav[currentNav-1].strategy[index].image}}"></image>
+        </view>
+        <view class="route-item-tit">{{StrategyNav[currentNav-1].strategy[index].title}}</view>
+        <view class="route-item-route">{{StrategyNav[currentNav-1].strategy[index].labelling}}</view>
+    </view>
+</view>

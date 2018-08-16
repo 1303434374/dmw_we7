@@ -1,0 +1,13 @@
+<view class="nomore" wx:if="{{Record.length==0}}">还没有交易记录哦 ~</view>
+<view class="txjl_list" wx:for="{{Record}}">
+    <view class="txjl_tit">
+        <image mode="widthFix" src="../../../resource/images/fenxiao/{{item.type==1?'tixian':'shouyi'}}.png"></image>
+        <view>
+            <text style="font-size:26rpx;">{{item.title}}</text>
+            <text style="color:#999;">{{item.create_time}}</text>
+        </view>
+    </view>
+    <view class="txjl_txje">
+        <text style="font-weight: bold;margin-top:10rpx;color:{{item.add?'#15e4d1;':'#000'}}">{{item.totalIn}}</text>
+    </view>
+</view>

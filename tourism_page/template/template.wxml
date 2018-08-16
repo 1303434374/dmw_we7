@@ -1,0 +1,16 @@
+<template name="footer">
+    <view class="footer" style="background:{{background}}">
+        <view>
+            <navigator data-index="0" openType="redirectTo" url="/tourism_page/index/index?index=0">
+                <image data-index="0" src="{{footdex==0?'/tourism_page/resource/icon/indexSelect.png':'/tourism_page/resource/icon/index.png'}}"></image>
+                <text style=" color:{{footdex==0?'#15e4d1':'#000;'}}">首页</text>
+            </navigator>
+        </view>
+        <view wx:for="{{list}}" wx:key="footer">
+            <navigator data-index="{{index+1}}" openType="redirectTo" url="{{item.nav_url}}?index={{index+1}}">
+                <image data-index="{{index+1}}" src="{{index+1==footdex?item.iconinto:item.icon}}"></image>
+                <text style=" color:{{index+1==footdex?seltxt:txtcolor}}">{{item.title}}</text>
+            </navigator>
+        </view>
+    </view>
+</template>

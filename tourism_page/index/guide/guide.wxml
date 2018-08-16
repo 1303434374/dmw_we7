@@ -1,0 +1,52 @@
+<view class="wrap">
+    <swiper autoplay="{{swiper.autoplay}}" class="swiper_wrap" duration="{{swiper.duration}}" indicatorDots="{{swiper.indicatorDots}}" interval="{{swiper.interval}}">
+        <swiper-item bindtap="bannerInto" class="swiper_item" data-id="{{item.jd_id}}" wx:for="{{banner}}" wx:key="swiper">
+            <image class="slide-image" src="{{item.banner}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="hot_wrap">
+        <view class="title">
+            <view class="t_left">
+                <image src="../../resource/images/hot_icon.png"></image>热门目的地</view>
+            <view class="t_right">
+                <navigator url="../../guide_more/guide_more">更多> </navigator>
+            </view>
+        </view>
+        <view class="hot_item">
+            <view class="noinfo" wx:if="{{RemenUrl.length==0}}">暂无数据</view>
+            <text bindtap="hot_place" data-value="{{item.id}}" wx:if="{{RemenUrl.length!=0}}" wx:for="{{RemenUrl}}" wx:key="hot">{{item.title}}</text>
+        </view>
+    </view>
+    <view class="recommend">
+        <view class="title">
+            <view class="t_left">
+                <image src="../../resource/images/tuijian_icon.png"></image>推荐导游</view>
+        </view>
+        <view class="recommend_cont" wx:if="{{guide.length!=0}}">
+            <view class="guide_item" wx:for="{{guide}}" wx:key="guide">
+                <view bindtap="link_detail" class="head_img" data-id="{{item.id}}">
+                    <image src="{{item.head}}"></image>
+                </view>
+                <view bindtap="link_detail" data-id="{{item.id}}">
+                    <view class="name">{{item.name}}<text class="status">{{item.class}}</text>
+                    </view>
+                    <view class="cost">￥<text>{{item.spotprices}}</text>
+                    </view>
+                    <view class="num">已带队{{item.sentiment}}次</view>
+                </view>
+                <view bindtap="call" class="tel" data-tel="{{item.phone}}">
+                    <image mode="aspectFit" src="../../resource/images/tel.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="tips1">
+            <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{ismore}}">
+                <icon size="20" type="waiting"></icon>
+                <text>玩命的加载中...</text>
+            </view>
+            <view wx:else>
+                <text>没有更多内容了</text>
+            </view>
+        </view>
+    </view>
+</view>

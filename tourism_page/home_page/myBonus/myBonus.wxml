@@ -1,0 +1,36 @@
+<view class="bonusTop">
+    <view class="commission">0.00</view>
+    <view>累计佣金 ( 元 )</view>
+    <view class="withdrawDetails">提现明细</view>
+</view>
+<view class="availableBonus resetBonus">
+    <view>
+        <image mode="widthFix" src="../../resource/images/my/money.png"></image>
+        <view style="color:#666;">可提现佣金</view>
+    </view>
+    <view>0.00</view>
+</view>
+<view class="soonAvailableBonus">
+    <view class="soonAvailableBonus-item resetBonus">
+        <view>
+            <image mode="widthFix" src="../../resource/images/my/shenqing.png"></image>
+            <view style="color:#666;">可申请佣金</view>
+        </view>
+        <view>0.00</view>
+    </view>
+    <view class="soonAvailableBonus-item resetBonus">
+        <view>
+            <image mode="widthFix" src="../../resource/images/my/daiban.png"></image>
+            <view style="color:#666;">待打款佣金</view>
+        </view>
+        <view>0.00</view>
+    </view>
+    <view class="soonAvailableBonus-item resetBonus">
+        <view>
+            <image mode="widthFix" src="../../resource/images/my/success.png"></image>
+            <view style="color:#666;">成功提现佣金</view>
+        </view>
+        <view>0.00</view>
+    </view>
+</view>
+<view class="userNotice">用户须知</view>

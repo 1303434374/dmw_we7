@@ -1,0 +1,8 @@
+@import "../index/guide/guide.wxss";
+
+@import "../../__wuBaseWxss__/3.wxss";
+
+.recommend_cont {
+    background: #fff;
+    padding: 0 20rpx;
+}

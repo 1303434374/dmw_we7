@@ -1,0 +1,158 @@
+<view>
+    <view class="order_status df item ">
+        <view class="item_title">订单状态</view>
+        <view class="right">
+            <view class="status">{{MyOrder.state_title}}</view>
+            <view class="time">下单时间：{{MyOrder.xd_time}}</view>
+        </view>
+    </view>
+    <view class="order_detail item" wx:if="{{order_type==1}}">
+        <view class="travel_name" wx:if="{{order_type==1}}">
+            <navigator url="../hotplace_detail/hotplace_detail?id={{MyOrder.scenicspot}}">
+        {{MyOrder.jd_title}}
+        <image class="arrow_right" src="../../resource/images/arrow_icon_03.png"></image>
+            </navigator>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单类型：</view>
+            <view class="right">{{MyOrder.order_types}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单编号：</view>
+            <view class="right">{{MyOrder.orders}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出行人数：</view>
+            <view class="right">{{MyOrder.num}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出发城市：</view>
+            <view class="right">{{MyOrder.cf_area}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出发日期：</view>
+            <view class="right">{{MyOrder.cf_time}}</view>
+        </view>
+        <view>
+            <view class="df order_item">
+                <view class="status order_name">订单金额：</view>
+                <view class="right">￥{{MyOrder.total}}（单价￥{{MyOrder.spotprices}}+保险费￥{{MyOrder.bx_price}}）</view>
+            </view>
+        </view>
+    </view>
+    <view class="order-address" wx:if="{{order_type==1}}">
+        <view class="address-deails">
+            <view class="address_info">
+                <view space="emsp">
+                    <text style="color:#919191;font-size：24rpx;">收货人：</text> {{receiving.name}}</view>
+                <view>电话：{{receiving.tel}}</view>
+            </view>
+            <view class="address_detail">
+                <text style="color:#919191;font-size：24rpx;">收货地址：</text>{{receiving.province}}{{receiving.city}}{{receiving.county}}{{receiving.address}}</view>
+        </view>
+    </view>
+    <view class="item" style="border-bottom:20rpx solid #E8EDF3;" wx:if="{{order_type==1}}">
+        <view class="df order_item">
+            <view class="status order_name">联系人：</view>
+            <view class="right">{{MyOrder.kefu_name}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">联系电话：</view>
+            <view class="right">{{MyOrder.kefu_tel}}</view>
+        </view>
+    </view>
+    <view class="order_detail item" wx:if="{{order_type==2}}">
+        <view class="df order_item">
+            <view class="status order_name">订单类型：</view>
+            <view class="right">{{MyOrder.order_types}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单编号：</view>
+            <view class="right">{{MyOrder.orders}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">已支付金额：</view>
+            <view class="right">￥{{MyOrder.total}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单金额：</view>
+            <view class="right">￥{{MyOrder.total}}</view>
+        </view>
+    </view>
+    <view class="item" style="border-bottom:20rpx solid #E8EDF3;" wx:if="{{order_type==2}}">
+        <view class="df order_item">
+            <view class="status order_name">导游：</view>
+            <view class="right">{{MyOrder.guide}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">联系电话：</view>
+            <view class="right">{{MyOrder.guidephone}}</view>
+        </view>
+    </view>
+    <view class="order_detail item" wx:if="{{order_type==3||order_type==4}}">
+        <view class="travel_name">
+            <navigator url="../hotplace_detail/hotplace_detail?id={{MyOrder.jd_id}}">
+        {{MyOrder.jd_title}}
+        <image class="arrow_right" src="../../resource/images/arrow_icon_03.png"></image>
+            </navigator>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单类型：</view>
+            <view class="right">{{MyOrder.order_types}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">订单编号：</view>
+            <view class="right">{{MyOrder.orderSn}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出行人数：</view>
+            <view class="right">{{MyOrder.num}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出发时间：</view>
+            <view class="right">{{MyOrder.depart_time}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">出发城市：</view>
+            <view class="right">{{MyOrder.cf_area}}</view>
+        </view>
+        <view>
+            <view class="df order_item">
+                <view class="status order_name">订单金额：</view>
+                <view class="right">￥{{MyOrder.total}}（活动价￥{{MyOrder.active_total}}+保险费￥{{MyOrder.insurance_total}}）</view>
+            </view>
+        </view>
+    </view>
+    <view class="order-address" wx:if="{{order_type==3||order_type==4}}">
+        <view class="address-deails">
+            <view class="address_info">
+                <view space="emsp">
+                    <text style="color:#919191;font-size：24rpx;">收货人：</text> {{receiving.name}}</view>
+                <view>电话：{{receiving.tel}}</view>
+            </view>
+            <view class="address_detail">
+                <text style="color:#919191;font-size：24rpx;">收货地址：</text>{{receiving.province}}{{receiving.city}}{{receiving.county}}{{receiving.address}}</view>
+        </view>
+    </view>
+    <view class="item" style="border-bottom:20rpx solid #E8EDF3;" wx:if="{{order_type==3||order_type==4}}">
+        <view class="df order_item">
+            <view class="status order_name">联系人：</view>
+            <view class="right">{{MyOrder.kefu_name}}</view>
+        </view>
+        <view class="df order_item">
+            <view class="status order_name">联系电话：</view>
+            <view class="right">{{MyOrder.kefu_tel}}</view>
+        </view>
+    </view>
+    <view class="item" wx:if="{{MyOrder.status==1}}">
+        <view class="status order_name erweimahexiao">核销码（出发时请出示二维码，协助管理员扫码）</view>
+        <image class="item-img" data-src="{{MyOrder.verification}}" mode="widthFix" src="{{MyOrder.verification}}"></image>
+        <view class="zjezhao"></view>
+    </view>
+    <view class="item" wx:if="{{MyOrder.state==1}}">
+        <view class="status order_name erweimahexiao">核销码（出发时请出示二维码，协助管理员扫码）</view>
+        <image class="item-img" data-src="{{MyOrder.verification}}" mode="widthFix" src="{{MyOrder.verification}}"></image>
+        <view class="zjezhao"></view>
+    </view>
+    <view class="beizhu">注：取消订单请拨打客服电话</view>
+</view>

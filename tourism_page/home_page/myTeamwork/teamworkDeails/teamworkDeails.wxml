@@ -1,0 +1,335 @@
+<view class="modal" wx:if="{{getUseInfo}}">
+    <view class="m_box">
+        <view class="m_box_title">提示</view>
+        <view class="m_box_nr">请先开启用户授权</view>
+        <view class="border_top_2">
+            <button bindgetuserinfo="getUsetInfo" bindtap="close_modal" class="m_btn" openType="getUserInfo">确定</button>
+        </view>
+    </view>
+</view>
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="container" wx:if="{{jiazai}}">
+    <view class="progress_box">
+        <canvas canvasId="canvasProgressbg" class="progress_bg"></canvas>
+        <canvas canvasId="canvasProgress" class="progress_canvas"></canvas>
+        <view class="progress_text">
+            <view class="progress_dot"></view>
+            <text class="progress_info"> {{progress_txt}}</text>
+        </view>
+    </view>
+</view>
+<view class="countdown" wx:if="{{group.e_timer||group.c_timer}}">
+    <view hidden="{{group.end_t}}">{{!group.start_t?'距活动开始仅剩':'距活动结束仅剩'}}</view>
+    <view class="day">
+        <text style="font-size:{{group.end_t?34:40}}rpx;">{{group.end_t?'活动结束':group.start_t&&group.e_clock?group.e_clock:group.c_clock}}</text>
+        <text hidden="{{group.end_t}}">{{group.now_t=='s'?'秒':group.now_t=='m'?'分':group.now_t=='h'?'小时':group.now_t=='d'?'天':''}}</text>
+    </view>
+</view>
+<view bindtap="return_idx" class="return_idx">
+    <image src="../../../resource/icon/index_w.png"></image>
+</view>
+<view class="topTourismDeails">
+    <view class="tourismImg">
+        <swiper autoplay class="tourismImg" interval="2000">
+            <swiper-item wx:for="{{group.images}}">
+                <view class="top_swiper_box">
+                    <image src="{{item}}"></image>
+                    <view class="triangle"></view>
+                    <view class="imgInfor">
+                        <view class="main-tit">{{group.title}}</view>
+                        <view class="sub-tit">{{group.jd_title}}</view>
+                        <view class="sub-tit">{{group.jd_profile}}</view>
+                        <view class="departureLocation">{{group.cf_area}}出发|支持：{{group.tourism_type}}</view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="priceAndOptions">
+        <view class="priceAndOptions-left">
+            <text style="font-size:34rpx;">团购价:￥{{group.now_price}}</text>
+            <text class="originalPrice">原价:￥{{group.original_price}}</text>
+        </view>
+    </view>
+    <view class="tourism_time">
+        <text>出行时间：{{group.depart_time}} ~ {{group.back_time}}</text>
+    </view>
+    <view class="likeAndComment">
+        <view class="likeAndComment-left">
+            <view class="friendSum-sum">已有{{group.join_num}}成团</view>
+        </view>
+        <view class="likeAndComment-right">
+            <view bindtap="scrollPage" class="comment">
+                <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                <view>{{message.length}}</view>
+            </view>
+            <view bindtap="touchLike" class="like" data-id="{{group.jd_id}}">
+                <image mode="widthFix" src="../../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+                <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="friendsGroup" wx:if="{{GroupIng.length>0}}">
+    <view class="friendsGroup-tit">小伙伴在开团，可直接参与</view>
+    <view class="friendsGroup-item" wx:for="{{GroupIng}}">
+        <view class="friendInfor w20">
+            <view>
+                <image mode="aspectFill" src="{{item.avatar}}"></image>
+            </view>
+            <view class="text-over"></view>
+        </view>
+        <view class="groupStatus">
+            <view class="stillNeed" hidden="{{item.end_t}}">
+                <view>还差
+            <text style="color:red;">{{item.y_num}}人</text>拼成</view>
+                <view style="color:#999;">剩余{{item.e_clock}}</view>
+            </view>
+            <view class="stillNeed" wx:if="{{item.end_t}}">
+          拼团时间结束
+        </view>
+            <view bindtap="go_TeamworkStatus" class="goInGroup" data-sponsor_id="{{item.id}}" hidden="{{item.end_t}}">去参团</view>
+        </view>
+    </view>
+</view>
+<view class="whatGroup">
+    <view class="whatGroup-tit">
+        <image mode="widthFix" src="../../../resource/images/my/liucheng.png"></image>
+        <view>什么是拼团</view>
+    </view>
+    <view class="whatGroup-cont">
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/zhifu.png" style="width:49rpx;"></image>
+            <text>支付金额</text>
+            <text>参加拼团</text>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:46rpx;"></image>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/yaoqing.png" style="width:50rpx;"></image>
+            <text>邀请好友</text>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/chenggong.png" style="width:54rpx;"></image>
+            <text>人数到达</text>
+            <text>订单生效</text>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+        </view>
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/tuikuan.png" style="width:53rpx;"></image>
+            <text>人数不够</text>
+            <text>自动退款</text>
+        </view>
+    </view>
+</view>
+<view class="goodsDeails">
+    <view class="goodsDeails-tit">
+        <view bindtap="changeGoodsTit" class="goodsDeails-tit-item {{currentGoodsTit==0?'currentGoodsTit':''}}" data-id="0">
+            <view>商品详情</view>
+        </view>
+        <view bindtap="changeGoodsTit" class="goodsDeails-tit-item goodsDeails-tit-item1 {{currentGoodsTit==1?'currentGoodsTit':''}}" data-id="1">
+            <view>活动说明</view>
+        </view>
+        <view bindtap="changeGoodsTit" class="goodsDeails-tit-item goodsDeails-tit-item1 {{currentGoodsTit==2?'currentGoodsTit':''}}" data-id="2">
+            <view>行程</view>
+        </view>
+        <view bindtap="changeGoodsTit" class="goodsDeails-tit-item goodsDeails-tit-item1 {{currentGoodsTit==3?'currentGoodsTit':''}}" data-id="3">
+            <view>费用须知</view>
+        </view>
+        <view bindtap="changeGoodsTit" class="goodsDeails-tit-item goodsDeails-tit-item1 {{currentGoodsTit==4?'currentGoodsTit':''}}" data-id="4">
+            <view>买家评论</view>
+        </view>
+    </view>
+    <view class="goodsDeails-cont" wx:if="{{currentGoodsTit==0}}">
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:particulars.nodes}}"></template>
+        </view>
+    </view>
+    <view class="description-cont" wx:if="{{currentGoodsTit==1}}">
+        <view>
+            <view class="serialNum"></view>
+            <view>活动开始时间：{{group.create_time}}</view>
+        </view>
+        <view>
+            <view class="serialNum"></view>
+            <view>活动开始时间：{{group.finish_time}}</view>
+        </view>
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:active.nodes}}"></template>
+        </view>
+    </view>
+    <view class="detail_cont2" wx:if="{{currentGoodsTit==2}}">
+        <view class="part_1">
+            <view class="plan_row">
+                <block wx:for="{{fenlei.trip.plan}}" wx:key="item"></block>
+            </view>
+        </view>
+        <view class="part_1 part_2">
+            <view class="title p10">
+                <image class="detail_icon" src="../../../resource/images/jt.png"></image>交通信息</view>
+            <view class="traffic_list">
+                <view class="traffic_item" wx:for="{{traffic}}">
+                    <view class="t_i_top">
+                        <text class="way_mark" wx:if="{{item.title=='去'}}">去</text>
+                        <text class="way_mark wm_2" wx:if="{{item.title=='返'}}">返</text>
+                        <text>{{item.cf_to}}</text>-
+              <text class="ml20">{{item.destination}}</text>
+                        <text></text>
+                    </view>
+                    <view class="t_i_bot">
+                        <view>
+                            <view class="go_t">{{item.cf_time}}</view>
+                        </view>
+                        <view class="line">
+                            <view>{{item.mode}}</view>
+                            <image src="../../../resource/images/line.png"></image>
+                        </view>
+                        <view>
+                            <view class="go_t">{{item.arrive_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view style="color:#FC6F48;margin-left:20rpx;">*
+          <text>具体交通信息以出团通知书为准</text>
+                </view>
+            </view>
+        </view>
+        <view class="part_2 part_3">
+            <view class="title p10">
+                <image class="detail_icon" src="../../../resource/images/xc.png"></image>行程介绍</view>
+            <view class="tianshu">
+                <view class="zanwu" wx:if="{{xingcheng.length==0}}">暂无行程安排</view>
+                <view wx:else>
+                    <scroll-view scrollX class="scrollview">
+                        <text bindtap="xingcheng" class="{{xingchengIndex==index?'onon':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{xingcheng}}" wx:key="xc">{{item.days}}</text>
+                    </scroll-view>
+                    <view class="trip_list">
+                        <view class="trip_item">
+                            <view>
+                                <text style="color:#666666;">{{mrxc.title}}</text>
+                                <view>
+                                    <text>{{mrxc.start_time}}---{{mrxc.end_time}}</text>
+                                </view>
+                                <view>
+                                    <text>{{mrxc.describe}}</text>
+                                </view>
+                                <view class="wxParse">
+                                    <template is="wxParse" data="{{wxParseData:probable.nodes}}"></template>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view style="color:#FC6F48;border-top:2rpx solid #dedede">*
+        <text>以上行程可能因为天气或其他原因有变动,具体行程以出团通知书为准</text>
+            </view>
+        </view>
+    </view>
+    <view class="detail_cont3 detail_cont2" wx:if="{{currentGoodsTit==3}}">
+        <view class="detail_cont3">
+            <view class="item" wx:for="{{fenlei.cost_info}}" wx:key="{{item}}">
+                <view bindtap="open_switch" class="top" data-index="{{index}}">
+                    <image class="detail_icon" src="{{item.icon}}"></image>{{item.name}}
+            <image class="detail_icon arrow" src="../../../resource/images/bottom.png" wx:if="{{item.status}}"></image>
+                    <image class="detail_icon arrow" src="../../../resource/images/top.png" wx:if="{{!item.status}}"></image>
+                </view>
+                <view class="detail" wx:if="{{item.status}}">
+                    <view style="margin-left: 40rpx;" wx:if="{{index==0}}">
+                        <view class="title" style="font-size:24rpx;color:#000;margin:10rpx 0;">{{information.title}}</view>
+                        <view class="wxParse">
+                            <template is="wxParse" data="{{wxParseData:information_text.nodes}}"></template>
+                        </view>
+                    </view>
+                    <view style="margin-left: 40rpx;" wx:if="{{index==1}}">
+                        <view>{{information.yd_instructions}}</view>
+                    </view>
+                    <view style="margin-left: 40rpx;" wx:if="{{index==2}}">
+                        <view>{{information.tg_instruction}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="comment-cont" wx:if="{{currentGoodsTit==4}}">
+        <view class="dynamic-item" wx:for="{{message}}" wx:for-index="message">
+            <view class="dynamic-top">
+                <view class="dynamic-left">
+                    <view class="userAvatarUrl">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="nameAndTime">
+                        <view class="nickName">
+                {{item.nickname}}
+              </view>
+                        <view class="time">{{item.create_time}}</view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="goCommentDeails" class="dynamic-text" data-id="{{item.id}}">
+          {{item.content}}
+        </view>
+            <view class="dynamic-img">
+                <view bindtap="previewImg" class="dynamic-img-item" data-id="{{index}}" data-mainid="{{message}}" wx:for="{{item.image}}" wx:for-item="img">
+                    <image src="{{img}}"></image>
+                </view>
+            </view>
+            <view class="dynamic-infor">
+                <view class="browse">
+                    <image mode="widthFix" src="../../../resource/images/my/liulan.png"></image>
+                    <view>{{item.look_num}}</view>
+                </view>
+                <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
+                    <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                    <view>{{item.reply}}</view>
+                </view>
+                <view bindtap="likeBtnIO" class="like" data-id="{{item.id}}" data-idx="{{message}}">
+                    <image mode="widthFix" src="../../../resource/images/release/{{item.praise_status==1?'like1':'like'}}.png"></image>
+                    <view style="color:{{item.praise_status==1?'#15e4d1;':''}}">{{item.praise}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="fixedBtn">
+    <view bindtap="{{group.oneself_status==1?'BuyInterFace':'go_activity'}}">
+        <text wx:if="{{group.oneself_status==1}}">￥{{group.oneself_price}}</text>
+        <text>{{group.oneself_status==1?'单独购买':'返回首页'}}</text>
+    </view>
+    <view bindtap="{{share_group=='yes'?'getGroupJoin':group.end_t?'':MyJoinStatus==1?'Look_team':MyJoinStatus==-1?'go_team':''}}" style="{{group.end_t?'#999;':''}}">
+        <text wx:if="{{group.end_t?false:MyJoinStatus==-1||share_group=='yes'}}">￥{{group.now_price}}</text>
+        <view>
+      {{group.end_t?'活动结束':MyJoinStatus==1?'我的团队':share_group=='yes'?'去参团':MyJoinStatus==-1?'去开团':''}}</view>
+    </view>
+</view>
+<view class="multiplayerGroup" wx:if="{{showBuyInterFace}}">
+    <view bindtap="BuyInterFace" class="group-mask"></view>
+    <view class="buyInterface">
+        <view class="buyInterface-top">
+            <view>
+                <image src="{{group.image}}"></image>
+            </view>
+            <view>
+                <view>{{group.jd_title}}</view>
+                <view style="color:red;">
+                    <text style="font-size:36rpx;">￥</text>{{group.oneself_price*currentPaySum}}</view>
+            </view>
+        </view>
+        <view class="buySum">
+            <view class="buySum-text">购买数量</view>
+            <view class="buySum-btn">
+                <button bindtap="lessSum" class="{{currentPaySum==1?'btnDisabled':''}}">－</button>
+                <input disabled bindinput="changePaySum" type="text" value="{{currentPaySum}}"></input>
+                <button bindtap="{{group.oneself_num==0?'addSum':group.oneself_num==currentPaySum?'':'addSum'}}" class="{{group.oneself_num==currentPaySum?'btnDisabled':''}}">＋</button>
+            </view>
+        </view>
+        <view bindtap="go_team" class="buyBtn" data-sum="{{currentPaySum}}">确定</view>
+        <icon bindtap="BuyInterFace" color="#fff" size="23" type="cancel"></icon>
+    </view>
+</view>

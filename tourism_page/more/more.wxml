@@ -1,0 +1,64 @@
+<!--pages/more/more.wxml-->
+
+<view class="header-container">
+    <view class="search">
+        <input placeholder="株洲方特畅玩无极限" placeholder-style="placeholder" />
+        <image src="../resource/icon/search2.png" />
+    </view>
+    <view class="nav">
+        <view class="item {{index == currentTab ? 'active' : ''}}" wx:for="{{['热门','周边','湖南','湖北','广东','江西','上海','浙江','云南']}}" wx:key="key" data-index="{{index}}" catchtap='swichNav'>
+            {{item}}
+        </view>
+        <image src="../resource/icon/down.png" />
+    </view>
+</view>
+<view class="nav-container">
+    <view class="item {{index == current ? 'active' : ''}}" data-index="{{index}}" wx:for="{{['全部','玩水','亲子','玩乐','美食','……']}}" wx:key="key" catchtap='swichNavs'>
+        {{item}}
+    </view>
+</view>
+
+<view class='content'>
+    <view class='content-head'>
+      <image src='../resource/images/img.jpg'></image>
+      <view class='label'>
+        <image src='../resource/images/label2.png' mode='widthFix'></image>
+        <text>情侣最爱</text>
+      </view>
+      <view class='down'>
+        还剩：<text>{{downTime.d}}</text> 天 <text>{{downTime.h}}</text> 时 <text>{{downTime.i}}</text> 分 <text>{{downTime.s}}</text> 秒
+      </view>
+    </view>
+    <view class='content-foot'>
+      <text>长沙灰汤华天城温泉度假酒店 - 【猪猪侠酷牙亲子房】2大1小入住，舒适自在，乐享萌动时光。</text>
+      <view class='content-footer'>
+        <view class='order'><image src='../resource/images/ljdg-1.png' mode='widthFix'></image></view>
+        <view class='order'><image src='../resource/images/fx.png' mode='widthFix'></image></view>
+        <view class='ulli'>长沙</view>
+        <view class='ulli'>酒店</view>
+        <view class='ulli'>热销</view>
+        <view class='ulli'>温泉</view>
+        <view class='ulli'>四星级</view>
+      </view>
+    </view>
+
+    <view class='content-head'>
+      <image src='../resource/images/img.jpg'></image>
+      <view class='down'>
+        还剩：<text>{{downTime.d}}</text> 天 <text>{{downTime.h}}</text> 时 <text>{{downTime.i}}</text> 分 <text>{{downTime.s}}</text> 秒
+      </view>
+    </view>
+    <view class='content-foot'>
+      <text>长沙灰汤华天城温泉度假酒店 - 【猪猪侠酷牙亲子房】2大1小入住，舒适自在，乐享萌动时光。</text>
+      <view class='content-footer'>
+        <view class='order'><image src='../resource/images/ljdg-1.png' mode='widthFix'></image></view>
+        <view class='order'><image src='../resource/images/fx.png' mode='widthFix'></image></view>
+        <view class='ulli'>长沙</view>
+        <view class='ulli'>酒店</view>
+        <view class='ulli'>热销</view>
+        <view class='ulli'>温泉</view>
+        <view class='ulli'>四星级</view>
+      </view>
+    </view>
+  </view>
+  <view class='foot-bg'><image src='../resource/images/bgbg.png'></image></view>

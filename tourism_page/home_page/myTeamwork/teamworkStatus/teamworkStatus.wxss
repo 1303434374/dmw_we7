@@ -1,0 +1,237 @@
+page {
+    background: #f5f5f5;
+}
+
+.order-box {
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+}
+
+.order {
+    position: relative;
+    width: 90vw;
+    padding: 20rpx 5vw;
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    margin: 40rpx 0 20rpx;
+}
+
+.orderImg {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.orderInfor {
+    font-size: 26rpx;
+    margin: 0 0 0 20rpx;
+}
+
+.order-tit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 50vw;
+}
+
+.order-subtit {
+    margin: 15rpx 0;
+}
+
+.order-priceAndSum {
+    display: flex;
+    align-items: center;
+}
+
+.order-select {
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 4rpx 10rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: #15e4d1;
+}
+
+.order-status {
+    width: 100vw;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
+    padding: 20rpx 0;
+    margin-bottom: 20rpx;
+}
+
+.tips {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32rpx;
+}
+
+.tips view {
+    margin-left: 20rpx;
+}
+
+.teamworkSuccess {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 95vw;
+    font-size: 30rpx;
+    margin: 10rpx 0 10rpx 5vw;
+}
+
+.teamworkSuccess image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin: 0 0 10rpx 0;
+}
+
+.teamworkSuccess image:nth-child(7n) {
+    margin-right: 0;
+}
+
+.Chief,.t_people {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.Chief>view {
+    position: absolute;
+    left: -6rpx;
+    top: 0;
+    font-size: 24rpx;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background: #15e4d1;
+    padding: 2rpx 8rpx;
+    color: #fff;
+}
+
+.teamNotice {
+    width: 90vw;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+    height: 80rpx;
+    justify-content: space-between;
+    line-height: 80rpx;
+    font-size: 26rpx;
+}
+
+.teamNotice>view:last-child {
+    display: flex;
+    justify-content: space-around;
+    color: #afafaf;
+}
+
+.teamNotice>view:last-child view {
+    margin-right: 10rpx;
+}
+
+.againStartTeam {
+    position: relative;
+    width: 60vw;
+    margin: 40rpx auto 0;
+    padding: 16rpx 0;
+    background: #2899f5;
+    text-align: center;
+    color: #fff;
+    font-size: 26rpx;
+    border-radius: 20px;
+}
+
+.s_ing_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40rpx;
+}
+
+.s_ing_btn>view {
+    position: relative;
+    width: 40%;
+    padding: 16rpx 0;
+    background: #2899f5;
+    text-align: center;
+    color: #fff;
+    font-size: 26rpx;
+    border-radius: 20px;
+}
+
+.shareBtn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.shareBtn::after {
+    border: none;
+}
+
+.share {
+    font-size: 26rpx;
+    color: #999;
+    text-align: center;
+}
+
+.stop_time {
+    font-size: 28rpx;
+    background: #fff;
+    text-align: center;
+    margin-bottom: 20rpx;
+    padding: 20rpx 0;
+}
+
+.poster-box {
+    width: 100vw;
+    font-size: 0;
+}
+
+.poster-box image {
+    width: 100%;
+}
+
+.options_mask {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+}
+
+.hb_options {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 101;
+}
+
+.hb_options button {
+    border-radius: 0;
+    margin-top: 4rpx;
+}
+
+.tk {
+    width: 90vw;
+    background: #fff;
+    padding: 20rpx 5vw;
+    font-size: 26rpx;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

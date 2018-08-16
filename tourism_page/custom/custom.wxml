@@ -1,0 +1,91 @@
+<view class="wrap">
+    <swiper autoplay="{{swiper.autoplay}}" class="swiper_wrap" duration="{{swiper.duration}}" indicatorDots="{{swiper.indicatorDots}}" interval="{{swiper.interval}}">
+        <swiper-item bindtap="bannerInto" data-id="{{item.jd_id}}" wx:for="{{banner}}">
+            <image class="slide-image" mode="aspectFill" src="{{item.banner}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="content">
+        <form bindsubmit="formSubmit">
+            <view class="item">
+                <view class="title">· 请选择您的出发地</view>
+                <view class="section">
+                    <input class="input" name="origin" value=""></input>
+                </view>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的旅游地（最多可以选10个）</view>
+                <view>
+                    <block wx:for="{{city}}" wx:key="city">
+                        <text class="text" style="display:inline-block;margin-bottom:10rpx;">{{item}}</text>
+                        <input hidden="hidden" name="destination{{index}}" value="{{item}}"></input>
+                    </block>
+                    <text bindtap="addplace" class="add" wx:if="{{city.length<10}}">+</text>
+                </view>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的出游方式</view>
+                <radio-group bindchange="radioChange" class="radio-group">
+                    <label class="radio" wx:for="{{travel_way}}">
+                        <radio hidden="true" name="travel_way" value="{{item}}"></radio>
+                        <text class="text {{travel_way_sel==item?'sel':''}}">{{item}}</text>
+                    </label>
+                    <input hidden="true" name="travel_way" value="{{travel_way_sel}}"></input>
+                </radio-group>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的导游</view>
+                <radio-group bindchange="radiogenderChange" class="radio-group">
+                    <label class="radio" wx:for="{{gender}}" wx:key="gender">
+                        <radio hidden="true" value="{{item.name}}"></radio>
+                        <view class="text {{gender_sel==item.name?'sel':''}}" style="display:inline-block">
+                            <image class="gender_icon" src="{{item.image}}"></image>
+                            <text>{{item.name}}</text>
+                        </view>
+                    </label>
+                    <input hidden="true" name="gender" value="{{gender_sel}}"></input>
+                </radio-group>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的预算金额（大概）</view>
+                <view class="input input1">
+                    <text class="money_icon">￥</text>
+                    <input name="money" placeholder="" type="number"></input>
+                </view>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的姓名（方便我们联系您）</view>
+                <view class="input">
+                    <input name="name" placeholder="" type="text"></input>
+                </view>
+            </view>
+            <view class="item">
+                <view class="title">· 请选择您的联系方式（方便我们联系您）</view>
+                <view class="input">
+                    <input bindblur="inputTel" bindfocus="inputTela" class="{{tipcolor?'tipcolor':''}}" maxlength="11" name="tel" type="number" value="{{tel}}"></input>
+                </view>
+            </view>
+            <button class="submit_btn" formType="submit">确认提交</button>
+        </form>
+    </view>
+</view>
+<view class="modal" wx:if="{{choose_place}}"></view>
+<view class="choose_place" wx:if="{{choose_place}}">
+    <view class="title">
+        <text>选择旅游地</text>
+        <view bindtap="close_place" class="close_btn">
+            <image src="../resource/images/close.png"></image>
+        </view>
+    </view>
+    <view class="cont">
+        <view class="left">
+            <view bindtap="choose_all" class="parent {{sel_index==null?'sel_p':''}}" data-index="{{item.id}}">全部</view>
+            <view bindtap="choose_index" class="parent {{sel_index==index?'sel_p':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{Address}}" wx:key="travel_place">{{item.title}}</view>
+        </view>
+        <view class="right">
+            <view bindtap="addClass" class="r_item">
+                <text bindtap="choose_place" data-value="{{item.title}}" wx:for="{{AddressIn}}">{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+    <button bindtap="close_place" class="baocun" size="mini">关闭</button>
+</view>

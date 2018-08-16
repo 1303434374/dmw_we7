@@ -1,0 +1,20 @@
+<view class="choose_place">
+    <view class="title">
+        <text>选择热门目的地</text>
+        <view bindtap="close_place" class="close_btn">
+            <image src="../resource/images/close.png"></image>
+        </view>
+    </view>
+    <view class="cont">
+        <view class="left">
+            <view bindtap="choose_all" class="parent {{sel_index==null?'sel_p':''}}" data-index="{{item.id}}">全部</view>
+            <view bindtap="choose_index" class="parent {{sel_index==index?'sel_p':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{Address}}" wx:key="travel_place">{{item.title}}</view>
+        </view>
+        <view class="right">
+            <view bindtap="addClass" class="r_item">
+                <view class="noinfo" wx:if="{{AddressIn.length==0}}">暂无数据</view>
+                <text bindtap="choose_place" data-value="{{item.id}}" wx:for="{{AddressIn}}">{{item.title}}</text>
+            </view>
+        </view>
+    </view>
+</view>

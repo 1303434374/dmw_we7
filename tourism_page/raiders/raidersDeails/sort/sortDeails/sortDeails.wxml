@@ -1,0 +1,9 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="foreword">
+    <view class="foreword-img">
+        <image src="{{TuwenInto.icon}}"></image>
+    </view>
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:Tuwen.nodes}}"></template>
+    </view>
+</view>

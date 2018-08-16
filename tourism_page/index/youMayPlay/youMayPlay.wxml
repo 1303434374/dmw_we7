@@ -1,0 +1,48 @@
+<swiper autoplay bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
+    <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="{{banner}}">
+        <view class="swiper-item">
+            <view class="swiperIdx-box">
+                <view class="swiperIdx {{currentItem==index?'currentIdx':''}}" wx:for="{{swiperIdx}}" wx:key="{{swiperIdx}}"></view>
+            </view>
+            <view bindtap="bannerInto" class="slide-image" data-id="{{item.jd_id}}">
+                <image src="{{item.banner}}"></image>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<view class="nearby-play">
+    <view class="nearby-play-tit">
+        <view class="nearby-play-tit-left"></view>
+        <view>周边游</view>
+        <view class="nearby-play-tit-right">给您最舒心的定制旅行</view>
+    </view>
+    <view class="nearby-play-cont">
+        <view bindtap="goOrdinaryDeails" class="nearby-play-item" data-id="{{item.id}}" wx:for="{{LikeAttractions}}">
+            <view class="nearby-play-item-img">
+                <image src="{{item.image}}"></image>
+                <view class="nearby-play-name">{{item.title}}</view>
+            </view>
+        </view>
+        <view bindtap="moreData" class="moreData" hidden="{{subpage1>=LikeAttractions.length}}" wx:if="{{LikeAttractions.length>4}}">加载更多</view>
+    </view>
+</view>
+<view class="bottomNav">
+    <view bindtap="changeNav" class="nav {{currentNav==index?'currentNav':''}}" data-id="{{item.id}}" data-idx="{{index}}" wx:for="{{TwoClass}}">{{item.title}}</view>
+</view>
+<view class="bottom-cont">
+    <view bindtap="goOrdinaryDeails" class="bottom-item" data-id="{{item.id}}" wx:for="{{new_twoClassInfo}}">
+        <view class="item-img">
+            <image src="{{item.image}}"></image>
+        </view>
+        <view class="item-info">
+            <view class="item-name">{{item.title}}</view>
+            <view class="item-label">
+          {{item.jd_profile}}
+        </view>
+        </view>
+        <view class="item-price">￥
+          <text style="font-size:34rpx;">{{item.price}} </text>起/人
+        </view>
+    </view>
+    <view bindtap="{{subPage>=TwoClassInfo.length?'':'add_more'}}" class="more" wx:if="{{TwoClassInfo.length>4}}">{{subPage>=TwoClassInfo.length?'暂无更多':'显示更多'}}</view>
+</view>

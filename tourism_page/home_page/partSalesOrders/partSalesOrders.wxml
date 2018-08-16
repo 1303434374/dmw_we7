@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="partSales-tit">
+        <view bindtap="changeTit" class="{{currentTit==index?'currentTit':''}}" data-id="{{index}}" wx:for="{{titArr}}" wx:key="i">{{item}}</view>
+    </view>
+    <view class="notOrder" wx:if="{{list.length==0}}">
+        <image mode="widthFix" src="../../resource/icon/notOrder.png"></image>
+        <view>暂无订单</view>
+    </view>
+    <view class="order-item" wx:for="{{list}}">
+        <view class="order-top-box">
+            <view class="userInfor">
+                <view class="avatarUrl">
+                    <image src="{{item.avatar}}"></image>
+                </view>
+                <view class="nickName">{{item.nickname}}</view>
+            </view>
+            <view class="order-status">订单状态 :
+          <text style="color:#15e4d1;">{{item.status_title}}</text>
+            </view>
+        </view>
+        <view bindtap="goHotplaceDetail" class="order" data-guide="{{item.guide}}" data-id="{{item.id}}" data-order_type="{{item.order_type}}" data-scenicspot="{{item.scenicspot}}">
+            <image class="orderImg" src="{{item.icon}}"></image>
+            <view class="orderInfor">
+                <view class="order-tit" wx:if="{{item.order_type==1}}">旅游景点：【{{item.title}}】</view>
+                <view class="order-tit" wx:if="{{item.order_type==2}}">导游姓名：【{{item.title}}】</view>
+                <view class="order-options" wx:if="{{item.order_type==1}}"> 旅游类型：{{item.tourism_type_title}}</view>
+                <view class="order-options" wx:if="{{item.order_type==2}}"> 导游性别：{{item.sex_title}}</view>
+                <view class="order-num">订单编号：{{item.orders}}</view>
+                <view class="order-priceAndSum">实付金额：￥{{item.total}}</view>
+            </view>
+        </view>
+        <view class="order-bottom-box">
+            <view class="orderRecord">
+                <view>下单时间：{{item.xd_time}}</view>
+            </view>
+            <view class="order-btn">
+                <view bindtap="delOrderRecord" class="delOrder" wx:if="{{item.state==4}}">删除订单</view>
+                <view bindtap="goWriteOff" class="goEvaluation" data-id="{{item.id}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==1}}">去核销</view>
+                <view bindtap="goEvaluation" class="goEvaluation" data-id="{{item.id}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==3}}">去评价</view>
+            </view>
+        </view>
+    </view>
+</view>

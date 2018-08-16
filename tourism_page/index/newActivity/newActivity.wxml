@@ -1,0 +1,134 @@
+<view class="container" wx:if="{{jiazai}}">
+    <view class="progress_box">
+        <canvas canvasId="canvasProgressbg" class="progress_bg"></canvas>
+        <canvas canvasId="canvasProgress" class="progress_canvas"></canvas>
+        <view class="progress_text">
+            <view class="progress_dot"></view>
+            <text class="progress_info"> {{progress_txt}}</text>
+        </view>
+    </view>
+</view>
+<view bindtap="show_select_type" class="slide_nav">
+    <text>{{sele_type==2?'全部':sele_type==0?'砍价':sele_type==1?'拼团':''}}</text>
+</view>
+<view bindtap="select_type" class="type_item bargain_tpye {{sele_type==0?'sele_type':''}}" data-type="0" wx:if="{{show_type}}">砍价</view>
+<view bindtap="select_type" class="type_item teamwork_tpye {{sele_type==1?'sele_type':''}}" data-type="1" wx:if="{{show_type}}">拼团</view>
+<view bindtap="select_type" class="type_item all_type {{sele_type==2?'sele_type':''}}" data-type="2" wx:if="{{show_type}}">全部</view>
+<view bindtap="return_idx" class="return_idx">
+    <image src="../../resource/icon/index_w.png"></image>
+</view>
+<scroll-view scrollWithAnimation scrollY class="left-scroll">
+    <view class="city-box">
+        <view bindtap="ChangeCityActive" class="city {{currentCity==0?'currentCity':''}}" data-id="0">
+      全部
+      <view class="border-right" wx:if="{{currentCity==0}}"></view>
+        </view>
+    </view>
+    <view class="city-box" wx:for="{{cityList}}">
+        <view bindtap="ChangeCityActive" class="city {{currentCity==item.id?'currentCity':''}}" data-id="{{item.id}}">
+        {{item.title}}
+        <view class="border-right" wx:if="{{currentCity==item.id}}"></view>
+        </view>
+    </view>
+</scroll-view>
+<scroll-view scrollWithAnimation scrollY class="right-img">
+    <view class="city-img" wx:if="{{sele_type==2&&Active.length!=0}}">
+        <view bindtap="{{item.end_t?'':'go_GoodsDeails'}}" class="img-box" data-id="{{item.id}}" data-name="{{item.type}}" wx:for="{{new_Active}}" wx:key="ii">
+            <image src="{{item.image}}"></image>
+            <view class="img-mask">
+                <view class="f-tit">{{item.title}}</view>
+                <view class="main-tit">{{item.jd_title}}</view>
+                <view class="sub-tit">{{item.jd_profile}}</view>
+            </view>
+            <view class="bottom_">
+                <view class="bottom_left">
+                    <view>
+                        <view wx:if="{{item.type==1}}">拼后价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==0}}">最低价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==1}}">{{item.become_num}}人团</view>
+                    </view>
+                    <view>
+                        <view>{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
+                    </view>
+                </view>
+                <view class="bottom_right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':'去砍价'}}</view>
+            </view>
+            <view class="dayclock" wx:if="{{item.e_timer||item.c_timer}}">
+                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</text>
+                <view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
+            <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="look_more" class="lookMore" data-type="ac_arr" hidden="{{Active.length<=1&&sele_type==2||sele_type!=2}}">
+      {{ac_sum>=Active.length?'没有更多了':'查看更多'}}
+    </view>
+    </view>
+    <view class="city-img" wx:if="{{sele_type==0&&b_arr.length!=0}}">
+        <view bindtap="{{item.end_t?'':'go_GoodsDeails'}}" class="img-box" data-id="{{item.id}}" data-name="{{item.type}}" wx:for="{{new_b_arr}}" wx:key="ii">
+            <image src="{{item.image}}"></image>
+            <view class="img-mask">
+                <view class="f-tit">{{item.title}}</view>
+                <view class="main-tit">{{item.jd_title}}</view>
+                <view class="sub-tit">{{item.jd_profile}}</view>
+            </view>
+            <view class="bottom_">
+                <view class="bottom_left">
+                    <view>
+                        <view wx:if="{{item.type==1}}">拼后价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==0}}">最低价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==1}}">{{item.become_num}}人团</view>
+                    </view>
+                    <view>
+                        <view>{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
+                    </view>
+                </view>
+                <view class="bottom_right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':'去砍价'}}</view>
+            </view>
+            <view class="dayclock" wx:if="{{item.e_timer||item.c_timer}}">
+                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</text>
+                <view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
+            <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="look_more" class="lookMore" data-type="b_arr" hidden="{{b_arr.length<=1&&sele_type==0||sele_type!=0}}">
+      {{b_sum>=b_arr.length?'没有更多了':'查看更多'}}
+    </view>
+    </view>
+    <view class="city-img" wx:if="{{sele_type==1&&t_arr.length!=0}}">
+        <view bindtap="{{item.end_t?'':'go_GoodsDeails'}}" class="img-box" data-id="{{item.id}}" data-name="{{item.type}}" wx:for="{{new_t_arr}}" wx:key="ii">
+            <image src="{{item.image}}"></image>
+            <view class="img-mask">
+                <view class="f-tit">{{item.title}}</view>
+                <view class="main-tit">{{item.jd_title}}</view>
+                <view class="sub-tit">{{item.jd_profile}}</view>
+            </view>
+            <view class="bottom_">
+                <view class="bottom_left">
+                    <view>
+                        <view wx:if="{{item.type==1}}">拼后价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==0}}">最低价:￥{{item.now_price}}</view>
+                        <view wx:if="{{item.type==1}}">{{item.become_num}}人团</view>
+                    </view>
+                    <view>
+                        <view>{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
+                    </view>
+                </view>
+                <view class="bottom_right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':'去砍价'}}</view>
+            </view>
+            <view class="dayclock" wx:if="{{item.e_timer||item.c_timer}}">
+                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</text>
+                <view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
+            <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="look_more" class="lookMore" data-type="t_arr" hidden="{{t_arr.length<=1&&sele_type==1||sele_type!=1}}">
+      {{t_sum>=t_arr.length?'没有更多了':'查看更多'}}
+    </view>
+    </view>
+    <view class="no_img" wx:if="{{sele_type==2?currentCity!=0&&Active.length==0:sele_type==0?b_arr==0:sele_type==1?t_arr==0:''}}">
+        <text>暂无数据</text>
+    </view>
+</scroll-view>

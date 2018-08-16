@@ -1,0 +1,155 @@
+<swiper autoplay bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
+    <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="{{banner}}">
+        <view class="swiper-item">
+            <view class="swiperIdx-box">
+                <view class="swiperIdx {{currentItem==index?'currentIdx':''}}" wx:for="{{swiperIdx}}" wx:key="{{swiperIdx}}"></view>
+            </view>
+            <view class="slide-image">
+                <image src="{{item}}"></image>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<view class="nearby-play">
+    <view class="nearby-play-tit">
+        <view class="nearby-play-tit-left"></view>
+        <view>拼团游</view>
+        <view class="nearby-play-tit-right">可以拼团的旅游</view>
+    </view>
+    <view class="nearby-play-cont">
+        <view bindtap="goBarginDeails" class="nearby-play-item" data-id="{{item.id}}" style="width:45.5vw;" wx:for="{{GroupList}}">
+            <view class="nearby-play-item-img">
+                <image src="{{item.image}}" style="width:100%;height:200rpx;"></image>
+                <view class="nearby-play-name">
+              {{item.title}}
+              <text class="nearby-play-subname">{{item.jd_profile}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="bottomNav">
+    <view bindtap="changeNav" class="nav {{currentNav==0?'currentNav':''}}" data-id="0">热门景点</view>
+    <view bindtap="changeNav" class="nav {{currentNav==1?'currentNav':''}}" data-id="1">周边自由行</view>
+    <view bindtap="changeNav" class="nav {{currentNav==2?'currentNav':''}}" data-id="2">周边跟团行</view>
+</view>
+<view class="boutique" wx:if="{{currentNav==0}}">
+    <view bindtap="goBarginDeails" class="theme-item">
+        <view class="theme-item-img-box">
+            <image class="theme-item-img" src="{{banner[0]}}"></image>
+            <view class="theme-item-mask">
+                <view class="theme-item-tit">梅家坞以外，杭龙井茶园</view>
+                <view class="played">686 人玩过 可拼团</view>
+                <view class="theme-options">太原市出发 | 支持 : 目的地参团 + 自由行 6人团团</view>
+            </view>
+            <view class="countdown">
+                <view>距结束仅剩</view>
+                <view class="day">
+                    <text style="font-size:40rpx;">{{dayClock}}</text>
+                    <text>天</text>
+                </view>
+            </view>
+        </view>
+        <view class="friendsBargain">
+            <view class="friendsAvatarUrl">
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <view class="omitted">···</view>
+            </view>
+            <view class="numOfTakePart">12人正在参加</view>
+        </view>
+        <view class="priceAndBtn">
+            <view class="priceAndBtn-left">
+                <view style="color:red;">拼后价 : <text style="font-size:40rpx;">￥100.00</text>
+                </view>
+                <view style="text-decoration: line-through;">原价 : ￥600.00</view>
+            </view>
+            <view class="priceAndBtn-right">去拼团</view>
+        </view>
+    </view>
+</view>
+<view class="boutique" wx:if="{{currentNav==1}}">
+    <view bindtap="goBarginDeails" class="theme-item">
+        <view class="theme-item-img-box">
+            <image class="theme-item-img" src="{{banner[0]}}"></image>
+            <view class="theme-item-mask">
+                <view class="theme-item-tit">梅家坞以外，杭龙井茶园</view>
+                <view class="played">686 人玩过 可拼团</view>
+                <view class="theme-options">太原市出发 | 支持 : 目的地参团 + 自由行 6人团团</view>
+            </view>
+            <view class="countdown">
+                <view>距结束仅剩</view>
+                <view class="day">
+                    <text style="font-size:40rpx;">{{dayClock}}</text>
+                    <text>天</text>
+                </view>
+            </view>
+        </view>
+        <view class="friendsBargain">
+            <view class="friendsAvatarUrl">
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <view class="omitted">···</view>
+            </view>
+            <view class="numOfTakePart">12人正在参加</view>
+        </view>
+        <view class="priceAndBtn">
+            <view class="priceAndBtn-left">
+                <view style="color:red;">拼后价 : <text style="font-size:40rpx;">￥100.00</text>
+                </view>
+                <view style="text-decoration: line-through;">原价 : ￥600.00</view>
+            </view>
+            <view class="priceAndBtn-right">去拼团</view>
+        </view>
+    </view>
+</view>
+<view class="boutique" wx:if="{{currentNav==2}}">
+    <view bindtap="goBarginDeails" class="theme-item">
+        <view class="theme-item-img-box">
+            <image class="theme-item-img" src="{{banner[0]}}"></image>
+            <view class="theme-item-mask">
+                <view class="theme-item-tit">梅家坞以外，杭龙井茶园</view>
+                <view class="played">686 人玩过 可拼团</view>
+                <view class="theme-options">太原市出发 | 支持 : 目的地参团 + 自由行 6人团团</view>
+            </view>
+            <view class="countdown">
+                <view>距结束仅剩</view>
+                <view class="day">
+                    <text style="font-size:40rpx;">{{dayClock}}</text>
+                    <text>天</text>
+                </view>
+            </view>
+        </view>
+        <view class="friendsBargain">
+            <view class="friendsAvatarUrl">
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <image src="{{banner[0]}}"></image>
+                <view class="omitted">···</view>
+            </view>
+            <view class="numOfTakePart">12人正在参加</view>
+        </view>
+        <view class="priceAndBtn">
+            <view class="priceAndBtn-left">
+                <view style="color:red;">拼后价 : <text style="font-size:40rpx;">￥100.00</text>
+                </view>
+                <view style="text-decoration: line-through;">原价 : ￥600.00</view>
+            </view>
+            <view class="priceAndBtn-right">去拼团</view>
+        </view>
+    </view>
+</view>

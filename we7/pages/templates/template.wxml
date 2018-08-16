@@ -1,0 +1,32 @@
+<template name="nomore">
+    <view class="nomore">没有更多了</view>
+</template>
+<template name="copy">
+    <view class="copy">
+        <text>网博思创</text>
+        <text class="fuhao">©</text>
+        <text>超级服务</text>
+    </view>
+</template>
+<template name="footer">
+    <view class="footer" style="background:{{background}}">
+        <view style="width:{{100/list.length}}%" wx:for="{{list}}" wx:key="footer">
+            <navigator data-index="{{index}}" openType="redirectTo" url="{{item.url}}?index={{index}}">
+                <image data-index="{{index}}" src="{{index==footdex?item.selIcon:item.icons}}"></image>
+                <text style=" color:{{index==footdex?footer.seltxt:txtcolor}}">{{item.text}}</text>
+            </navigator>
+        </view>
+    </view>
+</template>
+<template name="sub_nav">
+    <scroll-view class="sub_nav" scrollX="true" style="white-space:nowrap">
+        <text bindtap="swichNav" class="{{currentTab==index?'onon':''}}" data-current="{{index}}" wx:for="{{nav_list}}" wx:key="list">{{item}}</text>
+    </scroll-view>
+</template>
+<template name="swiper">
+    <swiper autoplay="{{autoplay}}" class="swiper_wrap" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+        <swiper-item bindtap="swiperUrl" class="swiper_item" data-id="{{item.id}}" mode="aspectFit" wx:for="{{imgUrls}}" wx:key="swiper">
+            <image class="slide-image" mode="aspectFit" src="{{item.img}}"></image>
+        </swiper-item>
+    </swiper>
+</template>

@@ -1,0 +1,23 @@
+@import "../index/index.wxss";
+
+@import "../../__wuBaseWxss__/3.wxss";
+
+.list-item {
+    margin: 20rpx;
+    margin-top: 10rpx;
+}
+
+.list-item .top image {
+    border-radius: 20rpx;
+}
+
+.list-item .top .bot {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+}
+
+.list-item .top .bot .intro {
+    color: #fff;
+}

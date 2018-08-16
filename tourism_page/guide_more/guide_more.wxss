@@ -1,0 +1,79 @@
+@import "../../__wuBaseWxss__/3.wxss";
+
+.choose_place {
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+}
+
+.choose_place .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #909090;
+    border-bottom: 2rpx solid #e8e8e8;
+    padding: 20rpx;
+}
+
+.choose_place .cont {
+    display: flex;
+    flex-direction: row;
+}
+
+.choose_place .left {
+    width: 20%;
+    height: 92vh;
+    overflow-y: scroll;
+    font-size: 24rpx;
+    background: #eee;
+    text-align: center;
+}
+
+.choose_place .left .parent {
+    padding: 20rpx;
+}
+
+.choose_place .right {
+    width: 80%;
+    height: 90vh;
+    overflow-y: scroll;
+    font-size: 26rpx;
+    padding-bottom: 10rpx;
+    background: #fff;
+}
+
+.choose_place .right view {
+    padding: 10rpx;
+}
+
+.choose_place .right .r_title {
+    background: #eee;
+    color: #242424;
+}
+
+.choose_place .right .r_item text {
+    padding: 20rpx;
+    display: inline-block;
+    width: 150rpx;
+    height: 20rpx;
+    overflow: hidden;
+}
+
+.choose_place .sel_p {
+    background: #fff;
+    color: #15e4d1;
+}
+
+.choose_place .baocun {
+    position: fixed;
+    bottom: 50rpx;
+    right: 20rpx;
+    color: #fff;
+    background: #15e4d1;
+    padding: 0 20rpx;
+}

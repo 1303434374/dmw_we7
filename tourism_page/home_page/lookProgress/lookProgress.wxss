@@ -1,0 +1,145 @@
+page {
+    background: #fff;
+}
+
+.expressCompany {
+    width: 90vw;
+    padding: 40rpx 5vw;
+    border-bottom: 20rpx solid #f6f6f6;
+    display: flex;
+    align-items: center;
+}
+
+.expressCompany>image {
+    width: 130rpx;
+    height: 130rpx;
+    margin-right: 20rpx;
+}
+
+.expressCompany-infor {
+    font-size: 28rpx;
+    color: #c0c0c0;
+}
+
+.expressCompany-infor>view {
+    margin-bottom: 6rpx;
+}
+
+.copyBtn {
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 26rpx;
+    padding: 4rpx 10rpx;
+    margin-left: 20rpx;
+}
+
+.expressInfor {
+    width: 90vw;
+    padding: 0 5vw;
+}
+
+.shippingAddress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26rpx;
+    color: #333;
+    margin: 40rpx 0;
+}
+
+.shippingAddress>image {
+    width: 34rpx;
+    height: 39rpx;
+}
+
+.shippingAddress>view {
+    width: 66vw;
+    margin-left: 20rpx;
+}
+
+.expressInfor-cont {
+    position: relative;
+}
+
+.expressInfor-item {
+    position: relative;
+    display: flex;
+    color: #acacac;
+    font-size: 26rpx;
+    margin-bottom: 10rpx;
+    height: 110rpx;
+}
+
+.currentInfor {
+    height: 150rpx;
+}
+
+.expressInfor-item:last-child {
+    margin-bottom: 0;
+}
+
+.time {
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-size: 20rpx;
+    margin-right: 20rpx;
+}
+
+.currentInfor .time {
+    color: #f8881c;
+    font-size: 30rpx;
+    margin-right: 20rpx;
+}
+
+.currentIndex {
+    margin-top: 8rpx;
+}
+
+.indexImgAndLine {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20rpx;
+    width: 2rpx;
+    height: 120rpx;
+    background: #acacac;
+}
+
+.currentInfor .line {
+    height: 150rpx;
+}
+
+.indexImg {
+    position: absolute;
+    left: 50%;
+    top: 8rpx;
+    transform: translateX(-50%);
+    width: 14rpx;
+    height: 14rpx;
+    background: #acacac;
+    border-radius: 50%;
+}
+
+.arrivalPosition {
+    width: 66vw;
+    margin-left: 20rpx;
+}
+
+.currentInfor .arrivalPosition {
+    color: #f8881c;
+}
+
+.expressStatus {
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+}

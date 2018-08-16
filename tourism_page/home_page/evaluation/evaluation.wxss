@@ -1,0 +1,174 @@
+page {
+    background: #eaeaea;
+}
+
+.order-box {
+    background: #fff;
+    padding: 20rpx 0;
+    margin-bottom: 20rpx;
+}
+
+.order {
+    width: 90vw;
+    padding: 0 5vw;
+    height: 170rpx;
+    background: #f5f5f5;
+}
+
+.orderImg {
+    float: left;
+    width: 140rpx;
+    height: 140rpx;
+    margin-top: 15rpx;
+}
+
+.orderInfor {
+    float: left;
+    font-size: 26rpx;
+    margin: 22rpx 0 0 20rpx;
+}
+
+.order-options {
+    margin: 15rpx 0 15rpx 16rpx;
+}
+
+.order-priceAndSum {
+    margin-left: 16rpx;
+}
+
+.userEvaluation {
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+    width: 90vw;
+    padding: 20rpx 5vw;
+    font-size: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.evaluationText {
+    width: 90vw;
+    min-height: 300rpx;
+    color: #888;
+}
+
+.evaluationImg {
+    width: 90vw;
+    overflow: hidden;
+    margin-top: 100rpx;
+}
+
+.uploadImg {
+    float: left;
+    position: relative;
+}
+
+.uploadImg>image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 0 10rpx 10rpx 0;
+}
+
+.cancel-btn {
+    position: absolute;
+    top: 0;
+    right: 10rpx;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background: rgba(0,0,0,.5);
+}
+
+.addImg {
+    float: left;
+    width: 150rpx;
+    height: 150rpx;
+    border: 1px dashed #888;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addImg>image {
+    width: 75rpx;
+}
+
+.addImg>view {
+    margin-top: 10rpx;
+    color: #888;
+}
+
+.score {
+    width: 90vw;
+    padding: 0 5vw 20rpx;
+    background: #fff;
+}
+
+.score-tit {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    padding: 20rpx 0;
+}
+
+.score-tit>image {
+    width: 42rpx;
+    margin-right: 20rpx;
+}
+
+.score-cont {
+    width: 90vw;
+}
+
+.score-cont-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.scoreText {
+    font-size: 30rpx;
+    margin-right: 30rpx;
+}
+
+.scoreImg {
+    display: flex;
+}
+
+.singleStar {
+    position: relative;
+    margin-right: 10rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.star-image {
+    position: absolute;
+    width: 45rpx;
+    height: 43rpx;
+    src: "../../resource/images/normal.png";
+}
+
+.item {
+    position: absolute;
+    width: 25rpx;
+    height: 50rpx;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 90vw;
+    padding: 20rpx 5vw;
+}
+
+.formBtn {
+    width: 90vw;
+    height: 80rpx;
+    background: #15e4d1;
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 34rpx;
+    border-radius: 3px;
+}

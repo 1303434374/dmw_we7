@@ -1,0 +1,112 @@
+<view class="groupSuccess-box" wx:if="{{groupVal}}">
+    <view class="groupStatus">
+        <view class="groupSuccess">
+            <view>拼团成功</view>
+            <view>预计拼团成功后48小时发货</view>
+        </view>
+        <image class="successImg" mode="widthFix" src="../../../resource/images/my/tmstatus.png"></image>
+    </view>
+    <view class="order-address">
+        <image class="address-img" mode="widthFix" src="../../../resource/images/my/dingwei.png"></image>
+        <view class="address-deails">
+            <view>
+                <text space="emsp">张三 </text>
+                <text>13611112222</text>
+            </view>
+            <view>太原市 小店区 xx小区</view>
+        </view>
+        <view bindtap="goAddress" class="changeAddress">修改地址？</view>
+    </view>
+    <view class="order-deails">
+        <view class="order-titInfor">
+            <view class="tit-left">
+                <image mode="widthFix" src="../../../resource/images/my/dianpu.png"></image>
+                <text space="ensp">  联合发票 ></text>
+            </view>
+            <view class="tit-right">已成团，待发货</view>
+        </view>
+        <view class="order">
+            <image class="orderImg" src="{{avatarUrl}}"></image>
+            <view class="orderInfor">
+                <view class="order-tit">【皮皮岛 + 红岛 + 红岛 + 四道旅游】</view>
+                <view class="order-options"> 可参团-可单人行</view>
+                <view class="order-priceAndSum">￥990.00 x1
+          <text style="text-decoration:line-through">￥1200.00</text>
+                    <text space="emsp" style="color:#999;">  4人团</text>
+                </view>
+            </view>
+        </view>
+        <view class="payPrice">
+            <text>实付：<text style="color:red;">￥600.00 </text> ( 免运费 )</text>
+        </view>
+    </view>
+    <view class="contact-seller">
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/duanxin.png"></image>
+            <text space="ensp"> 联系卖家</text>
+            <button bindcontact="getContact" openType="contact"></button>
+        </view>
+        <view bindtap="makeCall">
+            <image mode="widthFix" src="../../../resource/images/my/dianhua.png"></image>
+            <text space="ensp"> 拨打电话</text>
+        </view>
+    </view>
+    <view class="order-record">
+        <view>订单编号：{{orderSum}}</view>
+        <view>支付方式：微信</view>
+        <view>下单时间：2018-3-23 11:33:36</view>
+        <view>成团时间：2018-3-23 11:33:36</view>
+        <view bindtap="copyOrderRecord" class="copyBtn">复制</view>
+    </view>
+    <view class="againBtn">
+        <view>再次购买</view>
+    </view>
+</view>
+<view class="groupNoSuccess-box" wx:if="{{!groupVal}}">
+    <view class="groupStatus">
+        <view class="groupSuccess groupNoSuccess">
+            <view>未拼成</view>
+            <view>本次拼团失败，请重新开始新的拼团</view>
+        </view>
+        <image class="Nosuccess" mode="widthFix" src="../../../resource/images/my/tmstatus1.png"></image>
+    </view>
+    <view class="order-deails">
+        <view class="order-titInfor">
+            <view class="tit-left">
+                <image mode="widthFix" src="../../../resource/images/my/dianpu.png"></image>
+                <text space="ensp">  联合发票 ></text>
+            </view>
+        </view>
+        <view class="order">
+            <image class="orderImg" src="{{avatarUrl}}"></image>
+            <view class="orderInfor">
+                <view class="order-tit">【皮皮岛 + 红岛 + 红岛 + 四道旅游】</view>
+                <view class="order-options"> 可参团-可单人行</view>
+                <view class="order-priceAndSum">￥990.00 x1
+          <text space="emsp" style="color:#999;">  4人团</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="contact-seller">
+        <view>
+            <image mode="widthFix" src="../../../resource/images/my/duanxin.png"></image>
+            <text space="ensp"> 联系卖家</text>
+            <button bindcontact="getContact" openType="contact"></button>
+        </view>
+        <view bindtap="makeCall">
+            <image mode="widthFix" src="../../../resource/images/my/dianhua.png"></image>
+            <text space="ensp"> 拨打电话</text>
+        </view>
+    </view>
+    <view class="order-record">
+        <view>订单编号：{{orderSum}}</view>
+        <view>支付方式：微信</view>
+        <view>下单时间：2018-3-23 11:33:36</view>
+        <view>成团时间：2018-3-23 11:33:36</view>
+        <view bindtap="copyOrderRecord" class="copyBtn">复制</view>
+    </view>
+    <view class="againBtn againGroup">
+        <view>一键再次拼团</view>
+    </view>
+</view>

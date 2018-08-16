@@ -1,0 +1,164 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="flex box box-tb box-align-center">
+    <view class="calendar pink-color box box-tb" style="background:#fff;padding-bottom:30rpx;">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view bindtap="handleCalendar" class="prev box box-rl" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">＜</view>
+            </view>
+            <view bindtap="chooseYearAndMonth" class="date-area box box-lr box-align-center box-pack-center" style="color:#000;">{{cur_year||'--'}} 年 {{cur_month||'--'}} 月</view>
+            <view bindtap="handleCalendar" class="next box box-lr" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">＞</view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" data-idx="{{index}}" wx:for="{{weeks_ch}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+        <view class="days box box-lr box-wrap">
+            <view class="grid white-color box box-align-center box-pack-center" data-idx="{{index}}" wx:if="{{hasEmptyGrid}}" wx:for="{{empytGrids}}" wx:key="{{index}}"></view>
+            <view bindtap="{{cMonthData[item.day-currentDay].mprice==0?'noPriceDay':cMonthData[item.day-currentDay].mprice&&currentMonth==cur_month?'tapDayItem':cMonthData[index].mprice?'tapDayItem':''}}" class="grid white-color box box-align-center box-pack-center" data-idx="{{index}}" data-shi="{{item.day}}" wx:for="{{days}}" wx:key="{{index}}">
+                <view class="day {{item.choosed?'border-radius pink-bg':''}} {{cMonthData[item.day-currentDay].mprice=='0'?'beforeDay11':''}} {{currentMonth>cur_month?'beforeDay;':currentMonth==cur_month&&currentDay>item.day?'beforeDay;':'afterDay;'}}  box box-align-center box-pack-center" style="flex-direction:column;">
+          {{item.day}}
+          <view class="dayPrice {{item.choosed?'selectPrice':''}}" wx:if="{{currentMonth==cur_month}}">
+            {{cMonthData[item.day-currentDay].mprice>0?'￥'+cMonthData[item.day-currentDay].mprice:cMonthData[item.day-currentDay].mprice==0?'不售票':' '}}
+          </view>
+                    <view class="dayPrice {{item.choosed?'selectPrice':''}}" wx:if="{{cur_month>currentMonth}}">
+            {{cMonthData[index].mprice>0?'￥'+cMonthData[index].mprice:cMonthData[index].mprice==0?'不售票':' '}}
+          </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="form">
+        <form bindsubmit="formSubmit">
+            <view class="num_sure_list">
+                <view class="num_item box box-lr box-pack-between box-align-center" wx:for="{{flname}}" wx:key="item">
+                    <view class="item_name fs28">{{item.name}}</view>
+                    <view class="box box-lr box-align-center">
+                        <view class="item_money fs24">￥{{item.mprice}}</view>
+                        <input hidden="true" name="price" value="{{item.mprice}}"></input>
+                        <view class="text">
+                            <text bindtap="sub" class="prev" data-index="{{index}}">-</text>
+                            <text style="border:2rpx solid #dedede;border-top:none;border-bottom:none">{{item.num}}</text>
+                            <input hidden="true" name="num" value="{{item.num}}"></input>
+                            <text bindtap="add" class="add" data-index="{{index}}">+</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <input hidden="true" name="z_style" value="微信支付"></input>
+            <view wx:if="{{choose_date}}">
+                <view class="head_mess fs28" wx:for="{{scenicspot}}">
+                    <input hidden="true" name="scenicspot" value="{{item.id}}"></input>
+                    <input hidden="true" name="go_date" value="{{choose_date}}"></input>
+                    <view>{{item.title}}</view>
+                    <view class="fs24 " style="margin-top:10rpx;color:#8A8A8A">
+                        <text>出发日期：{{cur_year}}-{{cur_month}}-{{choose_date}}</text>
+                        <text style="float:right">{{item.cf_area}}出发</text>
+                    </view>
+                </view>
+                <view class="order-address-tit">收货信息</view>
+                <view bindtap="go_address" class="order-address">
+                    <view class="address-deails" wx:if="{{receiving_info}}">
+                        <view class="address_info">
+                            <view space="emsp">收货人：{{receiving_info.name}}</view>
+                            <view>{{receiving_info.tel}}</view>
+                        </view>
+                        <view class="address_detail">收货地址：{{receiving_info.address}}</view>
+                    </view>
+                    <view class="address-deails not_address" hidden="{{receiving_info}}">
+                        <view>暂无收货地址</view>
+                        <view>点击添加收货地址</view>
+                    </view>
+                    <view class="changeAddress">></view>
+                </view>
+                <view class="contact_mess" style="border-bottom:20rpx solid #dedede;">
+                    <view class="title fs30">联系人信息</view>
+                    <view class="item box box-lr box-pack-between box-align-center fs28">
+                        <view>联系人</view>
+                        <view class="w80">
+                            <input name="name" placeholder="填写联系人姓名" type="text"></input>
+                        </view>
+                    </view>
+                    <view class="item box box-lr box-pack-between box-align-center fs28">
+                        <view>手机号</view>
+                        <view class="w80">
+                            <input maxlength="11" name="tel" placeholder="填写联系人电话" type="number"></input>
+                        </view>
+                    </view>
+                </view>
+                <input hidden="true" name="fenqi" value="{{fenqiid}}"></input>
+                <view class="contact_mess" style="border-bottom:20rpx solid #dedede;">
+                    <view class="noinfo" wx:if="{{Insurance.length!=0}}">
+                        <view class="title fs30">保险</view>
+                        <input hidden="true" name="baoxian" value="{{baoxianid}}"></input>
+                        <view class="box box-lr box-pack-between box-align-center fs28 insurance_item" wx:for="{{Insurance}}">
+                            <view class="insurance_name">{{item.title}}</view>
+                            <view bindtap="look_detail2" class="wenhao" data-id="{{item.id}}">
+                                <image src="../../resource/images/wen.png"></image>
+                            </view>
+                            <radio-group bindchange="radioChange2" class="radio-group">
+                                <label class="radio">
+                                    <radio hidden="true" value="{{item.title}}"></radio>
+                                    <icon bindtap="checked_refund" class="radio_icon" data-id="{{item.id}}" data-index="{{index}}" size="20" type="{{item.checked?'success_no_circle':''}}"></icon>
+                                </label>
+                            </radio-group>
+                        </view>
+                    </view>
+                </view>
+                <view class="contact_mess" style="border-bottom:20rpx solid #dedede;" wx:if="{{show}}">
+                    <view class="title fs30">选择分期</view>
+                    <view class="box box-lr " style="flex-wrap:wrap">
+                        <view class="radio-box" wx:for="{{list}}">
+                            <radio-group class="radio-group fenqi" data-index="{{index}}">
+                                <label class="radio">
+                                    <icon bindtap="checked_fenqi" class="radio_icon" data-id="{{item.id}}" data-index="{{index}}" data-interest="{{item.interest}}" data-num="{{item.num}}" size="19" type="{{item.checked?'success_no_circle':''}}"></icon> {{item.title}}(利息：{{item.interest}})
+                </label>
+                            </radio-group>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="submit box box-lr box-pack-between box-align-center" wx:if="{{choose_date}}">
+                <view>订单总额:
+          <text style="color:#FF6F3E">{{total}}</text>
+                    <input hidden="true" name="total" value="{{total}}"></input>
+                    <input hidden="true" name="zongjia" value="{{zongjia}}"></input>
+                    <image bindtap="look_order" class="up_arrow" src="{{dingdan?'../../resource/images/top.png':'../../resource/images/bottom.png'}}"></image>
+                </view>
+                <button formType="submit" size="mini">提交订单</button>
+            </view>
+            <button bindtap="click_btn" class="submit" style="background:#289AF6;color:#fff" wx:if="{{!choose_date}}">请选择出发日期</button>
+        </form>
+    </view>
+</view>
+<view class="box box-tb" wx:if="{{showPicker}}">
+    <view class="picker-btns box box-lr box-pack-between box-align-center">
+        <view bindtap="tapPickerBtn" class="picker-btn picker-cancel" data-type="cancel">取消</view>
+        <view bindtap="tapPickerBtn" class="picker-btn picker-confirm" data-type="confirm">确定</view>
+    </view>
+    <picker-view bindchange="pickerChange" class="flex" indicatorStyle="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_value}}">
+        <picker-view-column>
+            <view class="picker-view" style="line-height: 50px" wx:for="{{picker_year}}">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view class="picker-view" style="line-height: 50px" wx:for="{{picker_month}}">{{item}}月</view>
+        </picker-view-column>
+    </picker-view>
+</view>
+<view bindtap="close_insurance" class="insurance_box" wx:if="{{insurance_modal}}">
+    <view class="title">{{InsuranceInfo.title}}</view>
+    <view class="detail">
+        <template is="wxParse" data="{{wxParseData:text.nodes}}"></template>
+    </view>
+</view>
+<view class="order_detail" wx:if="{{order_detail}}">
+    <view class="order">
+        <view class="title">价格明细</view>
+        <view class="order_detail_box">
+            <view class="order_item box box-lr box-pack-between box-align-center" wx:if="{{item.num!=0}}" wx:for="{{order_list}}" wx:key="order_list">
+                <view class="name">{{item.name}}</view>
+                <view class="price_num">{{item.mprice}}*{{item.num}}</view>
+            </view>
+        </view>
+    </view>
+</view>

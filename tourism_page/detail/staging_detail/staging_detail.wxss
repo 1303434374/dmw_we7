@@ -1,0 +1,329 @@
+@import "../../../__wuBaseWxss__/3.wxss";
+/*! Import by _C[4], whose real path we cannot found. */
+.nav {
+    border-bottom: 2rpx solid #f1f1f1;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav .nav_item {
+    font-size: 28rpx;
+    color: #242424;
+    text-align: center;
+    width: 50%;
+    position: relative;
+}
+
+.nav .onon {
+    font-size: 30rpx;
+    color: #289AF6;
+}
+
+.nav .onon::after {
+    content: "";
+    display: block;
+    height: 4rpx;
+    width: 130rpx;
+    background: #289AF6;
+    position: absolute;
+    bottom: 5rpx;
+    left: 24%;
+}
+
+.detail_cont1,.detail_cont3 {
+    background: #f0f0f0;
+}
+
+.detail_cont1 .recommend {
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+
+.detail_cont1 .header {
+    font-size: 26rpx;
+    padding: 20rpx;
+}
+
+.detail_cont1 .detail,.detail_cont3 .detail,.detail_cont2 .detail {
+    font-size: 22rpx;
+    color: #868686;
+    padding: 0 20rpx;
+    line-height: 1.4em;
+    padding-bottom: 20rpx;
+}
+
+.detail_cont1 .img {
+    padding: 0 20rpx;
+}
+
+.detail_cont1 .img image {
+    margin-bottom: 10rpx;
+}
+
+.detail_cont1 .detail image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.detail_cont1 .detail {
+    text-indent: 2em;
+}
+
+.detail_icon {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.detail_cont2 .plan_row .sel {
+    border: 2rpx solid #1285F8;
+    color: #1285F8;
+}
+
+.detail_cont2 .plan_row {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.detail_cont2 .part_1 {
+    margin-bottom: 20rpx;
+}
+
+.detail_cont2 .plan_row text {
+    font-size: 24rpx;
+    border: 2rpx solid #eee;
+    padding: 10rpx 30rpx;
+    color: #000;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+}
+
+.group_stage {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.detail_cont2 .title {
+    font-size: 24rpx;
+}
+
+.detail_cont2 .group_list {
+    border-bottom: 2rpx solid #DCDCDC;
+    padding: 10rpx 0;
+}
+
+.detail_cont2 text {
+    font-size: 22rpx;
+    color: #868686;
+    margin: 5rpx 20rpx;
+    margin-left: 0;
+}
+
+.detail_cont2_profile {
+    padding: 20rpx;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.detail_cont2 .part_2 {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.detail_cont2 .traffic_item .way_mark {
+    padding: 5rpx 8rpx;
+    background: #04BE02;
+    color: #fff;
+}
+
+.detail_cont2 .traffic_item .way_mark.wm_2 {
+    background: #FC6F48;
+}
+
+.detail_cont2 .traffic_item text.ml20 {
+    margin-left: 20rpx;
+}
+
+.detail_cont2 .traffic_item .t_i_bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+    color: #868686;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #DCDCDC;
+}
+
+.detail_cont2 .traffic_item .t_i_bot .line {
+    width: 25%;
+    height: 15rpx;
+    margin-top: -73rpx;
+    overflow: visible;
+}
+
+.detail_cont2 .traffic_item .t_i_bot .go_t {
+    font-size: 28rpx;
+    color: #000;
+    padding: 20rpx 0;
+}
+
+.detail_cont2 .part_3 .trip_item {
+    display: flex;
+    flex-direction: row;
+}
+
+.detail_cont2 .part_3 .trip_list {
+    margin-left: 40rpx;
+    padding-bottom: 20rpx;
+}
+
+.detail_cont3 .item {
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+
+.detail_cont3 .item .top {
+    font-size: 24rpx;
+    padding: 20rpx;
+    position: relative;
+}
+
+.detail_cont3 .item .arrow {
+    position: absolute;
+    right: 20rpx;
+}
+/*! Import end */
+page {
+    background: #f0f0f0;
+    padding-bottom: 100rpx;
+}
+
+.staging_detail_top {
+    position: relative;
+}
+
+.staging_detail_top .mark {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10rpx 20rpx;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+    font-size: 22rpx;
+    width: 94%;
+}
+
+.staging_detail_bot {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.staging_detail_bot .name {
+    font-size: 28rpx;
+    color: #000;
+    margin-bottom: 20rpx;
+}
+
+.staging_detail_bot .intro {
+    font-size: 22rpx;
+    color: #AEAEAE;
+    margin-bottom: 20rpx;
+}
+
+.schedule {
+    margin: 20rpx 0;
+    padding: 10rpx 20rpx;
+    background: #fff;
+    font-size: 28rpx;
+    color: #AEAEAE;
+}
+
+.schedule .time {
+    color: #000;
+    margin: 0 20rpx;
+    font-size: 24rpx;
+}
+
+.temp {
+    margin-bottom: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20rpx;
+    background: #fff;
+}
+
+.temp .head_img {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 10rpx;
+}
+
+.temp .cont {
+    padding: 10rpx 0;
+}
+
+.temp .cont .position_icon {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.bank_part {
+    background: #fff;
+}
+
+.bank_part .title {
+    padding: 20rpx;
+    padding-bottom: 0;
+    display: flex;
+}
+
+.bank_part .bank_icon {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.temp .cont .company_name {
+    margin-bottom: 10rpx;
+}
+
+.temp .tel {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 28rpx;
+}
+
+.footer .btn {
+    padding: 20rpx 0;
+    width: 50%;
+    background: #F0F0F0;
+}
+
+.footer .btn.enrol {
+    background: #1285F8;
+    color: #fff;
+}

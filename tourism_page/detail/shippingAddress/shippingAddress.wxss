@@ -1,0 +1,139 @@
+page {
+    background: #eee;
+    padding-bottom: 100rpx;
+}
+
+.container {
+    width: 100vw;
+}
+
+.addressList {
+    width: 100vw;
+}
+
+.address-item {
+    width: 100vw;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20rpx;
+}
+
+.addressInfor {
+    position: relative;
+    width: 90vw;
+    padding: 20rpx 5vw;
+    border-bottom: 1px solid #ddd;
+}
+
+.addressee {
+    font-size: 32rpx;
+    margin-bottom: 10rpx;
+}
+
+.address {
+    font-size: 26rpx;
+}
+
+.addressee-tel {
+    position: absolute;
+    right: 5vw;
+    top: 20rpx;
+    font-size: 32rpx;
+}
+
+.addressBtn {
+    width: 90vw;
+    height: 80rpx;
+    background: #fff;
+    padding: 0 5vw;
+}
+
+.default-address-box {
+    float: left;
+    position: relative;
+    height: 80rpx;
+}
+
+.noSelect,.selected {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.noSelect {
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.selected {
+}
+
+.defaultAddress {
+    margin-left: 5vw;
+    font-size: 24rpx;
+    line-height: 80rpx;
+}
+
+.editAndDel {
+    float: right;
+    height: 80rpx;
+}
+
+.editAddress {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-right: 20rpx;
+}
+
+.editImg {
+    width: 26rpx;
+    height: 26rpx;
+    margin: 0 10rpx 0 0;
+}
+
+.delImg {
+    width: 27rpx;
+    height: 29rpx;
+}
+
+.editText {
+    font-size: 24rpx;
+}
+
+.addAddress_box {
+    position: fixed;
+    bottom: 0;
+    background: #eee;
+    height: 100rpx;
+    width: 100vw;
+    z-index: 9999;
+}
+
+.addAddress {
+    width: 65vw;
+    height: 60rpx;
+    border-radius: 50px;
+    background: #15e4d1;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 30rpx;
+    margin: 20rpx auto 0;
+}
+
+.not_address {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

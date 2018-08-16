@@ -1,0 +1,69 @@
+<view wx:if="{{!show_poster}}">
+    <view class="order-box">
+        <view class="order">
+            <image class="orderImg" src="{{active.image}}"></image>
+            <view class="orderInfor">
+                <view class="order-tit">{{active.title}}</view>
+                <view class="order-tit order-subtit">{{active.jd_title}}</view>
+                <view class="order-priceAndSum">
+                    <text style="margin-right:20rpx;">团购价：￥{{active.now_price}}</text>
+                    <text style="text-decoration: line-through;color:#999;">￥{{active.original_price}}</text>
+                </view>
+            </view>
+            <view class="order-select">{{active.become_num}}人成团</view>
+        </view>
+    </view>
+    <view class="stop_time" hidden="{{active.end_t||active.become_num==record.length+1}}" wx:if="{{active.e_clock&&active.become_num>record.length+1}}">距离组团截止时间：{{active.e_clock}}</view>
+    <view class="order-status" wx:if="{{active.become_num==record.length+1||active.become_num>record.length+1||active.end_t}}">
+        <view class="tips">
+            <icon color="#15e4d1" size="20" type="{{active.become_num==record.length+1?'success':active.end_t&&active.become_num>record.length+1||active.become_num>record.length+1?'warn':''}}"></icon>
+            <view style="color:{{active.become_num==record.length+1||active.become_num>record.length+1?'#15e4d1':active.end_t&&active.become_num>record.length+1?'red':''}}">{{active.become_num==record.length+1?'拼团成功':active.end_t&&active.become_num>record.length+1?'时间结束,拼团失败':active.become_num>record.length+1?'时间结束未成团，将组团失败':''}}</view>
+        </view>
+        <view class="teamworkSuccess">
+            <view class="Chief">
+                <view>团长</view>
+                <image src="{{colonel.avatar}}"></image>
+                <text>{{colonel.nickname}}</text>
+            </view>
+            <view class="t_people" wx:for="{{record}}">
+                <image src="{{item.avatar}}"></image>
+                <text>{{item.nickname}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="teamNotice">
+        <view>拼团须知</view>
+        <view>
+            <view>好友参团</view>
+            <view>人满成团</view>
+            <view>限时内未成团,自动退款</view>
+        </view>
+    </view>
+    <view class="tk">
+        <view>退款须知</view>
+        <view style="width:75%;color:#999;">组团失败金额将3个工作日内退还，如未退还，请及时联系客服人员</view>
+    </view>
+    <view class="s_ing_btn" wx:if="{{active.become_num!=record.length+1&&!active.end_t}}">
+        <view class="share_btn" style="background:{{active.end_t?'#999;':'#15e4d1;'}}">
+      邀请好友参团
+      <button class="shareBtn" hidden="{{active.end_t}}" openType="share"></button>
+        </view>
+        <view bindtap="{{active.end_t?'':'showPoster'}}" class="poster_btn" style="background:{{active.end_t?'#999;':'#15e4d1;'}}">生成海报</view>
+    </view>
+    <view class="s_ing_btn" wx:if="{{active.become_num!=record.length+1&&active.end_t}}">
+        <view bindtap="go_activity">再去开团</view>
+        <view bindtap="go_idx">返回首页</view>
+    </view>
+    <view class="s_ing_btn" wx:if="{{active.become_num==record.length+1&&t_success}}">
+        <view bindtap="go_activity">查看更多活动</view>
+        <view bindtap="go_orderDeails">查看我的订单</view>
+    </view>
+</view>
+<view class="poster-box" wx:if="{{show_poster}}">
+    <image bindlongpress="show_options" bindtap="hidePoster" class="canvasImg" mode="widthFix" src="{{path}}"></image>
+</view>
+<view bindtap="show_options" class="options_mask" wx:if="{{show_options}}"></view>
+<view class="hb_options" wx:if="{{show_options}}">
+    <button bindtap="saveImg">保存图片</button>
+    <button bindtap="show_options">取消</button>
+</view>

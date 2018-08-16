@@ -1,0 +1,41 @@
+<view class="topNav">
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==0?'currentNav':''}}" data-id="0">全部</view>
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==5?'currentNav':''}}" data-id="5">拼团中</view>
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==6?'currentNav':''}}" data-id="6">已过期</view>
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==1?'currentNav':''}}" data-id="1">待核销</view>
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==3?'currentNav':''}}" data-id="3">待评价</view>
+    <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==4?'currentNav':''}}" data-id="4">已完成</view>
+</view>
+<view class="teamworkSuccess" wx:if="{{currentNav==0||currentNav==5&&item.status_title=='拼团中'||currentNav==6&&item.status_title=='已过期'||currentNav==1&&item.status_title=='待核销'||currentNav==3&&item.status_title=='待评价'||currentNav==4&&item.status_title=='已完成'}}" wx:for="{{List}}" wx:key="i">
+    <view class="userOperating">
+        <view>{{item.order_title}}</view>
+        <view style="font-size: 30rpx;">订单状态 :
+        <text style="color:#15e4d1;">{{item.status_title}}</text>
+        </view>
+    </view>
+    <view bindtap="{{item.status_title=='拼团中'||item.status_title=='已过期'?'goTeamworkDeails':'go_Orderinfo'}}" class="order" data-acid="{{item.active_id}}" data-id="{{item.id}}">
+        <image class="orderImg" src="{{item.jd_image}}"></image>
+        <view class="orderInfor">
+            <view>{{item.active_title}}</view>
+            <view class="order-options">{{item.jd_title}}</view>
+            <view class="order-num" wx:if="{{item.status!=6}}">订单编号：{{item.orderSn}}</view>
+            <view class="order-priceAndSum">
+                <text>总价：<text space="ensp">￥{{item.total}} </text>
+                </text>
+            </view>
+        </view>
+    </view>
+    <view class="timeAndStatus" style="{{item.create_time?'justify-content:space-between;':'justify-content:flex-end;'}}">
+        <view>下单时间 : {{item.create_time}}</view>
+        <view class="teamwork-btn">
+            <view bindtap="goToPay" class="lookTeamwork" data-id="{{item.id}}" data-type="{{item.active_type}}" wx:if="{{item.status==-1}}">去付款</view>
+            <view bindtap="goToMessage" class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==3}}">去评价</view>
+            <view bindtap="goToHexiao" class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==1}}">去核销</view>
+            <view bindtap="del" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-status="{{item.status}}" wx:if="{{item.status==5||item.status==4||item.status==6}}">删除</view>
+        </view>
+    </view>
+</view>
+<view class="notOrder" wx:if="{{List.length==0}}">
+    <image src="../../resource/icon/notOrder.png"></image>
+    <view>暂无订单</view>
+</view>

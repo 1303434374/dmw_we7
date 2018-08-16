@@ -1,0 +1,40 @@
+<view class="container">
+    <form bindsubmit="formSubmit">
+        <view class="form-box">
+            <view class="input df">
+                <view class="left">收货人</view>
+                <view class="right">
+                    <input name="name" type="text" value="{{Receiving_once.name}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">联系电话</view>
+                <view class="right">
+                    <input maxlength="11" name="tel" type="number" value="{{Receiving_once.tel}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">所在地区</view>
+                <view class="right">
+                    <picker bindchange="changeRegion" mode="region" name="address">
+              {{regionVal!=''?regionVal:Receiving_once.province?Receiving_once.province+','+Receiving_once.city+','+Receiving_once.county:regionVal==''?'请选择':''}}
+          </picker>
+                    <text class="moreRegion">></text>
+                </view>
+            </view>
+            <view class="input df detailAddress">
+                <view class="left">详细地址</view>
+                <view class="right">
+                    <textarea name="detailAddress" placeholder="请输入详细地址信息，如道路、门牌号、小区、楼栋号、单元室等" placeholderStyle="color:#c3c3c3;" type="text" value="{{Receiving_once.address}}"></textarea>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">设置默认地址</view>
+                <view class="right">
+                    <switch name="checked"></switch>
+                </view>
+            </view>
+        </view>
+        <button class="submit" formType="submit">保存</button>
+    </form>
+</view>

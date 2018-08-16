@@ -1,0 +1,39 @@
+<view class="container">
+    <view class="addressList">
+        <checkbox-group>
+            <view class="address-item" wx:for="{{Receiving_List}}" wx:key="i">
+                <view bindtap="{{selectAddress?'selectAddress':pt_order?'pt_order':''}}" class="addressInfor" data-idx="{{index}}">
+                    <view class="addressee">{{item.name}}</view>
+                    <view class="address">{{item.address}}</view>
+                    <view class="addressee-tel">{{item.tel}}</view>
+                </view>
+                <view class="addressBtn">
+                    <view bindtap="changeDeafultAddress" class="default-address-box" data-id="{{item.id}}" data-idx="{{index}}">
+                        <label>
+                            <view class="noSelect" wx:if="{{item.status==0}}"></view>
+                            <icon class="selected" color="#15e4d1" size="14" type="success" wx:if="{{item.status==1}}"></icon>
+                            <checkbox checked="{{item.status==1?checked:''}}" style="display:none;" value="{{item.value}}"></checkbox>
+                            <view class="defaultAddress">默认地址</view>
+                        </label>
+                    </view>
+                    <view class="editAndDel">
+                        <view bindtap="addNewAddress" class="editAddress" data-address_id="{{item.id}}">
+                            <image class="editImg" src="../../resource/images/my/edit.png"></image>
+                            <text class="editText">编辑</text>
+                        </view>
+                        <view bindtap="delAddress" class="editAddress delAddress" data-delid="{{item.id}}" data-id="{{index}}">
+                            <image class="editImg delImg" src="../../resource/images/my/del.png"></image>
+                            <text class="editText delText">删除</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </checkbox-group>
+    </view>
+    <view class="addAddress_box">
+        <view bindtap="addNewAddress" class="addAddress">添加新地址</view>
+    </view>
+    <view class="not_address" wx:if="{{Receiving_List.length==0}}">
+        <text>暂无地址</text>
+    </view>
+</view>

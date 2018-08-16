@@ -1,0 +1,43 @@
+<scroll-view scrollWithAnimation scrollY class="left-scroll">
+    <view class="city-box">
+        <view bindtap="changeCity" class="city {{currentCity==0?'currentCity':''}}" data-id="0">
+      热门地区
+      <view class="border-right" wx:if="{{currentCity==0}}"></view>
+        </view>
+    </view>
+    <view class="city-box" wx:for="{{cityList1}}">
+        <view bindtap="changeCity" class="city {{currentCity==item.id?'currentCity':''}}" data-id="{{item.id}}">
+        {{item.title}}
+        <view class="border-right" wx:if="{{currentCity==item.id}}"></view>
+        </view>
+    </view>
+</scroll-view>
+<scroll-view scrollWithAnimation scrollY class="right-img">
+    <view class="city-img" data-id="{{0}}" wx:if="{{currentCity==0}}">
+        <view bindtap="goRaidersDeails" class="img-box" data-id="{{cityList.id}}" wx:for="{{cityList}}" wx:for-item="cityList" wx:key="i">
+            <image src="{{cityList.icon}}"></image>
+            <view class="img-mask">
+                <view class="main-tit">{{cityList.title}}</view>
+                <view class="sub-tit">{{cityList.Introduction}}</view>
+            </view>
+        </view>
+        <view bindtap="addData" class="lookMore" data-type="hot" hidden="{{cityList1.length<=4}}">
+      {{hot_sum>=cityList1.length?'没有更多了':'查看更多'}}
+    </view>
+    </view>
+    <view bindtap="goRaidersDeails1" class="city-img" data-id="{{cityImg.id}}" wx:if="{{currentCity==cityImg.jd_area}}" wx:for="{{new_cityImg}}" wx:for-item="cityImg" wx:key="i">
+        <view class="img-box">
+            <image src="{{cityImg.image}}"></image>
+            <view class="img-mask">
+                <view class="main-tit">{{cityImg.title}}</view>
+                <view class="sub-tit">{{cityImg.xc_profile}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="addData" class="lookMore" data-type="city" hidden="{{cityImg.length<=4||currentCity==0}}">
+    {{city_sum>=cityImg.length?'没有更多了':'查看更多'}}
+  </view>
+    <view class="no_img" wx:if="{{currentCity!=0&&cityImg.length==0}}">
+        <text>暂无数据</text>
+    </view>
+</scroll-view>

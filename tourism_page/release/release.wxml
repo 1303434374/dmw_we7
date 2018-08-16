@@ -1,0 +1,20 @@
+<view class="userText">
+    <textarea autoHeight bindinput="getUserText" maxlength="-1" placeholder="写点什么吧" placeholderStyle="color:#9c9c9c;" value="{{userText}}"></textarea>
+</view>
+<view class="upLoad">
+    <view class="upLoad-img" wx:for="{{picPath}}" wx:key="{{picPath}}">
+        <view class="cancel-box">
+            <icon bindtap="delImg" color="#fff" data-id="{{index}}" size="16" type="cancel"></icon>
+        </view>
+        <image src="{{item}}"></image>
+    </view>
+</view>
+<view class="btn">
+    <view class="upLoad-btn">
+        <view bindtap="{{picPath.length<9?'upLoadPic':'tipsUpload'}}" class="take-pic">
+            <image mode="widthFix" src="../resource/icon/takePic.png"></image>
+            <view>上传图片</view>
+        </view>
+    </view>
+    <view bindtap="sendUserCont" class="sendBtn">发送</view>
+</view>

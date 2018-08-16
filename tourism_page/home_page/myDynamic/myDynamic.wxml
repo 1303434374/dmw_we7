@@ -1,0 +1,38 @@
+<view class="pageBg">
+    <image mode="widthFix" src="{{picPath}}"></image>
+    <view bindtap="chooseimage" class="add-cover">更换背景墙</view>
+</view>
+<view class="travels-cont" hidden="{{MyPlayRecord.length==0}}" id="travels-cont">
+    <view class="line" style="height:100%;"></view>
+    <view class="travels-item" wx:for="{{new_MyPlayRecord}}" wx:for-index="manIdx">
+        <view class="point"></view>
+        <view class="user-dynamic">
+            <view bindtap="goDynamicDeails" class="time" data-id="{{item.id}}">{{item.create_time}}</view>
+            <view bindtap="goDynamicDeails" class="text" data-id="{{item.id}}">{{item.content}}</view>
+            <view class="img">
+                <image bindtap="previewImg" data-id="{{index}}" data-mainId="{{manIdx}}" src="{{img}}" wx:for="{{item.image}}" wx:for-item="img"></image>
+            </view>
+            <view class="dynamic-infor">
+                <view class="browse">
+                    <image mode="widthFix" src="../../resource/images/my/liulan.png"></image>
+                    <view>{{item.look_num}}</view>
+                </view>
+                <view bindtap="goDynamicDeails" class="comment" data-id="{{item.id}}">
+                    <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+                    <view>{{item.reply}}</view>
+                </view>
+                <view bindtap="ToPraise" class="like" data-id="{{item.id}}" data-mainId="{{manIdx}}">
+                    <image mode="widthFix" src="../../resource/images/release/{{item.member_status?'like1':'like'}}.png"></image>
+                    <view style="color:{{item.member_status?'#15e4d1;':''}}">{{item.praise}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="look_more" class="lookMore" hidden="{{MyPlayRecord.length<1}}">
+    {{list_sum>=MyPlayRecord.length?'没有更多了':'查看更多内容'}}
+  </view>
+</view>
+<view class="notOrder" wx:if="{{MyPlayRecord.length==0}}">
+    <image src="../../resource/icon/notOrder.png"></image>
+    <view>暂无游记</view>
+</view>

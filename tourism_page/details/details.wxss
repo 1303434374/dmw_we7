@@ -1,0 +1,168 @@
+/* pages/details/details.wxss */
+.head-img{
+  width: 750rpx;
+  height: 350rpx;
+}
+.contain{
+  width: 700rpx;
+  margin: 0 auto;
+  padding-bottom: 85rpx;
+  border-bottom: 14rpx solid #efeff7;
+  margin-bottom: 30rpx;
+}
+.title{
+  color: #444754;
+  font-size: 26rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  line-height: 30rpx;
+  margin: 30rpx 0;
+}
+.admission{
+  width: 100%;
+  height: 100rpx;
+  background: #fff8fb;
+  display: flex;
+  align-items: center;
+}
+.img{
+  width: 165rpx;
+  height: 65rpx;
+  margin-left: 5rpx;
+  margin-right: 25rpx;
+  display: inline-block;
+}
+.price{
+  display: inline-block;
+  color: #0adbc6;
+  font-size: 32rpx;
+  margin-right: 25rpx;
+}
+.money{
+  display: inline-block;
+  font-size: 22rpx;
+}
+.price text{
+  color: #808080;
+  font-size: 22rpx;
+}
+.imgs{
+  width: 175rpx;
+  height: 60rpx;
+  margin-left:5rpx;
+  margin-right:25rpx;
+  display:inline-block;
+}
+.num{
+  color: #bcbcbc;
+  font-size: 20rpx;
+  margin-left: 35rpx;
+}
+.con{
+  width: 100%;
+  height: 60rpx;
+  border-bottom: 1rpx solid #ececec;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #181818;
+  padding: 10rpx 0;
+}
+.left{
+  margin-right: 30rpx;
+}
+.right{
+  color: #eb9520;
+}
+.right text{
+  background: #eb9520;
+  border-radius: 8rpx;
+  padding: 3rpx 10rpx;
+  color: #fff;
+}
+.footer{
+  padding: 15rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-left{
+  width: 75%;
+  box-sizing: border-box;
+  border-right: #ececec 2px dotted;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #444754;
+}
+.footer-right{
+  width: 25%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.bot{
+  color: #5d5d5d;
+  margin-top: 10rpx;
+}
+.bot>text{
+  color: #9f9f9f;
+}
+.add{
+  display: block;
+  margin-right: 0;
+  text-align: center;
+  line-height: 90rpx;
+}
+.add text{
+  color:#0adbc6;
+}
+
+.tab{
+  width: 750rpx;
+  display: flex;
+  justify-content: center;
+  margin-top:-20rpx;
+}
+.tabs{
+  width: 33.33%;
+  text-align: center;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  box-sizing: border-box;
+}
+.tab .on{
+  color: #0adbc6;
+}
+.on text{
+  display: inline-block;
+  width: 60%;
+  border-bottom: 5rpx #0adbc6 solid;
+}
+
+.foot{
+  position: fixed;
+  left: 0;
+  bottom: -10rpx;
+  width: 750rpx;
+}
+.zx{
+  position: absolute;
+  font-size: 24rpx;
+  color: #fff;
+  top: 30rpx;
+  left: 25%;
+  width: 50rpx;
+}
+.zx image{
+  padding: 0 5rpx;
+  box-sizing: border-box;
+}
+.ljgm{
+  width: 190rpx;
+  position: absolute;
+  top: 40rpx;
+  right: 22%;
+}

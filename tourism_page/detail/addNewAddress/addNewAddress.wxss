@@ -1,0 +1,59 @@
+.container {
+    background: #eee;
+    height: 100vh;
+    width: 100vw;
+}
+
+.df {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.input {
+    background: #fff;
+    width: 90vw;
+    padding: 20rpx 5vw;
+    font-size: 28rpx;
+    border-bottom: 1px solid #ddd;
+}
+
+.left {
+    margin-top: 1%;
+}
+
+.right {
+    position: relative;
+    width: 74%;
+    text-align: right;
+}
+
+.detailAddress .right {
+    width: 80%;
+    text-align: left;
+}
+
+.right textarea {
+    width: 60vw;
+    height: 140rpx;
+}
+
+.right picker {
+    padding-right: 40rpx;
+}
+
+.moreRegion {
+    position: absolute;
+    right: 0;
+    top: -22%;
+    font-size: 38rpx;
+}
+
+.submit {
+    background: #289AF6;
+    color: #fff;
+    margin: 30rpx auto;
+    font-size: 30rpx;
+    width: 54vw;
+    border-radius: 40px;
+}

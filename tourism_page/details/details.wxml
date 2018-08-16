@@ -1,0 +1,50 @@
+<!--pages/details/details.wxml-->
+<view class='head-img'><image src='../resource/images/cpxq.jpg'></image></view>
+
+<view class='contain'>
+
+  <text class='title'>[德夯苗寨] \n 古老的石碾和筒车，在水力的带动下，咕咕噜噜、咿咿呀呀，不知疲倦地旋转着，一派田园诗情，这就是德...</text>
+  <view class='admission'>
+    <image src='../resource/images/mxpj.png' class='img'></image>
+    <view class='price'><view class='money'>￥</view>280<text>起</text></view>
+    <image src='../resource/images/fxzq.png' class='imgs'></image>
+    <view class='num'>5920人已购买</view>
+  </view>
+
+  <view class='con'>
+    <view class='left'>可选套餐（1个）</view>
+    <view class='right'>剩余时间 <text>{{downTime.h}}</text>：<text>{{downTime.i}}</text>：<text>{{downTime.s}}</text></view>
+  </view>
+
+  <view class='footer'>
+    <view class='footer-left'>
+      <text>套餐一： 
+套餐简介套餐简介套餐简介套餐简介套餐简介套餐简介套餐简介套餐简介套餐简介套
+      </text>
+      <view class='bot'>出游日期： <text>07/05、07/06、07/07、07/08</text> </view>
+    </view>
+    <view class='footer-right'>
+      <view class='price add'><view class='money'>￥</view>280<text>起</text></view>
+      <image src='../resource/images/ljdg-1.png' mode='widthFix'></image>
+    </view>
+  </view>
+</view>
+
+<view class='tab'>
+  <view class='tabs {{currentTab == 0 ? "on" : "" }}' data-current='0' bindtap='swichNav'>
+    <text data-current='0' bindtap='swichNav'>购买说明</text>
+  </view>
+  <view class='tabs {{currentTab == 1 ? "on" : "" }}' data-current='1' bindtap='swichNav'>
+    <text data-current='1' bindtap='swichNav'>产品描述</text>
+  </view>
+</view>
+
+
+<view class='foot'>
+  <image src='../resource/images/mpxq.png' mode='widthFix'></image>
+  <view class='zx'>
+    <image src='../resource/icon/zx.png' mode='widthFix'></image>
+    咨询
+  </view>
+    <image class='ljgm' src='../resource/images/ljgm.png' mode='widthFix'></image>
+</view>

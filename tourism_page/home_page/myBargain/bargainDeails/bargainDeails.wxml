@@ -1,0 +1,373 @@
+<view class="modal" wx:if="{{getUseInfo}}">
+    <view class="m_box">
+        <view class="m_box_title">提示</view>
+        <view class="m_box_nr">请先开启用户授权</view>
+        <view class="border_top_2">
+            <button bindgetuserinfo="getUsetInfo" bindtap="close_modal" class="m_btn" openType="getUserInfo">确定</button>
+        </view>
+    </view>
+</view>
+<view class="container" wx:if="{{jiazai}}">
+    <view class="progress_box">
+        <canvas canvasId="canvasProgressbg" class="progress_bg"></canvas>
+        <canvas canvasId="canvasProgress" class="progress_canvas"></canvas>
+        <view class="progress_text">
+            <view class="progress_dot"></view>
+            <text class="progress_info"> {{progress_txt}}</text>
+        </view>
+    </view>
+</view>
+<view class="activity_over" wx:if="{{activity_over}}"></view>
+<block wx:if="{{!showPoster&&!activity_over}}">
+    <import src="/tourism_page/wxParse/wxParse.wxml"></import>
+    <view>
+        <view class="countdown" wx:if="{{Bargain.e_timer||Bargain.c_timer}}">
+            <view hidden="{{Bargain.end_t}}">{{!Bargain.start_t?'距活动开始仅剩':'距活动结束仅剩'}}</view>
+            <view class="day">
+                <text style="font-size:{{Bargain.end_t?34:40}}rpx;">{{Bargain.end_t?'活动结束':Bargain.start_t&&Bargain.e_clock?Bargain.e_clock:Bargain.c_clock}}</text>
+                <text hidden="{{Bargain.end_t}}">{{Bargain.now_t=='s'?'秒':Bargain.now_t=='m'?'分':Bargain.now_t=='h'?'小时':Bargain.now_t=='d'?'天':''}}</text>
+            </view>
+        </view>
+        <view class="topTourismDeails">
+            <swiper autoplay class="tourismImg" interval="2000">
+                <swiper-item wx:for="{{Bargain.images}}">
+                    <view class="top_swiper_box">
+                        <image src="{{item}}"></image>
+                        <view class="imgInfor">
+                            <view class="main-tit">{{Bargain.title}}</view>
+                            <view class="sub-tit">{{Bargain.jd_title}}</view>
+                            <view class="sub-tit">{{Bargain.jd_profile}}</view>
+                            <view class="departureLocation">{{Bargain.cf_area}}出发|支持：{{Bargain.tourism_type}}</view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="priceAndOptions">
+                <view class="priceAndOptions-left">
+                    <text style="font-size:34rpx;">最低价:￥{{Bargain.now_price}}</text>
+                    <text class="originalPrice">原价:￥{{Bargain.original_price}}</text>
+                </view>
+            </view>
+            <view class="tourism_time">
+                <text>出行时间：{{Bargain.depart_time}} ~ {{Bargain.back_time}}</text>
+            </view>
+            <view class="likeAndComment">
+                <view class="likeAndComment-left">
+                    <view class="friendSum-sum">{{Bargain.join_num}} 人已砍价成功</view>
+                </view>
+                <view class="likeAndComment-right">
+                    <view bindtap="scrollPage" class="comment">
+                        <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                        <view>{{message.length}}</view>
+                    </view>
+                    <view bindtap="touchLike" class="like" data-id="{{Bargain.jd_id}}">
+                        <image mode="widthFix" src="../../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+                        <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="bargain">
+            <view class="userInfor">
+                <view class="userInfor-left">
+                    <view>
+                        <open-data type="userAvatarUrl"></open-data>
+                    </view>
+                </view>
+                <view class="userInfor-right">
+                    <view class="text-over w20">
+                        <open-data type="userNickName"></open-data>
+                    </view>
+                    <view style="color:#999;">{{leftHelp==0?'参与活动后，可邀请好友一起助力！':'快邀请好友一起来助力！'}}</view>
+                </view>
+            </view>
+            <view class="e_clock" wx:if="{{c_clock&&b_time_status==1}}">砍价倒计时：{{c_clock}}</view>
+            <view class="progressInfor-box">
+                <view class="progressInfor {{leftHelp>=Bargain.original_price?'end_progress':''}}" style="left:{{leftHelp.length==7?-14+100/Bargain.original_price*leftHelp:leftHelp.length==6?-12+100/Bargain.original_price*leftHelp:leftHelp.length==5?-11+100/Bargain.original_price*leftHelp:leftHelp.length==4?-9+100/Bargain.original_price*leftHelp:leftHelp.length==3?-6+100/Bargain.original_price*leftHelp:leftHelp.length==2?-6+100/Bargain.original_price*leftHelp:leftHelp.length==1?-4+100/Bargain.original_price*leftHelp:''}}%;">
+        {{leftHelp>=Bargain.original_price?'砍价完成':leftHelp}}
+        <view class="currentPrice-triangle"></view>
+                </view>
+                <view class="progress" id="progress">
+                    <view class="progress-mask" id="progress-mask" style="width:{{100/Bargain.original_price*leftHelp}}%;"></view>
+                </view>
+            </view>
+            <view class="price-BeforeAndAfter">
+                <view>已砍{{leftHelp}}元</view>
+                <view style="color:#ee3d3d;">剩余{{surplusHelp}}元</view>
+            </view>
+            <view class="friendsBargain" hidden="{{leftHelp==0}}">
+      {{BargainRecord.length}}人一共砍掉
+      <text style="color:red;">{{leftHelp}}元</text>
+            </view>
+            <swiper autoplay vertical class="scrollInfo" hidden="{{leftHelp==0}}" interval="2000">
+                <swiper-item wx:for="{{BargainRecord}}" wx:key="i">
+                    <view class="successUser">
+                        <view class="userInfo">
+                            <image class="avatarUrl" src="{{item.avatar}}"></image>
+                            <view>{{item.nickname}}</view>
+                        </view>
+                        <view class="exchangeGoods">砍了{{item.price}}元</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="whatBargain">
+            <view class="whatBargain-tit">
+                <image mode="widthFix" src="../../../resource/images/my/liucheng.png"></image>
+                <view>什么是砍价</view>
+            </view>
+            <view class="whatBargain-cont">
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/dianji.png" style="width:52rpx;"></image>
+                    <text>点击砍价</text>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/yaoqing1.png" style="width:52rpx;"></image>
+                    <text>邀请助力</text>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/kanjia.png" style="width:52rpx;"></image>
+                    <text>继续砍价</text>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                </view>
+                <view>
+                    <image mode="widthFix" src="../../../resource/images/my/goumai.png" style="width:52rpx;"></image>
+                    <text>满意购买</text>
+                </view>
+            </view>
+        </view>
+        <view class="goodsDeails">
+            <view class="goodsDeails-tit">
+                <view bindtap="changeGoodsTit" class="goodsDeails-tit-item {{currentGoodsTit==0?'currentGoodsTit':''}}" data-id="0">
+                    <view>商品详情</view>
+                </view>
+                <view bindtap="changeGoodsTit" class="goodsDeails-tit-item  {{currentGoodsTit==1?'currentGoodsTit':''}}" data-id="1">
+                    <view>活动说明</view>
+                </view>
+                <view bindtap="changeGoodsTit" class="goodsDeails-tit-item  {{currentGoodsTit==2?'currentGoodsTit':''}}" data-id="2">
+                    <view>行程</view>
+                </view>
+                <view bindtap="changeGoodsTit" class="goodsDeails-tit-item  {{currentGoodsTit==3?'currentGoodsTit':''}}" data-id="3">
+                    <view>费用须知</view>
+                </view>
+                <view bindtap="changeGoodsTit" class="goodsDeails-tit-item {{currentGoodsTit==4?'currentGoodsTit':''}}" data-id="4">
+                    <view>买家评论</view>
+                </view>
+            </view>
+            <view class="goodsDeails-cont" wx:if="{{currentGoodsTit==0}}">
+                <view class="wxParse">
+                    <template is="wxParse" data="{{wxParseData:particulars.nodes}}"></template>
+                </view>
+            </view>
+            <view class="description-cont" wx:if="{{currentGoodsTit==1}}">
+                <view>
+                    <view class="serialNum"></view>
+                    <view>活动开始时间：{{Bargain.create_time}}</view>
+                </view>
+                <view>
+                    <view class="serialNum"></view>
+                    <view>活动开始时间：{{Bargain.finish_time}}</view>
+                </view>
+                <view class="wxParse">
+                    <template is="wxParse" data="{{wxParseData:active.nodes}}"></template>
+                </view>
+            </view>
+            <view class="detail_cont2" wx:if="{{currentGoodsTit==2}}">
+                <view class="part_1">
+                    <view class="plan_row">
+                        <block wx:for="{{fenlei.trip.plan}}" wx:key="item"></block>
+                    </view>
+                </view>
+                <view class="part_1 part_2">
+                    <view class="title p10">
+                        <image class="detail_icon" src="../../../resource/images/jt.png"></image>交通信息</view>
+                    <view class="traffic_list">
+                        <view class="traffic_item" wx:for="{{traffic}}">
+                            <view class="t_i_top">
+                                <text class="way_mark" wx:if="{{item.title=='去'}}">去</text>
+                                <text class="way_mark wm_2" wx:if="{{item.title=='返'}}">返</text>
+                                <text>{{item.cf_to}}</text>-
+                <text class="ml20">{{item.destination}}</text>
+                                <text></text>
+                            </view>
+                            <view class="t_i_bot">
+                                <view>
+                                    <view class="go_t">{{item.cf_time}}</view>
+                                </view>
+                                <view class="line">
+                                    <view>{{item.mode}}</view>
+                                    <image src="../../../resource/images/line.png"></image>
+                                </view>
+                                <view>
+                                    <view class="go_t">{{item.arrive_time}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view style="color:#FC6F48;margin-left:20rpx;">*
+            <text>具体交通信息以出团通知书为准</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="part_2 part_3">
+                    <view class="title p10">
+                        <image class="detail_icon" src="../../../resource/images/xc.png"></image>行程介绍</view>
+                    <view class="tianshu">
+                        <view class="zanwu" wx:if="{{xingcheng.length==0}}">暂无行程安排</view>
+                        <view wx:else>
+                            <scroll-view scrollX class="scrollview">
+                                <text bindtap="xingcheng" class="{{xingchengIndex==index?'onon':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{xingcheng}}" wx:key="xc">{{item.days}}</text>
+                            </scroll-view>
+                            <view class="trip_list">
+                                <view class="trip_item">
+                                    <view>
+                                        <text style="color:#666666;">{{mrxc.title}}</text>
+                                        <view>
+                                            <text>{{mrxc.start_time}}---{{mrxc.end_time}}</text>
+                                        </view>
+                                        <view>
+                                            <text>{{mrxc.describe}}</text>
+                                        </view>
+                                        <view class="wxParse">
+                                            <template is="wxParse" data="{{wxParseData:probable.nodes}}"></template>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view style="color:#FC6F48;border-top:2rpx solid #dedede">*
+          <text>以上行程可能因为天气或其他原因有变动,具体行程以出团通知书为准</text>
+                    </view>
+                </view>
+            </view>
+            <view class="detail_cont3 detail_cont2" wx:if="{{currentGoodsTit==3}}">
+                <view class="detail_cont3">
+                    <view class="item" wx:for="{{fenlei.cost_info}}" wx:key="{{item}}">
+                        <view bindtap="open_switch" class="top" data-index="{{index}}">
+                            <image class="detail_icon" src="{{item.icon}}"></image>{{item.name}}
+              <image class="detail_icon arrow" src="../../../resource/images/bottom.png" wx:if="{{item.status}}"></image>
+                            <image class="detail_icon arrow" src="../../../resource/images/top.png" wx:if="{{!item.status}}"></image>
+                        </view>
+                        <view class="detail" wx:if="{{item.status}}">
+                            <view style="margin-left: 40rpx;" wx:if="{{index==0}}">
+                                <view class="title" style="font-size:24rpx;color:#000;margin:10rpx 0;">{{information.title}}</view>
+                                <view class="wxParse">
+                                    <template is="wxParse" data="{{wxParseData:information_text.nodes}}"></template>
+                                </view>
+                            </view>
+                            <view style="margin-left: 40rpx;" wx:if="{{index==1}}">
+                                <view>{{information.yd_instructions}}</view>
+                            </view>
+                            <view style="margin-left: 40rpx;" wx:if="{{index==2}}">
+                                <view>{{information.tg_instruction}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="comment-cont" wx:if="{{currentGoodsTit==4}}">
+                <view class="dynamic-item" wx:for="{{message}}" wx:for-index="message">
+                    <view class="dynamic-top">
+                        <view class="dynamic-left">
+                            <view class="userAvatarUrl">
+                                <image src="{{item.avatar}}"></image>
+                            </view>
+                            <view class="nameAndTime">
+                                <view class="nickName">
+                  {{item.nickname}}
+                </view>
+                                <view class="time">{{item.create_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="goCommentDeails" class="dynamic-text" data-id="{{item.id}}">
+            {{item.content}}
+          </view>
+                    <view class="dynamic-img">
+                        <view bindtap="previewImg" class="dynamic-img-item" data-id="{{index}}" data-idx="{{message}}" wx:for="{{item.image}}" wx:for-item="img">
+                            <image src="{{img}}"></image>
+                        </view>
+                    </view>
+                    <view class="dynamic-infor">
+                        <view class="browse">
+                            <image mode="widthFix" src="../../../resource/images/my/liulan.png"></image>
+                            <view>{{item.look_num}}</view>
+                        </view>
+                        <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
+                            <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                            <view>{{item.reply}}</view>
+                        </view>
+                        <view bindtap="likeBtnIO" class="like" data-id="{{item.id}}" data-idx="{{message}}">
+                            <image mode="widthFix" src="../../../resource/images/release/{{item.praise_status==1?'like1':'like'}}.png"></image>
+                            <view style="color:{{item.praise_status==1?'#15e4d1;':''}}">{{item.praise}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="show_bargainModel" class="bargainOver fixedBtn" wx:if="{{!bargainIO&&Bargain.start_t}}">立即砍价</view>
+        <view class="bargainOver fixedBtn" style="background:#999;" wx:if="{{!Bargain.start_t}}">活动未开始</view>
+        <view class="bargainUndone fixedBtn" wx:if="{{bargainIO&&Bargain.start_t}}">
+            <view bindtap="{{a_time_status==-1||b_time_status==-1||no_bargain?'':'goShare'}}" style="background:{{a_time_status==-1||b_time_status==-1||no_bargain?'#999':'#ef5d5e'}}">
+      {{a_time_status==-1?'活动已结束':b_time_status==-1?'砍价已结束':no_bargain?'已砍至最低':'找人帮砍'}}
+    </view>
+            <view bindtap="{{a_time_status==-1?'go_activity':'goBuy'}}">{{a_time_status==-1?'查看其他活动':'立即购买'}}</view>
+        </view>
+        <view bindtap="goShare" class="share-mask" wx:if="{{share}}"></view>
+        <view class="share" wx:if="{{share}}">
+            <view class="sendFriend">
+                <view>
+                    <image src="../../../resource/images/wx-share.png"></image>
+                    <view>发送给朋友</view>
+                    <button openType="share"></button>
+                </view>
+                <view bindtap="showPoster" class="posterShare">
+                    <image src="../../../resource/images/haibao.png"></image>
+                    <view>生成海报分享</view>
+                </view>
+            </view>
+            <view bindtap="goShare" class="cancel">取消</view>
+        </view>
+        <view class="after_model" wx:if="{{share_model}}">
+            <view class="after_model_top">
+                <image class="after_model_bg" src="../../../resource/images/my/friend_bargain/model_top.png"></image>
+                <image class="sponsor_avatar" src="{{friends_bargain?friends_bargain.avatar:srcollSum[0].avatar}}"></image>
+            </view>
+            <view class="model_tit" hidden="{{identical}}">
+                <text hidden="{{a_time_status==-1||b_time_status==-1||no_bargain}}">砍价成功！ 我砍了<text style="color:red;">{{friends_bargain?friends_bargain.price:srcollSum[0].price}}</text>元</text>
+            </view>
+            <view class="model_subtit">
+      {{identical?'已帮好友砍过！':help_status&&a_time_status==-1?'该活动已结束！':help_status&&b_time_status==-1?'您的好友砍价时间已结束！':no_bargain?'您的好友砍价活动已完成！':''}}
+      <text hidden="{{identical||a_time_status==-1||b_time_status==-1||no_bargain}}">还可以砍<text style="color:red;">{{friends_bargain?friends_bargain.total:Bargain.original_price-srcollSum[0].price}}</text>元，快邀请好友一起来砍吧！</text>
+            </view>
+            <view class="model_btn" hidden="{{a_time_status==-1||b_time_status==-1||no_bargain}}">
+      {{help_status?'分享好友，帮他砍价':'分享好友，帮你砍价'}}
+      <button openType="share"></button>
+            </view>
+            <view bindtap="go_activity" class="model_btn model_btn1" wx:if="{{help_status}}">
+      我也要参加
+    </view>
+        </view>
+        <view class="after_model_mask" wx:if="{{share_model}}"></view>
+        <view bindtap="{{help_status?'go_activity':'hide_share_model'}}" class="cancel_model {{help_status?'two_btn':''}}" wx:if="{{share_model&&!help_status}}">
+            <view></view>
+            <view></view>
+        </view>
+    </view>
+</block>
+<view class="poster-box" wx:if="{{showPoster}}">
+    <image bindlongpress="show_options" bindtap="hidePoster" class="canvasImg" mode="widthFix" src="{{path}}"></image>
+</view>
+<view bindtap="show_options" class="options_mask" wx:if="{{show_options}}"></view>
+<view class="hb_options" wx:if="{{show_options}}">
+    <button bindtap="saveImg">保存图片</button>
+    <button bindtap="show_options">取消</button>
+</view>

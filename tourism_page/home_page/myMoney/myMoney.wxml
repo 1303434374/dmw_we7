@@ -1,0 +1,27 @@
+<view class="accountBalance">
+    <view class="accountBalance-tit">账户余额 ( 元 )</view>
+    <view class="money">300.00</view>
+</view>
+<view class="list">
+    <view bindtap="goRecharge" class="list-item">
+        <view class="list-item-left">
+            <image mode="widthFix" src="../../resource/images/my/chongzhi.png"></image>
+            <view>充值</view>
+        </view>
+        <view class="list-item-right">></view>
+    </view>
+    <view bindtap="goWithdraw" class="list-item">
+        <view class="list-item-left">
+            <image mode="widthFix" src="../../resource/images/my/tixian.png"></image>
+            <view>提现</view>
+        </view>
+        <view class="list-item-right">></view>
+    </view>
+    <view bindtap="goBill" class="list-item">
+        <view class="list-item-left">
+            <image mode="widthFix" src="../../resource/images/my/zhangdan.png"></image>
+            <view>账单</view>
+        </view>
+        <view class="list-item-right">></view>
+    </view>
+</view>

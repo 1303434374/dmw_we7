@@ -1,0 +1,69 @@
+<view class="container">
+    <view class="underling-tit">
+        <view bindtap="changeTit" class="tit-item" data-id="0" style="color:{{titVal==0?'#289Af6':'#000'}}">一级( {{one.length}} )</view>
+        <view bindtap="changeTit" class="tit-item" data-id="1" style="color:{{titVal==1?'#289Af6':'#000'}}">二级( {{two.length}} )</view>
+        <view bindtap="changeTit" class="tit-item" data-id="2" style="color:{{titVal==2?'#289Af6':'#000'}}">三级( {{three.length}} )</view>
+    </view>
+    <view class="explanation">
+        <image src="../../resource/images/my/underling-icon.png"></image>
+        <view>代表已成为分销商的下线</view>
+    </view>
+    <view class="underling" wx:if="{{titVal==0}}">
+        <view class="underling-item" wx:for="{{one}}">
+            <view class="underling-avatarUrl">
+                <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="underling-infor">
+                <view class="underling-name">
+                    <image src="../../resource/images/my/underling-icon.png" wx:if="{{item.status==1}}"></image>
+                    <view>{{item.nickname}}</view>
+                </view>
+                <view class="underling-time" wx:if="{{item.status==1}}">成为分销商时间:{{item.send_time}}</view>
+            </view>
+            <view class="underling-underling">
+                <view>+{{item.remaining}}</view>
+                <view wx:if="{{item.status==1}}">{{item.DownNum}}个成员</view>
+            </view>
+        </view>
+    </view>
+    <view class="underling" wx:if="{{titVal==1}}">
+        <view class="underling-item" wx:for="{{two}}">
+            <view class="underling-avatarUrl">
+                <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="underling-infor">
+                <view class="underling-name">
+                    <image src="../../resource/images/my/underling-icon.png" wx:if="{{item.status==1}}"></image>
+                    <view>{{item.nickname}}</view>
+                </view>
+                <view class="underling-time" wx:if="{{item.status==1}}">成为分销商时间:{{item.send_time}}</view>
+            </view>
+            <view class="underling-underling">
+                <view>+{{item.remaining}}</view>
+                <view wx:if="{{item.status==1}}">{{item.DownNum}}个成员</view>
+            </view>
+        </view>
+    </view>
+    <view class="underling" wx:if="{{titVal==2}}">
+        <view class="underling-item" wx:for="{{three}}">
+            <view class="underling-avatarUrl">
+                <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="underling-infor">
+                <view class="underling-name">
+                    <image src="../../resource/images/my/underling-icon.png" wx:if="{{item.status==1}}"></image>
+                    <view>{{item.nickname}}</view>
+                </view>
+                <view class="underling-time" wx:if="{{item.status==1}}">成为分销商时间:{{item.send_time}}</view>
+            </view>
+            <view class="underling-underling">
+                <view>+{{item.remaining}}</view>
+                <view wx:if="{{item.status==1}}">{{item.DownNum}}个成员</view>
+            </view>
+        </view>
+    </view>
+    <view class="notUnderling" wx:if="{{titVal==0&&one.length==0?'true':titVal==1&&two.length==0?'true':titVal==2&&three.length==0?true:false}}">
+        <image mode="widthFix" src="../../resource/images/my/notUnderling.png"></image>
+        <view>此功能暂未开放</view>
+    </view>
+</view>

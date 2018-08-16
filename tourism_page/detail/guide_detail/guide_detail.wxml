@@ -1,0 +1,60 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view class="">
+    <view class="up">
+        <view class="bg">
+            <image src="../../resource/images/guide_bg_02.png"></image>
+        </view>
+        <view class="person_head">
+            <view class="head_img">
+                <image src="{{guide.head}}"></image>
+            </view>
+            <view bindtap="call" class="tel" data-tel="{{guide.phone}}">
+                <image src="../../resource/images/tel_2.png"></image>
+            </view>
+            <view class="name fs30">{{guide.name}}({{guide.class}})</view>
+            <view class="cost fs24">￥<text class="fs30 fw">{{guide.spotprices}}</text>
+            </view>
+            <view class="num fs28">已带队{{guide.sentiment}}次</view>
+        </view>
+    </view>
+    <view class="jianjie">
+        <view class="jianjie-top">
+            <view class="lf">
+                <image src="../../resource/images/grjj.png"></image>
+                <text>个人简介</text>
+            </view>
+            <view bindtap="jianjie" class="rt">
+                <image src="../../resource/images/{{jianjie?'bottom':'top'}}.png"></image>
+            </view>
+        </view>
+        <view class="jianjie-bottom" hidden="{{jianjie}}">
+            <view class="wxParse">
+                <template is="wxParse" data="{{wxParseData:profile.nodes}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="list content-inner">
+            <view class="title">
+                <view class="t_left">
+                    <image src="../../resource/images/place_icon.png"></image>曾经带过的景点</view>
+            </view>
+            <view bindtap="go_jd" class="list-item" data-id="{{item.id}}" wx:for="{{guide.attractions}}" wx:key="all">
+                <image src="{{item.image}}"></image>
+                <view class="list-item-mask">
+                    <view class="list-titAndPrice">
+                        <view style="font-size:32rpx;">{{item.title}}</view>
+                        <view>￥{{item.price}}</view>
+                    </view>
+                    <view class="list-profile">{{item.jd_profile}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="lijigoumai">
+    <view class="lijigoumai-jine">
+    订单金额：￥{{guide.spotprices}}
+  </view>
+    <view bindtap="lijiyuyue" class="lijigoumai-btn" data-id="{{guide[0].id}}" data-price="{{guide[0].spotprices}}">立即预约</view>
+</view>

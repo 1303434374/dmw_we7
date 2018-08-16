@@ -1,0 +1,28 @@
+<view class="order-box">
+    <view class="order">
+        <image class="orderImg" src="{{OrderInfo.icon}}"></image>
+        <view class="orderInfor">
+            <view class="order-tit">{{OrderInfo.title}}</view>
+            <view class="order-options"> 订单编号:{{OrderInfo.orders}}</view>
+            <view class="order-priceAndSum">￥{{OrderInfo.total}}</view>
+        </view>
+    </view>
+</view>
+<view class="userEvaluation">
+    <textarea autoHeight bindinput="getText" class="evaluationText" placeholder="亲，您对这个商品满意吗？ 您的评价会帮助我们选择更好的商品哦~"></textarea>
+    <view class="evaluationImg">
+        <view class="uploadImg" wx:for="{{picPath}}" wx:key="{{picPath}}">
+            <image src="{{item}}"></image>
+            <view class="cancel-btn">
+                <icon bindtap="delImg" color="#fff" data-id="{{index}}" size="18" type="cancel"></icon>
+            </view>
+        </view>
+        <view bindtap="upLoadPic" class="addImg" hidden="{{picPath.length==5}}">
+            <image mode="widthFix" src="../../resource/icon/takePic.png"></image>
+            <view>{{picPath.length>=1?picPath.length+'/5':'上传图片'}}</view>
+        </view>
+    </view>
+</view>
+<view class="fixed">
+    <view bindtap="formEvaluation" class="formBtn">提交评价</view>
+</view>

@@ -1,0 +1,135 @@
+page {
+    background: #f6f6f6;
+}
+
+.topSearch {
+    width: 94vw;
+    padding: 0 3vw;
+    margin: 20rpx 0;
+}
+
+.topSearch>input {
+    background: #fff;
+    text-align: center;
+    font-size: 28rpx;
+    width: 100%;
+    height: 80rpx;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.currentSeason {
+    width: 100vw;
+    background: #fff;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+
+.currentSeason-tit {
+    position: relative;
+    width: 94vw;
+    height: 70rpx;
+    padding: 0 3vw;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.currentSeason-tit-left {
+    width: 4rpx;
+    height: 28rpx;
+    background: #15e4d1;
+    margin-right: 10rpx;
+}
+
+.currentSeason-tit-right {
+    font-size: 22rpx;
+    color: #999;
+    margin-left: 30rpx;
+}
+
+.currentSeason-cont {
+    width: 98vw;
+    padding: 0 1vw;
+    overflow: hidden;
+    margin: 0 0 3vw 0;
+}
+
+.currentSeason-item {
+    width: 48.5vw;
+    display: inline-block;
+    margin-bottom: 1vw;
+    margin-right: 1vw;
+}
+
+.currentSeason-item:nth-child(2n) {
+    margin-right: 0;
+}
+
+.currentSeason-item-img {
+    width: 100%;
+    height: 200rpx;
+}
+
+.currentSeason-item-img>image {
+    width: 100%;
+    height: 100%;
+}
+
+.currentSeason-name,.currentSeason-price {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.currentSeason-name {
+    font-size: 30rpx;
+}
+
+.currentSeason-price {
+    font-size: 26rpx;
+    color: #999;
+    margin-top: 10rpx;
+}
+
+.specified-attractions {
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.attractions-cont {
+    width: 98vw;
+    padding: 0 1vw;
+    overflow: hidden;
+}
+
+.attractions-item {
+    float: left;
+    width: 32vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.attractions-item:nth-child(2) {
+    margin: 0 1vw;
+}
+
+.hotCity {
+    width: 100vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 30rpx;
+    margin: 20rpx 0;
+}
+
+.lookMore {
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin: 20rpx 0;
+}

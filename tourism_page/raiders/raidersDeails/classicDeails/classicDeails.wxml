@@ -1,0 +1,15 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="articleTit">{{Information.title}}</view>
+<view class="editInfor">
+    <view class="edit-avatarUrl">
+        <image src="{{Information.avatar}}"></image>
+    </view>
+    <view class="edit-name">{{Information.nickname}}</view>
+    <view class="edit-readSum">总阅读数: {{Information.look_num}}</view>
+</view>
+<view class="article-img">
+    <image src="{{Information.icon}}"></image>
+</view>
+<view class="article-text">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+</view>

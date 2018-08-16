@@ -1,0 +1,216 @@
+<import src="/tourism_page/wxParse/wxParse.wxml"></import>
+<view>
+    <view class="staging_detail_top">
+        <swiper autoplay="{{swiper.autoplay}}" class="swiper_wrap" duration="{{swiper.duration}}" indicatorDots="{{swiper.indicatorDots}}" interval="{{swiper.interval}}">
+            <swiper-item class="swiper_item" wx:for="{{array}}" wx:key="swiper">
+                <image class="slide-image" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="mark" wx:for="{{scenicspot}}">{{item.cf_area}} 出发
+    </view>
+    </view>
+    <view class="staging_detail_bot" wx:for="{{scenicspot}}">
+        <view class="name">{{item.title}}</view>
+        <view class="intro">{{item.jd_profile}}</view>
+        <view class="fs24 money color_blue">￥
+      <text class="fs30 fw">{{item.price}}/起/人</text>
+        </view>
+        <view class="appraise">
+            <view class="label">经典观光</view>
+            <view class="departureLocation">{{item.jd_area}}出发 | 支持：{{item.tourism_type}}</view>
+            <view class="appraise-share">
+                <button class="shareBtn" openType="share"></button>
+                <image src="../../resource/images/shareBtn.png"></image>
+            </view>
+        </view>
+        <view class="likeAndComment">
+            <view class="likeAndComment-left">
+                <view class="friendSum-img">
+                    <view wx:for="{{ScenicspotUser.avatar}}" wx:for-item="avat">
+                        <image src="{{avat}}"></image>
+                    </view>
+                </view>
+                <view class="friendSum-sum">已有{{ScenicspotUser.num}}人去过</view>
+            </view>
+            <view class="likeAndComment-right">
+                <view bindtap="scrollPage" class="comment">
+                    <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+                    <view>{{message.length}}</view>
+                </view>
+                <view bindtap="touchLike" class="like" data-id="{{item.id}}">
+                    <image mode="widthFix" src="../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+                    <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bank_part">
+        <view class="title fs30" wx:for="{{scenicspot}}">
+            <image class="bank_icon" src="../../resource/images/f_1_sel.png"></image>{{item.cf_area}}
+    </view>
+        <view class="go_list">
+            <view bindtap="yuding" class="go_item" data-day="{{item.day}}" data-id="{{scenicspot_id.id}}" data-month="{{item.month}}" wx:for="{{prices}}" wx:key="item">
+                <view>
+                    <text>{{item.dateday}}</text>
+                </view>
+                <view class="color_blue">{{item.mprice}}</view>
+            </view>
+            <view bindtap="yuding" class="go_item hold_on" data-day="{{prices[0].day}}" data-id="{{scenicspot_id.id}}" data-month="{{prices[0].month}}">···</view>
+        </view>
+    </view>
+    <view class="detailing">
+        <view class="header nav">
+            <view bindtap="click" class="nav_item {{currentTab==index?'onon':''}}" data-index="{{index}}" wx:for="{{fenlei.title}}" wx:key="item">{{item}}</view>
+        </view>
+    </view>
+    <view class="detail_cont1" wx:if="{{currentTab==0}}" wx:for="{{scenicspot}}">
+        <view class="detail_cont1">
+            <view class="recommend">
+                <view class="header">
+                    <image class="detail_icon" src="../../resource/images/tuijian.png"></image>小编推荐</view>
+                <view class="detail">{{item.title}}</view>
+            </view>
+            <view class="recommend">
+                <view class="header">
+                    <image class="detail_icon" src="../../resource/images/zan.png"></image>产品特色</view>
+                <view class="detail">{{item.jd_profile}}</view>
+                <view class="img">
+                    <view class="wxParse">
+                        <template is="wxParse" data="{{wxParseData:jd_features.nodes}}"></template>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="detail_cont2" wx:if="{{currentTab==1}}">
+        <view class="part_1">
+            <view class="plan_row">
+                <block wx:for="{{fenlei.trip.plan}}" wx:key="item"></block>
+            </view>
+        </view>
+        <view class="part_1 part_2">
+            <view class="title p10">
+                <image class="detail_icon" src="../../resource/images/jt.png"></image>交通信息</view>
+            <view class="traffic_list">
+                <view class="traffic_item" wx:for="{{traffic}}">
+                    <view class="t_i_top">
+                        <text class="way_mark" wx:if="{{item.title=='去'}}">去</text>
+                        <text class="way_mark wm_2" wx:if="{{item.title=='返'}}">返</text>
+                        <text>{{item.cf_to}}</text>-
+              <text class="ml20">{{item.destination}}</text>
+                        <text></text>
+                    </view>
+                    <view class="t_i_bot">
+                        <view>
+                            <view class="go_t">{{item.cf_time}}</view>
+                        </view>
+                        <view class="line">
+                            <view>{{item.mode}}</view>
+                            <image src="../../resource/images/line.png"></image>
+                        </view>
+                        <view>
+                            <view class="go_t">{{item.arrive_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view style="color:#FC6F48;margin-left:20rpx;">*
+          <text>具体交通信息以出团通知书为准</text>
+                </view>
+            </view>
+        </view>
+        <view class="part_2 part_3">
+            <view class="title p10">
+                <image class="detail_icon" src="../../resource/images/xc.png"></image>行程介绍</view>
+            <view class="tianshu">
+                <view class="zanwu" wx:if="{{xingcheng.length==0}}">暂无行程安排</view>
+                <view wx:else>
+                    <scroll-view scrollX class="scrollview">
+                        <text bindtap="xingcheng" class="{{xingchengIndex==index?'onon':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{xingcheng}}" wx:key="xc">{{item.days}}</text>
+                    </scroll-view>
+                    <view class="trip_list">
+                        <view class="trip_item">
+                            <view>
+                                <text style="color:#666666;">{{mrxc.title}}</text>
+                                <view>
+                                    <text>{{mrxc.start_time}}---{{mrxc.end_time}}</text>
+                                </view>
+                                <view>
+                                    <text>{{mrxc.describe}}</text>
+                                </view>
+                                <view class="wxParse" style="margin-top:15rpx;">
+                                    <template is="wxParse" data="{{wxParseData:probable.nodes}}"></template>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view style="color:#FC6F48;border-top:2rpx solid #dedede">*
+        <text>以上行程可能因为天气或其他原因有变动,具体行程以出团通知书为准</text>
+            </view>
+        </view>
+    </view>
+    <view class="detail_cont3" wx:if="{{currentTab==2}}">
+        <view class="detail_cont3">
+            <view class="item" wx:for="{{fenlei.cost_info}}" wx:key="{{item}}">
+                <view bindtap="open_switch" class="top" data-index="{{index}}">
+                    <image class="detail_icon" src="{{item.icon}}"></image>{{item.name}}
+            <image class="detail_icon arrow" src="../../resource/images/bottom.png" wx:if="{{item.status}}"></image>
+                    <image class="detail_icon arrow" src="../../resource/images/top.png" wx:if="{{!item.status}}"></image>
+                </view>
+                <view class="detail" wx:if="{{item.status}}">
+                    <view style="margin-left: 40rpx;" wx:if="{{index==0}}">
+                        <view class="title" style="font-size:24rpx;color:#000;margin:10rpx 0;">{{information.title}}</view>
+                        <view class="wxParse">
+                            <template is="wxParse" data="{{wxParseData:text.nodes}}"></template>
+                        </view>
+                    </view>
+                    <view style="margin-left: 40rpx;" wx:if="{{index==1}}">
+                        <view>{{information.yd_instructions}}</view>
+                    </view>
+                    <view style="margin-left: 40rpx;" wx:if="{{index==2}}">
+                        <view>{{information.tg_instruction}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="comment-cont" wx:if="{{currentTab==3}}">
+        <view class="comment-item" wx:for="{{message}}" wx:for-index="message">
+            <view class="comment-info">
+                <view>
+                    <image src="{{item.avatar}}"></image>
+                </view>
+                <view>{{item.nickname}}</view>
+            </view>
+            <view class="comment-time">
+                <text space="emsp">{{item.create_time}} </text>
+                <text>{{item.order_type_name}}</text>
+            </view>
+            <view bindtap="goCommentDeails" class="comment-text" data-id="{{item.id}}">
+          {{item.content}}
+        </view>
+            <view class="comment-img" wx:if="{{item.image.length>0}}">
+                <image bindtap="previewImg" data-id="{{idx}}" data-mainid="{{message}}" src="{{img}}" wx:for="{{item.image}}" wx:for-index="idx" wx:for-item="img"></image>
+            </view>
+            <view class="dynamic-infor">
+                <view class="browse">
+                    <image mode="widthFix" src="../../resource/images/my/liulan.png"></image>
+                    <view>{{item.look_num}}</view>
+                </view>
+                <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
+                    <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+                    <view>{{item.reply}}</view>
+                </view>
+                <view bindtap="likeBtnIO" class="like" data-id="{{item.id}}" data-idx="{{message}}">
+                    <image mode="widthFix" src="../../resource/images/release/{{item.praise_status==1?'like1':'like'}}.png"></image>
+                    <view style="color:{{item.praise_status==1?'#15e4d1;':''}}">{{item.praise}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="footer" wx:for="{{scenicspot}}">
+        <view bindtap="call" class="btn" data-tel="{{Kftel.tel}}">电话咨询</view>
+        <view bindtap="yuding" class="btn enrol" data-day="{{prices[0].day}}" data-id="{{item.id}}" data-month="{{prices[0].month}}">立即预定</view>
+    </view>
+</view>

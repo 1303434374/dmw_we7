@@ -1,0 +1,238 @@
+.user-item {
+    width: 94vw;
+    padding: 20rpx 3vw 0;
+    background: #fff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info>view:first-child {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10rpx;
+}
+
+.user-info>view>image {
+    width: 100%;
+    height: 100%;
+}
+
+.user-info>view {
+    font-size: 30rpx;
+}
+
+.user-time {
+    font-size: 24rpx;
+    color: #666;
+    margin: 20rpx 0;
+}
+
+.user-text {
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+
+.user-img {
+    padding: 20rpx 0;
+}
+
+.user-img>image {
+    width: 30.6vw;
+    height: 30.6vw;
+    display: inline-flex;
+    margin-right: 1vw;
+}
+
+.user-img>image:nth-child(3n) {
+    margin-right: 0;
+}
+
+.user-Btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20rpx 0;
+}
+
+.userBtn {
+    margin-right: 20rpx;
+}
+
+.userBtn,.likeBtn {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+}
+
+.likeBtn>image {
+    width: 30rpx;
+    margin-right: 10rpx;
+}
+
+.userBtn>image {
+    width: 34rpx;
+    margin-right: 10rpx;
+}
+
+.order-item {
+    padding: 0 0 40rpx;
+    margin: 60rpx 0 0;
+}
+
+.order-tit {
+    font-size: 26rpx;
+    color: #666;
+    margin-bottom: 20rpx;
+}
+
+.order-cont {
+    display: flex;
+}
+
+.order-img {
+    width: 166rpx;
+    height: 166rpx;
+    margin-right: 20rpx;
+}
+
+.order-img>image {
+    width: 100%;
+    height: 100%;
+}
+
+.order-info {
+    font-size: 28rpx;
+}
+
+.main-tit {
+    margin-bottom: 20rpx;
+}
+
+.dynamic-infor {
+    border-bottom: 1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+    width: 94vw;
+    padding: 20rpx 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    font-size: 26rpx;
+}
+
+.dynamic-infor>view {
+    display: flex;
+    align-items: center;
+}
+
+.dynamic-infor>view image {
+    margin-right: 8rpx;
+}
+
+.comment11>image {
+    width: 36rpx;
+}
+
+.browse>image {
+    width: 36rpx;
+}
+
+.like>image {
+    width: 30rpx;
+}
+
+.allComment {
+    width: 100vw;
+}
+
+.comment-item {
+    width: 94vw;
+    padding: 30rpx 3vw 20rpx;
+    display: flex;
+    border-bottom: 4rpx solid #f6f6f6;
+}
+
+.comment-item:last-child {
+    margin-bottom: 0;
+}
+
+.comment-item-left {
+    width: 12%;
+    margin-right: 4%;
+}
+
+.comment-item-left>view {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-item-left>view>image {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-item-right {
+    width: 84%;
+    font-size: 28rpx;
+    color: #868686;
+}
+
+.comment {
+    font-size: 32rpx;
+    color: #000;
+    margin-top: 10rpx;
+}
+
+.look-allComment {
+    padding: 20rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.input-mask {
+    position: fixed;
+    z-index: 32;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.2);
+}
+
+.input-box {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    z-index: 33;
+    padding: 20rpx 0;
+    background: #f6f6f6;
+}
+
+.input-box>input {
+    width: 75vw;
+    border: 1px solid #ccc;
+    border-radius: 10rpx;
+    padding: 10rpx 0 10rpx 5vw;
+    background: #fff;
+    margin: 0 auto;
+    font-size: 30rpx;
+}
+
+.people-comment-item {
+    width: 94vw;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    margin: 10rpx auto;
+}
+
+.people-comment-item>view:first-child {
+    margin-right: 10rpx;
+}

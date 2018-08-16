@@ -1,0 +1,75 @@
+@import "../../../__wuBaseWxss__/3.wxss";
+
+.strategy_wrap {
+    background: #fff;
+    padding: 20rpx;
+    position: relative;
+}
+
+.strategy_wrap .title {
+    padding: 10rpx;
+    padding-left: 0;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.strategy_wrap .title text {
+    margin: 0 10rpx;
+}
+
+.strategy_wrap .describe {
+    font-size: 26rpx;
+    color: #9C9C9C;
+    margin-bottom: 20rpx;
+}
+
+.strategy_wrap .music_icon {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 50rpx;
+    right: 20rpx;
+}
+
+.strategy_wrap .cover_img {
+    margin-top: 40rpx;
+}
+
+.strategy_wrap .label {
+    padding: 5rpx 20rpx;
+    color: #208CF8;
+    border: 2rpx solid #208CF8;
+    margin-right: 10rpx;
+    font-size: 22rpx;
+    border-radius: 10rpx;
+}
+
+.arrow_down_icon {
+    width: 40rpx;
+    height: 25rpx;
+    margin: 20rpx auto 20rpx auto;
+}
+
+.rotateRight {
+    animation: rotate360 5s linear infinite;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,35 @@
+<view class="expressCompany">
+    <image src="../../resource/images/my/shangjia.png"></image>
+    <view class="expressCompany-infor">
+        <view style="color:#000">物流公司：<text style="color:#38b56d;">安能快递</text>
+        </view>
+        <view>运单编号：<text>{{orderNum}}</text>
+        </view>
+        <view>物流电话：<text style="color:#15e4d1;">123-132-4587</text>
+        </view>
+    </view>
+    <view bindtap="copyOrderRecord" class="copyBtn">复制</view>
+</view>
+<view class="expressInfor">
+    <view class="shippingAddress">
+        <image src="../../resource/images/my/dingwei.png"></image>
+        <view>[收货地址] 山西省太原市小店区山西省太原市小店区山西省太原市小店区</view>
+    </view>
+    <view class="expressInfor-cont">
+        <view class="{{index==0||index==a-1||index==a-2?'currentInfor':''}} expressInfor-item" data-id="{{index}}" id="currentInfor{{index}}" wx:for="{{a}}" wx:key="{{a}}">
+            <view class="time">
+                <view>昨天</view>
+                <view style="font-size:20rpx;">22:45</view>
+            </view>
+            <view class="indexImgAndLine">
+                <icon class="currentIndex" color="{{index==0||index==a-1||index==a-2?'#f8881c':'transparent'}}" size="14" type="success"></icon>
+                <view class="indexImg" wx:if="{{index!=0&index!=a-1&index!=a-2}}"></view>
+                <view class="line" hidden="{{index==a-1}}"></view>
+            </view>
+            <view class="arrivalPosition">
+                <view class="expressStatus" wx:if="{{index==0||index==a-1||index==a-2}}">运输中</view>
+                <view>广东广东深圳市快递市快已出发快递公司已出发</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<scroll-view scrollWithAnimation scrollX class="order-tit">
+    <view bindtap="changeCurrentTit" class="tit-item {{currentTit==index?'currentTit':''}}" data-id="{{index}}" wx:for="{{titArr}}">
+      {{item}}
+    </view>
+</scroll-view>
+<view class="teamworkSuccess" wx:for="{{MyOrderList}}">
+    <view class="userOperating">
+        <text>{{item.order_type_name}}</text>
+        <view style="font-size: 30rpx;">订单状态 :
+        <text style="color:#15e4d1;">{{item.status}}</text>
+        </view>
+    </view>
+    <view bindtap="goHotplaceDetail" class="order" data-guide="{{item.guide}}" data-id="{{item.id}}" data-order_type="{{item.order_type}}" data-scenicspot="{{item.scenicspot}}">
+        <image class="orderImg" src="{{item.icon}}"></image>
+        <view class="orderInfor">
+            <view>{{item.title}}</view>
+            <view class="order-options">{{item.tourism_type_title}}</view>
+            <view class="order-num">订单编号 : {{item.orders}}</view>
+            <view class="order-priceAndSum">实付金额 :
+          <text>￥{{item.total}}</text>
+            </view>
+            <view>下单时间 : {{item.xd_time}}</view>
+        </view>
+    </view>
+    <view class="timeAndStatus">
+        <view class="teamwork-btn">
+            <view bindtap="fail_order" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==-1}}">取消订单</view>
+            <view bindtap="goEvaluation" class="lookTeamwork" data-id="{{item.id}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==3}}">去评价</view>
+            <view bindtap="goPay" class="lookTeamwork" data-id="{{item.id}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==-1}}">去付款</view>
+            <view bindtap="goWriteOff" class="lookTeamwork" data-id="{{item.id}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==1}}">去核销</view>
+            <view bindtap="del" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-order_type="{{item.order_type}}" wx:if="{{item.state==4}}">删除</view>
+        </view>
+    </view>
+</view>
+<view class="notOrder" wx:if="{{MyOrderList.length==0}}">
+    <image src="../../resource/icon/notOrder.png"></image>
+    <view>暂无订单</view>
+</view>
+<view class='foot-bg'><image src='../../resource/images/bgbg.png'></image></view>

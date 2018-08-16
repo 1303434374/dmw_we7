@@ -1,0 +1,85 @@
+<view class="userInfor">
+    <view class="avatarUrl">
+        <view class="avatarUrl-img">
+            <image src="{{member.avatarUrl}}"></image>
+        </view>
+        <image class="VIPUser" src="../../resource/icon/tx.png"></image>
+    </view>
+    <view class="nameAndTel">
+        <view class="nickName">{{member.username}}</view>
+        <view class="tel" wx:if="{{member.phone!=null&&member.phone!=''}}">{{member.phone}}</view>
+    </view>
+</view>
+<view bindtap="showCode" class="showCode" wx:if="{{showCode}}"></view>
+<view class="codeBg" wx:if="{{showCode}}">
+    <view class="code-box">
+        <view class="codeTop">
+            <view class="codeAvatarUrl">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="codeInfor">
+                <view>
+                    <open-data type="userNickName"></open-data>
+                </view>
+                <view>山西 太原</view>
+            </view>
+            <image class="gender" src="../../resource/icon/sex1.png" wx:if="{{gender==1}}"></image>
+            <image class="gender" src="../../resource/icon/sex2.png" wx:if="{{gender==2}}"></image>
+        </view>
+        <view bindlongtap="showActionList" class="codeImg">二维码</view>
+        <view class="codeText">扫一扫上面的二维码图案，加我</view>
+    </view>
+</view>
+<view bindtap="showActionList" class="showActionList" wx:if="{{showActionList}}"></view>
+<view class="actionList" wx:if="{{showActionList}}">
+    <button openType="share">发送给朋友</button>
+    <button>保存图片</button>
+    <button>识别图中二维码</button>
+    <button bindtap="showActionList">取消</button>
+</view>
+<view class="list">
+    <form bindsubmit="formSubmit">
+        <view class="form-box">
+            <view class="input df">
+                <view class="left">姓名</view>
+                <view class="right">
+                    <input name="name" placeholder="请输入姓名" type="text" value="{{member.name}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">年龄</view>
+                <view class="right">
+                    <input maxlength="3" name="age" placeholder="请输入年龄" type="number" value="{{member.age}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">身份认证</view>
+                <view class="right">
+                    <input maxlength="18" name="Id_number" placeholder="请输入身份证号" type="idcard" value="{{member.Id_number}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">电话绑定</view>
+                <view class="right">
+                    <input bindinput="inputPhoneNum" maxlength="11" name="tel" placeholder="请输入手机号" type="number" value="{{member.phone}}"></input>
+                </view>
+            </view>
+            <view class="input df">
+                <view class="left">验证码</view>
+                <view class="right" style="width:45%;margin-left:100rpx;">
+                    <input bindinput="addCode" maxlength="6" name="yanzhengma" placeholder="请输入验证码" type="number"></input>
+                </view>
+                <view bindtap="sendMsg" class="sendMsg right" wx:if="{{send}}">获取验证码</view>
+                <view class="sendMsg" wx:if="{{alreadySend}}">{{second+'s'}}</view>
+            </view>
+            <view bindtap="goShippingAddress" class="input df">
+                <view class="left">收货地址</view>
+                <view class="right moreAddress">
+                    <text>{{address}}</text>
+                    <image src="../../resource/icon/more.png"></image>
+                </view>
+            </view>
+        </view>
+        <button class="submit" formType="submit">提交保存</button>
+    </form>
+</view>

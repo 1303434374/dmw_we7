@@ -1,0 +1,65 @@
+<view class="dynamic-item">
+    <view class="dynamic-top">
+        <view class="dynamic-left">
+            <view class="userAvatarUrl">
+                <image src="{{PlayRecordIn.avatar}}"></image>
+            </view>
+            <view class="nameAndTime">
+                <view class="nickName">{{PlayRecordIn.nickname}}</view>
+                <view class="time">{{PlayRecordIn.create_time}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="dynamic-text">
+    {{PlayRecordIn.content}}
+  </view>
+    <view class="dynamic-img">
+        <view bindtap="previewImg" class="dynamic-img-item" data-id="{{index}}" wx:for="{{PlayRecordIn.image}}" wx:for-item="img">
+            <image src="{{img}}"></image>
+        </view>
+    </view>
+    <view class="dynamic-infor">
+        <view class="browse">
+            <image mode="widthFix" src="../../resource/images/my/liulan.png"></image>
+            <view>{{PlayRecordIn.look_num}}</view>
+        </view>
+        <view bindtap="showCommentInput" class="comment" data-id="0">
+            <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+            <view>{{PlayRecordIn.message}}</view>
+        </view>
+        <view bindtap="changeLikeStatus" class="like">
+            <image mode="widthFix" src="../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+            <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
+        </view>
+    </view>
+    <view class="dynamic-bottom">
+        <view class="people-like" hidden="{{praise==0}}">
+            <view class="people-like-img">
+                <image mode="widthFix" src="../../resource/images/release/people-like.png"></image>
+            </view>
+            <view class="people-like-sum">
+                <view wx:for="{{praiseList}}" wx:for-item="praise_list">{{praise_list.nickname}} 、</view>
+                <view>等{{praise}}人觉得很赞</view>
+            </view>
+        </view>
+        <view class="people-comment">
+            <block wx:for="{{messageList}}" wx:for-index="messageIdx" wx:for-item="message">
+                <view bindtap="showCommentInput" class="people-comment-item" data-id="{{message.id}}" data-idx="{{messageIdx}}" data-name="{{message.nickname}}" data-open="{{message.openid}}">
+                    <view style="color:#15e4d1;">{{message.nickname}}</view>
+                    <view>：{{message.content}}</view>
+                </view>
+                <view class="people-reply-item people-comment-item" wx:for="{{message.reply}}" wx:for-item="reply">
+                    <view style="color:#15e4d1;">{{reply.nickname}}
+              <text style="color:#000;"> 回复 </text>{{reply.prevNickname}}</view>
+                    <view>：{{reply.content}}</view>
+                </view>
+            </block>
+            <view bindtap="{{newMessageSum>message_list1.length?'notlookMore':'lookMore'}}" class="lookMore" hidden="{{messageList.length<10}}">
+        {{newMessageSum>message_list1.length?'收起评论':'查看更多评论'}}
+      </view>
+        </view>
+    </view>
+</view>
+<view class="commentInput" wx:if="{{showCommentInput}}">
+    <input bindconfirm="releaseComment" cursorSpacing="20" data-id="{{PlayRecordIn.id}}" focus="{{showCommentInput}}" placeholder="{{commentId==0&&!commentIdx&&!commentReIdx?'评论':'回复'+prevNickname}}" value="{{commentVal}}"></input>
+</view>

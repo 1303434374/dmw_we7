@@ -1,0 +1,71 @@
+page {
+    background: #fff;
+}
+
+.topNav {
+    width: 94vw;
+    padding: 20rpx 3vw 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 32rpx;
+}
+
+.nav {
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid transparent;
+}
+
+.currentNav {
+    color: #15e4d1;
+    border-bottom: 1px solid #15e4d1;
+}
+
+.route-cont {
+    width: 94vw;
+    padding: 0 3vw;
+}
+
+.route-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx 0 30rpx;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.route-item:last-child {
+    border-bottom: 0;
+}
+
+.route-item-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.route-item-img>image {
+    width: 100%;
+    height: 397rpx;
+    margin-right: 1vw;
+}
+
+.route-item-img>image:nth-child(3) {
+    margin-right: 0;
+}
+
+.route-item-tit {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+}
+
+.route-item-route {
+    font-size: 24rpx;
+    color: #868686;
+}

@@ -1,0 +1,96 @@
+image {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper_wrap {
+    width: 100%;
+    height: 422rpx;
+}
+
+.wrap {
+    padding-bottom: 112rpx;
+}
+
+.fs24 {
+    font-size: 24rpx;
+}
+
+.fs22 {
+    font-size: 22rpx;
+}
+
+.fs30 {
+    font-size: 30rpx;
+}
+
+.fs32 {
+    font-size: 32rpx;
+}
+
+.fs28 {
+    font-size: 28rpx;
+}
+
+.fw {
+    font-weight: bold;
+}
+
+.color_blue {
+    color: #1285F8;
+}
+
+.ml20 {
+    margin-left: 20rpx;
+}
+
+.ml10 {
+    margin-left: 10rpx;
+}
+
+.p10 {
+    padding: 10rpx 0;
+}
+
+.home_page {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background: #1285F8;
+    color: #fff;
+    position: fixed;
+    bottom: 200rpx;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18rpx;
+    text-align: center;
+}
+
+.home_page .heads {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 0 auto;
+}
+
+.noinfo {
+    color: #242424;
+    text-align: center;
+    margin-top: 180rpx;
+    font-size: 30rpx;
+}
+
+.tips1 {
+    padding-top: 20rpx;
+}
+
+.tips1 view {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: "微软雅黑";
+    font-size: 28rpx;
+    color: #8e8e8e;
+}

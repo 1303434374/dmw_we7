@@ -1,0 +1,66 @@
+<view class="user_info" wx:if="{{!show_poster}}">
+    <view class="user_left">
+        <image src="{{MemberInfo.avatar}}"></image>
+    </view>
+    <view class="user_right">
+        <view>
+      {{MemberInfo.nickname}}
+    </view>
+        <view>推荐人：{{MemberInfo.c_nickname}}</view>
+    </view>
+    <view bindtap="show_record" class="zhangdan">
+        <image mode="widthFix" src="../../resource/images/fenxiao/zhangdan.png"></image>
+        <view>账单</view>
+    </view>
+</view>
+<view class="price_cont" wx:if="{{!show_poster}}">
+    <view class="success_price">
+        <view class="success_price_tit">成功提现金币(元)</view>
+        <view>{{MemberInfo.withdraw}}</view>
+    </view>
+    <view class="can_price">
+        <view class="can_price_tit">可提现金币(元)</view>
+        <view>{{MemberInfo.remaining}}</view>
+    </view>
+    <view bindtap="show_model" class="withdraw">金币提现</view>
+</view>
+<view class="partSale_cont" wx:if="{{!show_poster}}">
+    <view bindtap="go_partSalesorder" class="partSale_item">
+        <image mode="widthFix" src="../../resource/images/my/partSales_order.png"></image>
+        <view class="partSale_item_name">分销订单</view>
+        <view class="item_sum">
+            <text style="color:#15e4d1;">{{MyOrderNum}}</text> 笔
+    </view>
+    </view>
+    <view bindtap="go_outline" class="partSale_item outline_people">
+        <image mode="widthFix" src="../../resource/images/my/outline_people.png"></image>
+        <view class="partSale_item_name">我的合伙人</view>
+        <view class="item_sum">
+            <text style="color:#15e4d1;">{{MyDownNum}}</text> 人
+    </view>
+    </view>
+    <view bindtap="show_poster" class="partSale_item share_hb">
+        <image mode="widthFix" src="../../resource/images/my/share_hb.png"></image>
+        <text class="partSale_item_name">分享海报</text>
+    </view>
+</view>
+<view bindlongpress="show_options" bindtap="show_poster" class="share_poster" wx:if="{{show_poster}}">
+    <image mode="widthFix" src="{{MemberInfo.My_poster}}"></image>
+</view>
+<view bindtap="show_options" class="options_mask" wx:if="{{show_options}}"></view>
+<view class="hb_options" wx:if="{{show_options}}">
+    <button bindtap="save_poster">保存图片</button>
+    <button bindtap="show_options">取消</button>
+</view>
+<view bindtap="show_model" class="price_mask" wx:if="{{show_model}}"></view>
+<view class="price_model" wx:if="{{show_model}}">
+    <view class="price_tit">金币提现</view>
+    <view class="price_input">
+        <text style="font-size:32rpx;">￥</text>
+        <input bindinput="get_price" name="price" placeholder="请输入提现金额" type="number"></input>
+    </view>
+    <view class="ky_price">可用余额
+    <text style="color:#15e4d1;">{{MemberInfo.remaining}}元</text>
+    </view>
+    <view bindtap="tx_price" class="price_btn">提现</view>
+</view>

@@ -1,0 +1,218 @@
+@import "../../../__wuBaseWxss__/3.wxss";
+
+page {
+    background: #f0f0f0;
+}
+
+.userInfor {
+    background: #15e4d1;
+    width: 90vw;
+    height: 180rpx;
+    padding: 0 5vw;
+}
+
+.avatarUrl {
+    float: left;
+    position: relative;
+}
+
+.avatarUrl-img {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.VIPUser {
+    width: 44rpx;
+    height: 44rpx;
+    position: absolute;
+    right: -14rpx;
+    bottom: 6rpx;
+}
+
+.nameAndTel {
+    float: left;
+    margin: 4% 0 0 6%;
+    color: #fff;
+}
+
+.nickName {
+    font-size: 34rpx;
+    margin-bottom: 20rpx;
+}
+
+.tel {
+    font-size: 32rpx;
+}
+
+.code {
+    float: right;
+    padding: 9% 10% 0 0;
+}
+
+.code>image {
+    width: 52rpx;
+    height: 52rpx;
+}
+
+.form-box {
+    background: #fff;
+}
+
+.df {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input {
+    background: #fff;
+    width: 90vw;
+    margin-left: 5vw;
+    padding: 20rpx 5vw 20rpx 0;
+    font-size: 28rpx;
+    border-bottom: 1px solid #ddd;
+}
+
+.input:last-child {
+    border-bottom: none;
+}
+
+.right {
+    width: 80%;
+    text-align: right;
+}
+
+.submit {
+    background: #15e4d1;
+    color: #fff;
+    margin: 30rpx 20rpx;
+    font-size: 28rpx;
+}
+
+.sendMsg {
+    width: 25%;
+    text-align: center;
+    border-radius: 10rpx;
+    padding: 5rpx 0;
+    background: #15e4d1;
+    color: #fff;
+}
+
+.moreAddress {
+    color: #808080;
+    font-size: 40rpx;
+}
+
+.moreAddress text {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.moreAddress image {
+    width: 24rpx;
+    height: 42rpx;
+}
+
+.showCode {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+}
+
+.codeBg {
+    position: absolute;
+    z-index: 21;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10vh;
+    width: 90vw;
+    height: 80vh;
+    background: #fff;
+    overflow: hidden;
+}
+
+.code-box {
+    width: 98%;
+    height: 98%;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 3px;
+    margin: 1% auto;
+}
+
+.codeTop {
+    width: 86%;
+    height: 150rpx;
+    margin: 8% auto 0;
+}
+
+.codeAvatarUrl,.codeInfor {
+    float: left;
+}
+
+.gender {
+    float: right;
+    margin: 20rpx 20rpx 0 0;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.codeAvatarUrl {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.codeInfor view:first-child {
+    font-size: 34rpx;
+    margin: 20rpx 30rpx;
+}
+
+.codeInfor view:nth-child(2) {
+    font-size: 26rpx;
+    color: #888;
+    margin-left: 20rpx;
+}
+
+.codeImg {
+    width: 70vw;
+    height: 70vw;
+    background: #ccc;
+    color: #fff;
+    margin: 6vh auto;
+    text-align: center;
+    line-height: 70vw;
+}
+
+.codeText {
+    width: 70vw;
+    margin: 0 auto;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
+
+.showActionList {
+    position: absolute;
+    z-index: 22;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+}
+
+.actionList {
+    position: absolute;
+    z-index: 23;
+    bottom: 0;
+    width: 100vw;
+    background: #fff;
+}

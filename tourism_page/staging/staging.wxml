@@ -1,0 +1,65 @@
+<view class="wrap">
+    <swiper autoplay="{{swiper.autoplay}}" class="swiper_wrap" duration="{{swiper.duration}}" indicatorDots="{{swiper.indicatorDots}}" interval="{{swiper.interval}}">
+        <swiper-item class="swiper_item" wx:for="{{banner}}" wx:key="swiper">
+            <image class="slide-image" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="content">
+        <view class="list content-inner">
+            <view class="list-item" data-index="{{index}}" wx:for="{{attractions}}" wx:key="all">
+                <navigator class="link" url="../detail/staging_detail/staging_detail?id={{item.id}}&&come=分期">
+                    <view class="top">
+                        <image src="{{item.image}}" style="width:100%;height:100%"></image>
+                        <view class="place">{{item.cf_area}}出发 | 支持：{{item.tourism_type}}</view>
+                        <view class="money">￥<text class="sub-money">{{item.price}}</text>/期</view>
+                    </view>
+                    <view class="name">{{item.title}}</view>
+                    <view class="intro">{{item.jd_profile}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="tips1">
+        <view style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;" wx:if="{{ismore}}">
+            <icon size="20" type="waiting"></icon>
+            <text>玩命的加载中...</text>
+        </view>
+        <view wx:else>
+            <text>没有更多内容了</text>
+        </view>
+    </view>
+</view>
+<import src="../template/template.wxml"></import>
+<template is="home_page" data></template>
+<view class="footer">
+    <view>
+        <navigator openType="redirect" url="../index/index">
+            <image src="/tourism_page/resource/images/tab1.png"></image>
+            <text>首页</text>
+        </navigator>
+    </view>
+    <view>
+        <navigator openType="redirect" url="../strategy/strategy">
+            <image src="/tourism_page/resource/images/f_2.png"></image>
+            <text>旅游攻略</text>
+        </navigator>
+    </view>
+    <view>
+        <navigator openType="redirect" url="../staging/staging">
+            <image src="/tourism_page/resource/images/f_3_sel.png"></image>
+            <text style="color:#289AF6;">分期游</text>
+        </navigator>
+    </view>
+    <view>
+        <navigator openType="redirect" url="../guide/guide">
+            <image src="/tourism_page/resource/images/f_4.png"></image>
+            <text>导游</text>
+        </navigator>
+    </view>
+    <view>
+        <navigator openType="redirect" url="../custom/custom">
+            <image src="/tourism_page/resource/images/f_5.png"></image>
+            <text>私人定制</text>
+        </navigator>
+    </view>
+</view>
