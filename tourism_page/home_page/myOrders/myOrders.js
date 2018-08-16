@@ -7,10 +7,22 @@ Page({
         currentFilter: 0,
         titArr: [ "全部", "待付款", "待核销", "已出发", "待评价", "已结束" ]
     },
-    onLoad: function(t) {},
+    onLoad: function(t) {
+      var a = wx.getStorageSync("openid");
+      if ("" == a || null == a) {
+        a = app.globalData.openid;
+      }
+      "" == a || null == a ? this.gotologin() : console.log('已经授权');
+    },
     onReady: function() {
         this.getlanmu(), this.getMyOrderList();
     },
+  //触发登录，跳转
+  gotologin: function () {
+    wx.navigateTo({
+      url: '../../login/login'
+    })
+  },
     getlanmu: function() {
         var e = this;
         app.util.request({
