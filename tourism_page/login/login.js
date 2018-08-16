@@ -30,7 +30,7 @@ Page({
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
-          wx.navigateBack();
+          //wx.navigateBack();
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
