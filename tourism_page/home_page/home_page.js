@@ -6,8 +6,7 @@ function _defineProperty(e, t, a) {
         writable: !0
     }) : e[t] = a, e;
 }
-//sb
-//fsafas
+//改动
 var app = getApp();
 
 Page(
