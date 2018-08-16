@@ -33,7 +33,7 @@
         <view class='opacitys'></view>
         <image src='../resource/icon/icon-money.png'></image>
       </view>
-      <view class='head-txt two'>佣金提现11</view>
+      <view class='head-txt two'>佣金提现</view>
     </view>
   </view>
 </view>
