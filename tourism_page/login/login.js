@@ -26,7 +26,6 @@ Page({
         })
       }
     } else {
-      //我改了，但我没提交，我就直接从服务器中更新，那么我的代码是不是会覆盖我的修改呢？
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
