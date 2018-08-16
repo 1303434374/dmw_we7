@@ -6,7 +6,7 @@ function _defineProperty(e, t, a) {
         writable: !0
     }) : e[t] = a, e;
 }
-//改动了
+//我改动了并push
 var app = getApp();
 
 Page(
