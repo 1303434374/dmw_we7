@@ -19,7 +19,7 @@ Page(
             jumpPage: "myOrders",
             iconPath: "../resource/images/my/order.png"
         }, {
-            name: "我的订制",
+            name: "我的定制",
             jumpPage: "myPrivte",
             iconPath: "../resource/images/my/dingzhi.png"
         }, {
