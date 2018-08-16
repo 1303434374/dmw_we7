@@ -81,7 +81,9 @@ Page({
                     },
                     success:function(e){
                       if (wx.getStorageSync('userheaderimg') != '' && wx.getStorageSync('nickname') != '') {
-                        wx.navigateBack();
+                        wx.reLaunch({
+                          url: '/tourism_page/index/index'
+                        })
                       }
                     }
                   });

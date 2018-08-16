@@ -19,7 +19,7 @@ Page({
     },
   //触发登录，跳转
   gotologin: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../../login/login'
     })
   },
