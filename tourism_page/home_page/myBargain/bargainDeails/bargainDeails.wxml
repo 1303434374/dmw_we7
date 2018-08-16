@@ -57,11 +57,11 @@
                 </view>
                 <view class="likeAndComment-right">
                     <view bindtap="scrollPage" class="comment">
-                        <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                        <image mode="widthFix" src="../../../resource/images/comment.png"></image>
                         <view>{{message.length}}</view>
                     </view>
                     <view bindtap="touchLike" class="like" data-id="{{Bargain.jd_id}}">
-                        <image mode="widthFix" src="../../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+                        <image mode="widthFix" src="../../../resource/images/{{likeIO?'like1':'like'}}.png"></image>
                         <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
                     </view>
                 </view>
@@ -302,11 +302,11 @@
                             <view>{{item.look_num}}</view>
                         </view>
                         <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
-                            <image mode="widthFix" src="../../../resource/images/release/comment.png"></image>
+                            <image mode="widthFix" src="../../../resource/images/comment.png"></image>
                             <view>{{item.reply}}</view>
                         </view>
                         <view bindtap="likeBtnIO" class="like" data-id="{{item.id}}" data-idx="{{message}}">
-                            <image mode="widthFix" src="../../../resource/images/release/{{item.praise_status==1?'like1':'like'}}.png"></image>
+                            <image mode="widthFix" src="../../../resource/images/{{item.praise_status==1?'like1':'like'}}.png"></image>
                             <view style="color:{{item.praise_status==1?'#15e4d1;':''}}">{{item.praise}}</view>
                         </view>
                     </view>

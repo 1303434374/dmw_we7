@@ -43,9 +43,14 @@ Page({
                 console.log(a), t.setData({
                     Strategy: a.data.data,
                     music_url: a.data.data.audio
-                }), wx.playBackgroundAudio({
-                    dataUrl: a.data.data.audio
-                }), WxParse.wxParse("content", "html", a.data.data.text, t, 5);
+                }), 
+                // wx.playBackgroundAudio({
+                //     dataUrl: a.data.data.audio
+                // }), 
+                wx.setNavigationBarTitle({
+                    title: a.data.data.title
+                })
+                WxParse.wxParse("content", "html", a.data.data.text, t, 5);
             },
             fail: function(a) {
                 console.log(a);

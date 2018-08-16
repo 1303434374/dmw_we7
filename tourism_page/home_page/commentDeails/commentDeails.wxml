@@ -21,11 +21,11 @@
         <view>{{look_num}}</view>
     </view>
     <view bindtap="commentBox" class="comment11" data-id="0" data-idx="-1">
-        <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+        <image mode="widthFix" src="../../resource/images/comment.png"></image>
         <view>{{OrderReply.length}}</view>
     </view>
     <view bindtap="touchLike" class="like">
-        <image mode="widthFix" src="../../resource/images/release/{{MessageInfo.praise_status==1?'like1':'like'}}.png"></image>
+        <image mode="widthFix" src="../../resource/images/{{MessageInfo.praise_status==1?'like1':'like'}}.png"></image>
         <view style="color:{{MessageInfo.praise_status==1?'#15e4d1;':''}}">{{PraiseNum}}</view>
     </view>
 </view>

@@ -839,6 +839,18 @@ page {
   float: left;
 }
 
+button {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    line-height: 35rpx;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+button::after {
+    border: 0px;
+}
+
 /*
 .search {
   position: absolute;

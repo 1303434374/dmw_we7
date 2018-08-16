@@ -543,5 +543,10 @@ Page({
         wx.navigateTo({
             url: '../details/details'
         })
+    },
+    goGonglue: function(event) {
+        wx.navigateTo({
+            url: `../raiders/raidersDeails/routeDeails/routeDeails?strategy_id=${event.currentTarget.dataset.id}`
+        })
     }
 });

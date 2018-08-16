@@ -24,18 +24,18 @@
             <view>{{PlayRecordIn.look_num}}</view>
         </view>
         <view bindtap="showCommentInput" class="comment" data-id="0">
-            <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+            <image mode="widthFix" src="../../resource/images/comment.png"></image>
             <view>{{PlayRecordIn.message}}</view>
         </view>
         <view bindtap="changeLikeStatus" class="like">
-            <image mode="widthFix" src="../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+            <image mode="widthFix" src="../../resource/images/{{likeIO?'like1':'like'}}.png"></image>
             <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
         </view>
     </view>
     <view class="dynamic-bottom">
         <view class="people-like" hidden="{{praise==0}}">
             <view class="people-like-img">
-                <image mode="widthFix" src="../../resource/images/release/people-like.png"></image>
+                <image mode="widthFix" src="../../resource/images/people-like.png"></image>
             </view>
             <view class="people-like-sum">
                 <view wx:for="{{praiseList}}" wx:for-item="praise_list">{{praise_list.nickname}} 、</view>

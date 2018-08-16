@@ -44,11 +44,11 @@
             <view>{{List.look_num}}</view>
         </view>
         <view bindtap="goStrokeDeails" class="comment" data-id="{{List.id}}">
-            <image src="../resource/images/release/comment.png"></image>
+            <image src="../resource/images/comment.png"></image>
             <view>{{List.message}}</view>
         </view>
         <view bindtap="changeLikeStatus" class="like" data-id="{{List.id}}" data-mainId="{{manIdx}}">
-            <image src="../resource/images/release/{{List.member_status?'like1':'like'}}.png"></image>
+            <image src="../resource/images/{{List.member_status?'like1':'like'}}.png"></image>
             <view style="color:{{List.member_status?'#15e4d1;':''}}">{{List.praise}}</view>
         </view>
     </view>

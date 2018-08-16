@@ -18,11 +18,11 @@
                     <view>{{item.look_num}}</view>
                 </view>
                 <view bindtap="goDynamicDeails" class="comment" data-id="{{item.id}}">
-                    <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+                    <image mode="widthFix" src="../../resource/images/comment.png"></image>
                     <view>{{item.reply}}</view>
                 </view>
                 <view bindtap="ToPraise" class="like" data-id="{{item.id}}" data-mainId="{{manIdx}}">
-                    <image mode="widthFix" src="../../resource/images/release/{{item.member_status?'like1':'like'}}.png"></image>
+                    <image mode="widthFix" src="../../resource/images/{{item.member_status?'like1':'like'}}.png"></image>
                     <view style="color:{{item.member_status?'#15e4d1;':''}}">{{item.praise}}</view>
                 </view>
             </view>

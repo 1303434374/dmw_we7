@@ -10,6 +10,6 @@
         </view>
     </view>
 </view>
-<view class="music_icon">
+<!--<view class="music_icon">
     <image bindtap="contral_music" class="{{musicStatus?'rotateRight':''}}" data-audio="{{item.audio}}" src="../../../resource/images/music.png"></image>
-</view>
+</view>-->

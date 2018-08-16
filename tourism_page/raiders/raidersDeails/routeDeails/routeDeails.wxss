@@ -1,5 +1,6 @@
 page {
-    background: #dfdfdf;
+    /*background: #dfdfdf;*/
+    background-color: #fff;
 }
 
 .foreword {

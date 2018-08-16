@@ -52,18 +52,18 @@
     </swiper-item>
 </swiper>-->
 <view class='flex-around contain'>
-  <view class='flex-3'>
+  <view class='flex-3' bindtap="goGonglue" data-id="4">
     <image src='../resource/icon/fxjc.png' mode='widthFix'></image>
     <text>分销教程</text>
   </view>
-  <view class='flex-3'>
+  <view class='flex-3' bindtap="goGonglue" data-id="5">
     <image src='../resource/icon/pwhz.png' mode='widthFix'></image>
     <text>票务合作</text>
   </view>
-  <view class='flex-3'>
+  <button class="flex-3" open-type="contact" session-from="weapp">
     <image src='../resource/icon/kfxm.png' mode='widthFix'></image>
     <text>客服小妹</text>
-  </view>
+  </button>
 </view>
 
 

@@ -35,18 +35,18 @@
     <view class="dynamic-infor">
         <view class="browse">浏览1000次</view>
         <view bindtap="showCommentInput" class="comment">
-            <image mode="widthFix" src="../../resource/images/release/comment.png"></image>
+            <image mode="widthFix" src="../../resource/images/comment.png"></image>
             <view>{{commentSum+commentList.length}}</view>
         </view>
         <view bindtap="changeLikeStatus" class="like">
-            <image mode="widthFix" src="../../resource/images/release/{{likeIO?'like1':'like'}}.png"></image>
+            <image mode="widthFix" src="../../resource/images/{{likeIO?'like1':'like'}}.png"></image>
             <view style="color:{{likeIO?'#15e4d1;':''}}">{{likeSum}}</view>
         </view>
     </view>
     <view class="dynamic-bottom">
         <view class="people-like">
             <view class="people-like-img">
-                <image mode="widthFix" src="../../resource/images/release/people-like.png"></image>
+                <image mode="widthFix" src="../../resource/images/people-like.png"></image>
             </view>
             <view>
                 <open-data type="userNickName"></open-data> 、 </view>
