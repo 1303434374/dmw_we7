@@ -286,15 +286,17 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
                                             signType: t.data.signType,
                                             paySign: t.data.paySign,
                                             success: function(t) {
+                                              console.log('r=='+r+'----e=='+e);
                                                 app.util.request({
                                                     url: "entry/wxapp/PayInorder",
                                                     data: {
                                                         openid: r,
                                                         id: e
                                                     },
-                                                    success: function(t) {
-                                                        if (1 == t.data.data.status) {
-                                                            var e = t.data.data.time, a = t.data.data.type;
+                                                    success: function(t1) {
+                                                      console.log(t1);
+                                                        if (1 == t1.data.data.status) {
+                                                            var e = t1.data.data.time, a = t1.data.data.type;
                                                             wx.showToast({
                                                                 title: "下单成功"
                                                             }), setTimeout(function() {
