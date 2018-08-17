@@ -28,25 +28,25 @@
       </view>
       <view class='head-txt'>{{MemberInfo.username}}</view>
     </view>
-    <view class='head-right' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[5].jumpPage}}">
+    <view class='head-right' bindtap="goFenxiao">
       <view class='icon-money'>
         <view class='opacitys'></view>
         <image src='../resource/icon/icon-money.png'></image>
       </view>
-      <view class='head-txt two'>佣金提现</view>
+      <view class='head-txt two'>{{distribution_status == -2 ? '申请分销' : distribution_status == -1 ? '重新申请' : distribution_status == 1 ? '佣金提现' : distribution_status == 2 ? '正在审核' : ''}}</view>
     </view>
   </view>
 </view>
 
 <view class='flex nav'>
   <view class='optimization'>
-  余额：<text>188.68</text>
+  余额：<text>0.00</text>
   </view>
   <view class='optimization'>
-  粉丝：<text>68</text>
+  粉丝：<text>0</text>
   </view>
   <view class='optimization'>
-  分销商：<text>6</text>
+  分销商：<text>0</text>
   </view>
 </view>
 
@@ -57,25 +57,25 @@
       <image src='../resource/icon/wddd.png'></image>
       我的订单
     </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[1].jumpPage}}">
+    <!--<view class='flex-4' bindtap="goMyOrders">
       <image src='../resource/icon/wdyy.png'></image>
       我的预约
-    </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[2].jumpPage}}">
+    </view>-->
+    <view class='flex-4' bindtap="goMySubPage" data-id="{{myList[2].jumpPage}}">
       <image src='../resource/icon/kjptd.png'></image>
      我的拼团
     </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[3].jumpPage}}">
+    <view class='flex-4' bindtap="goMySubPage" data-id="{{myList[3].jumpPage}}">
       <image src='../resource/icon/sjrz.png'></image>
       我的砍价 
     </view>
-    <view class='flex-4' bindtap="goNews">
+    <!--<view class='flex-4' bindtap="goNews">
       <image src='../resource/icon/tz.png'></image>
       我的通知
-    </view>
+    </view>-->
     <view class='flex-4' bindtap="goUserInfor">
       <image src='../resource/icon/sz.png'></image>
-      我的设置
+      我的信息
     </view>
   </view>
 </view>
@@ -83,19 +83,19 @@
 <view class='contain'>
   <view class='con-head'>分销中心</view>
   <view class='flex-start'>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[5].jumpPage}}">
+    <view class='flex-4' bindtap="goFenxiao">
       <image src='../resource/icon/wdyj.png'></image>
       我的佣金
     </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[5].jumpPage}}">
+    <view class='flex-4' bindtap="goFenxiao">
       <image src='../resource/icon/hbsz.png'></image>
       海报logo设置
     </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[5].jumpPage}}">
+    <view class='flex-4' bindtap="goFenxiao">
       <image src='../resource/icon/wdfs.png'></image>
       我的粉丝
     </view>
-    <view class='flex-4' bindtap="{{item.jumpPage=='become_partSales'&&distribution_status==2?'':'goMySubPage'}}" data-id="{{myList[5].jumpPage}}">
+    <view class='flex-4' bindtap="goFenxiao">
       <image src='../resource/icon/wdtd.png'></image>
       我的团队
     </view>

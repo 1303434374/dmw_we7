@@ -7,7 +7,8 @@ Page({
         status: -1
     },
     onLoad: function(t) {
-        this.getbanner(), this.getTitle(), this.getMyUphave();
+        // this.getTitle(), 
+        this.getbanner(), this.getMyUphave();
     },
     getMyUphave: function() {
         var a = this, t = wx.getStorageSync("openid");

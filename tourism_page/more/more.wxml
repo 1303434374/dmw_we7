@@ -1,64 +1,164 @@
-<!--pages/more/more.wxml-->
-
-<view class="header-container">
-    <view class="search">
-        <input placeholder="株洲方特畅玩无极限" placeholder-style="placeholder" />
-        <image src="../resource/icon/search2.png" />
-    </view>
-    <view class="nav">
-        <view class="item {{index == currentTab ? 'active' : ''}}" wx:for="{{['热门','周边','湖南','湖北','广东','江西','上海','浙江','云南']}}" wx:key="key" data-index="{{index}}" catchtap='swichNav'>
-            {{item}}
+<view class="container" wx:if="{{jiazai}}">
+    <view class="progress_box">
+        <canvas canvasId="canvasProgressbg" class="progress_bg"></canvas>
+        <canvas canvasId="canvasProgress" class="progress_canvas"></canvas>
+        <view class="progress_text">
+            <view class="progress_dot"></view>
+            <text class="progress_info"> {{progress_txt}}</text>
         </view>
-        <image src="../resource/icon/down.png" />
     </view>
 </view>
-<view class="nav-container">
-    <view class="item {{index == current ? 'active' : ''}}" data-index="{{index}}" wx:for="{{['全部','玩水','亲子','玩乐','美食','……']}}" wx:key="key" catchtap='swichNavs'>
-        {{item}}
+<!-- <view class="modal" wx:if="{{getUseInfo}}">
+    <view class="m_box">
+        <view class="m_box_title">提示</view>
+        <view class="m_box_nr">请先开启用户授权</view>
+        <view class="border_top_2">
+            <button bindgetuserinfo="getUsetInfo" bindtap="close_modal" class="m_btn" openType="getUserInfo">确定</button>
+        </view>
     </view>
+</view> -->
+<swiper autoplay="{{inputFocus}}" bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
+    <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="{{banner}}">
+        <view class="swiper-item">
+            <view class="topSearch">
+                <view class="selectCity" bindtap="moreHot">
+                    <text>{{city}}</text>
+                </view>
+                <view class="searchInput">
+                    <image src="../resource/icon/search.png"></image>
+                    <input bindconfirm="goSearch" bindtap="stopSwiper" placeholder="请输入地名进行查询" placeholderStyle="color:#fff;" value="{{inputVal}}"></input>
+                </view>
+                <view bindtap="scanCode" class="saoyisao">
+                    <image src="../resource/icon/saoyisao.png"></image>
+                </view>
+            </view>
+            <view class="swiperIdx-box">
+                <view class="swiperIdx {{currentItem==index?'currentIdx':''}}" wx:for="{{swiperIdx}}" wx:key="{{swiperIdx}}"></view>
+            </view>
+            <view bindtap="bannerInto" class="slide-image" data-id="{{item.jd_id}}">
+                <image src="{{item.banner}}"></image>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<!--<swiper class="sortList-box {{listArr[0].length<=5?'rowList':''}}">
+    <swiper-item wx:for="{{listArr}}" wx:key="{{listArr}}">
+        <view class="sortList {{listArr[index].length<=4?'shortList':''}}">
+            <view bindtap="gosortDeails" class="sortList-item" data-id="{{item.id}}" data-into_url="{{item.into_url}}" wx:for="{{listArr[index]}}" wx:key="{{listArr[index]}}">
+                <image src="{{item.icon}}"></image>
+                <view>{{item.title}}</view>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>-->
+
+<view class="nearby-play you-may-like">
+    <view class="nearby-play-tit you-may-like-tit">
+        <view class="nearby-play-tit-left you-may-like-tit-left"></view>
+        <view>今日可订</view>
+        <!--<view class="nearby-play-tit-right you-may-like-tit-right">感觉你会喜欢</view>-->
+    </view>
+    <view class="nearby-play-cont">
+        <view bindtap="goLikeDeails" class="nearby-play-item" data-id="{{item.id}}" wx:for="{{LikeAddress}}" wx:if="{{item.to_index != 0}}">
+            <view class="nearby-play-item-img">
+                <image src="{{item.image}}"></image>
+                <view class="nearby-play-name">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="moreData" class="moreData">{{LikeAddress.length>=LikeAddressList.length?'':'加载更多'}}</view>
 </view>
 
-<view class='content'>
-    <view class='content-head'>
-      <image src='../resource/images/img.jpg'></image>
-      <view class='label'>
-        <image src='../resource/images/label2.png' mode='widthFix'></image>
-        <text>情侣最爱</text>
-      </view>
-      <view class='down'>
-        还剩：<text>{{downTime.d}}</text> 天 <text>{{downTime.h}}</text> 时 <text>{{downTime.i}}</text> 分 <text>{{downTime.s}}</text> 秒
-      </view>
+<view class='foot-bg'><image src='../resource/images/bgbg.png'></image></view>
+<!--
+<view class="boutique">
+    <view class="boutique-tit">
+        <view class="boutique-tit-left"></view>
+        <view>最新活动</view>
+        <view class="boutique-tit-right">拼团砍价 折扣多多</view>
+        <view bindtap="moreActivity" class="nearby-play-more">更多</view>
     </view>
-    <view class='content-foot'>
-      <text>长沙灰汤华天城温泉度假酒店 - 【猪猪侠酷牙亲子房】2大1小入住，舒适自在，乐享萌动时光。</text>
-      <view class='content-footer'>
-        <view class='order'><image src='../resource/images/ljdg-1.png' mode='widthFix'></image></view>
-        <view class='order'><image src='../resource/images/fx.png' mode='widthFix'></image></view>
-        <view class='ulli'>长沙</view>
-        <view class='ulli'>酒店</view>
-        <view class='ulli'>热销</view>
-        <view class='ulli'>温泉</view>
-        <view class='ulli'>四星级</view>
-      </view>
+    <view bindtap="{{!item.end_t&&item.type==1?'goTeamworkDeails':!item.end_t&&item.type==0?'goBargain':''}}" class="theme-item" data-id="{{item.id}}" wx:for="{{Active}}">
+        <view class="theme-item-img-box">
+            <image class="theme-item-img" src="{{item.image}}"></image>
+            <view class="theme-item-mask">
+                <view class="theme-item-tit">{{item.title}}</view>
+                <view class="theme-item-tit1">{{item.jd_title}}</view>
+                <view class="theme-item-tit2">{{item.jd_profile}}</view>
+            </view>
+            <view class="countdown" wx:if="{{item.e_timer||item.c_timer}}">
+                <view hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</view>
+                <view class="day">
+                    <text style="font-size:{{item.end_t?34:40}}rpx;">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}</text>
+                    <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="priceAndBtn">
+            <view class="priceAndBtn-left">
+                <view class="teamwork_price">
+                    <view style="color:{{item.end_t?'#999':'#ef5d5e'}}">
+                        <text>{{item.type==1?'拼后价：':item.type==0?'最低价 :':''}}</text>
+                        <text style="font-size:40rpx;">￥{{item.now_price}}</text>
+                    </view>
+                    <view style="font-size:24rpx;" wx:if="{{item.type==1}}">{{item.become_num}}人团</view>
+                    <text wx:if="{{item.type==0}}">原价 : ￥{{item.original_price}}</text>
+                </view>
+                <view style="font-size:24rpx;">
+                    <view style="margin-right:20rpx;">{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
+                    <view class="theme-options">{{item.cf_area}}出发 | 支持 : {{item.tourism_type}}</view>
+                </view>
+            </view>
+            <view class="priceAndBtn-right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':item.type==0?'去砍价':''}}</view>
+        </view>
     </view>
-
-    <view class='content-head'>
-      <image src='../resource/images/img.jpg'></image>
-      <view class='down'>
-        还剩：<text>{{downTime.d}}</text> 天 <text>{{downTime.h}}</text> 时 <text>{{downTime.i}}</text> 分 <text>{{downTime.s}}</text> 秒
-      </view>
+</view>
+<view class="boutique">
+    <view class="boutique-tit">
+        <view class="boutique-tit-left"></view>
+        <view>热门推荐</view>
+        <view class="boutique-tit-right">给你最热门的推荐</view>
+        <view bindtap="moreHot" class="nearby-play-more">更多</view>
     </view>
-    <view class='content-foot'>
-      <text>长沙灰汤华天城温泉度假酒店 - 【猪猪侠酷牙亲子房】2大1小入住，舒适自在，乐享萌动时光。</text>
-      <view class='content-footer'>
-        <view class='order'><image src='../resource/images/ljdg-1.png' mode='widthFix'></image></view>
-        <view class='order'><image src='../resource/images/fx.png' mode='widthFix'></image></view>
-        <view class='ulli'>长沙</view>
-        <view class='ulli'>酒店</view>
-        <view class='ulli'>热销</view>
-        <view class='ulli'>温泉</view>
-        <view class='ulli'>四星级</view>
-      </view>
+    <view class="boutique-item" wx:for="{{HotRecommended}}">
+        <view bindtap="goRaidersDeails" class="boutique-img" data-address_id="{{item.id}}">
+            <image src="{{item.icon}}" style="width:100vw;height:100%;"></image>
+            <view class="imgInfor">
+                <view class="main-tit">{{item.title}}</view>
+                <view class="sub-tit">{{item.Introduction}}</view>
+            </view>
+        </view>
     </view>
-  </view>
-  <view class='foot-bg'><image src='../resource/images/bgbg.png'></image></view>
+</view>
+<view class="nearby-play">
+    <view class="nearby-play-tit">
+        <view class="nearby-play-tit-left"></view>
+        <view>周边游</view>
+        <view class="nearby-play-tit-right">最近的游玩圣地</view>
+        <view bindtap="moreNearbyPlay" class="nearby-play-more">更多</view>
+    </view>
+    <view class="nearby-play-cont">
+        <view bindtap="goRaidersDeails" class="nearby-play-item" data-address_id="{{item.id}}" wx:for="{{around_address}}">
+            <view class="nearby-play-item-img">
+                <image src="{{item.icon}}"></image>
+                <view class="nearby-play-name">{{item.title}} -距您约{{item.Distance}}km</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="nearby-play you-may-like">
+    <view class="nearby-play-tit you-may-like-tit">
+        <view class="nearby-play-tit-left you-may-like-tit-left"></view>
+        <view>猜你喜欢</view>
+        <view class="nearby-play-tit-right you-may-like-tit-right">感觉你会喜欢</view>
+    </view>
+    <view class="nearby-play-cont">
+        <view bindtap="goLikeDeails" class="nearby-play-item" data-id="{{item.id}}" wx:for="{{LikeAddress}}">
+            <view class="nearby-play-item-img">
+                <image src="{{item.image}}"></image>
+                <view class="nearby-play-name">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="moreData" class="moreData">{{LikeAddress.length>=LikeAddressList.length?'':'加载更多'}}</view>
+</view>-->

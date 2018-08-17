@@ -18,11 +18,11 @@
                     </view>
                     <view class="editAndDel">
                         <view bindtap="addNewAddress" class="editAddress" data-address_id="{{item.id}}">
-                            <image class="editImg" src="../../resource/images/my/edit.png"></image>
+                            <image class="editImg" src="../../resource/images/edit.png"></image>
                             <text class="editText">编辑</text>
                         </view>
                         <view bindtap="delAddress" class="editAddress delAddress" data-delid="{{item.id}}" data-id="{{index}}">
-                            <image class="editImg delImg" src="../../resource/images/my/del.png"></image>
+                            <image class="editImg delImg" src="../../resource/images/del.png"></image>
                             <text class="editText delText">删除</text>
                         </view>
                     </view>

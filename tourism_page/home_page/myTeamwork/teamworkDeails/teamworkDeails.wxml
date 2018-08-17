@@ -25,9 +25,9 @@
         <text hidden="{{group.end_t}}">{{group.now_t=='s'?'秒':group.now_t=='m'?'分':group.now_t=='h'?'小时':group.now_t=='d'?'天':''}}</text>
     </view>
 </view>
-<view bindtap="return_idx" class="return_idx">
+<!--<view bindtap="return_idx" class="return_idx">
     <image src="../../../resource/icon/index_w.png"></image>
-</view>
+</view>-->
 <view class="topTourismDeails">
     <view class="tourismImg">
         <swiper autoplay class="tourismImg" interval="2000">
@@ -94,35 +94,35 @@
 </view>
 <view class="whatGroup">
     <view class="whatGroup-tit">
-        <image mode="widthFix" src="../../../resource/images/my/liucheng.png"></image>
+        <image mode="widthFix" src="../../../resource/images/liucheng.png"></image>
         <view>什么是拼团</view>
     </view>
     <view class="whatGroup-cont">
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/zhifu.png" style="width:49rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/zhifu.png" style="width:49rpx;"></image>
             <text>支付金额</text>
             <text>参加拼团</text>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:46rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:46rpx;"></image>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/yaoqing.png" style="width:50rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/yaoqing.png" style="width:50rpx;"></image>
             <text>邀请好友</text>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:49rpx;"></image>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/chenggong.png" style="width:54rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/chenggong.png" style="width:54rpx;"></image>
             <text>人数到达</text>
             <text>订单生效</text>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:49rpx;"></image>
         </view>
         <view>
-            <image mode="widthFix" src="../../../resource/images/my/tuikuan.png" style="width:53rpx;"></image>
+            <image mode="widthFix" src="../../../resource/images/tuikuan.png" style="width:53rpx;"></image>
             <text>人数不够</text>
             <text>自动退款</text>
         </view>
@@ -282,7 +282,7 @@
             </view>
             <view class="dynamic-infor">
                 <view class="browse">
-                    <image mode="widthFix" src="../../../resource/images/my/liulan.png"></image>
+                    <image mode="widthFix" src="../../../resource/images/liulan.png"></image>
                     <view>{{item.look_num}}</view>
                 </view>
                 <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
