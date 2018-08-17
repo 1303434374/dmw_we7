@@ -365,8 +365,7 @@ overflow: hidden;
   background: #fff;
   box-shadow: 0rpx 11rpx 16rpx rgba(0, 0, 0, 0.13);
   border-radius: 10rpx;
-  margin-top: 10rpx;
-  margin-bottom: 40rpx;
+  margin-top: 30rpx;
 }
 .con-head{
   font-size: 26rpx;

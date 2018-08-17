@@ -113,33 +113,33 @@
         </view>
         <view class="whatBargain">
             <view class="whatBargain-tit">
-                <image mode="widthFix" src="../../../resource/images/my/liucheng.png"></image>
+                <image mode="widthFix" src="../../../resource/images/liucheng.png"></image>
                 <view>什么是砍价</view>
             </view>
             <view class="whatBargain-cont">
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/dianji.png" style="width:52rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/dianji.png" style="width:52rpx;"></image>
                     <text>点击砍价</text>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:49rpx;"></image>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/yaoqing1.png" style="width:52rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/yaoqing1.png" style="width:52rpx;"></image>
                     <text>邀请助力</text>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:49rpx;"></image>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/kanjia.png" style="width:52rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/kanjia.png" style="width:52rpx;"></image>
                     <text>继续砍价</text>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/jiantou.png" style="width:49rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/jiantou.png" style="width:49rpx;"></image>
                 </view>
                 <view>
-                    <image mode="widthFix" src="../../../resource/images/my/goumai.png" style="width:52rpx;"></image>
+                    <image mode="widthFix" src="../../../resource/images/goumai.png" style="width:52rpx;"></image>
                     <text>满意购买</text>
                 </view>
             </view>
@@ -298,7 +298,7 @@
                     </view>
                     <view class="dynamic-infor">
                         <view class="browse">
-                            <image mode="widthFix" src="../../../resource/images/my/liulan.png"></image>
+                            <image mode="widthFix" src="../../../resource/images/liulan.png"></image>
                             <view>{{item.look_num}}</view>
                         </view>
                         <view bindtap="goCommentDeails" class="comment" data-id="{{item.id}}">
@@ -338,7 +338,7 @@
         </view>
         <view class="after_model" wx:if="{{share_model}}">
             <view class="after_model_top">
-                <image class="after_model_bg" src="../../../resource/images/my/friend_bargain/model_top.png"></image>
+                <image class="after_model_bg" src="../../../resource/images/model_top.png"></image>
                 <image class="sponsor_avatar" src="{{friends_bargain?friends_bargain.avatar:srcollSum[0].avatar}}"></image>
             </view>
             <view class="model_tit" hidden="{{identical}}">

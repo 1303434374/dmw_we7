@@ -1,7 +1,7 @@
 <import src="/tourism_page/wxParse/wxParse.wxml"></import>
 <view bindtap="goAddress" class="order-address">
     <view class="address-img">
-        <image mode="widthFix" src="../../resource/images/my/dingwei.png"></image>
+        <image mode="widthFix" src="../../resource/images/dingwei.png"></image>
     </view>
     <view class="address-deails" wx:if="{{receiving_info}}">
         <view class="address_info">
@@ -19,7 +19,7 @@
 <view class="order-deails">
     <view class="order-titInfor">
         <view class="tit-left">
-            <image mode="widthFix" src="../../resource/images/my/dianpu.png"></image>
+            <image mode="widthFix" src="../../resource/images/dianpu.png"></image>
             <text space="ensp">  订单发票 ></text>
         </view>
     </view>
@@ -70,12 +70,12 @@
 </view>
 <view class="contact-seller">
     <view>
-        <image mode="widthFix" src="../../resource/images/my/duanxin.png"></image>
+        <image mode="widthFix" src="../../resource/images/duanxin.png"></image>
         <text space="ensp"> 联系卖家</text>
         <button bindcontact="getContact" openType="contact"></button>
     </view>
     <view bindtap="makeCall">
-        <image mode="widthFix" src="../../resource/images/my/dianhua.png"></image>
+        <image mode="widthFix" src="../../resource/images/dianhua.png"></image>
         <text space="ensp"> 拨打电话</text>
     </view>
 </view>

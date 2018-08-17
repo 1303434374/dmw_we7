@@ -1,8 +1,8 @@
-<swiper autoplay indicatorDots class="top_swiper">
+<!--<swiper autoplay indicatorDots class="top_swiper">
     <swiper-item wx:for="{{banner}}" wx:key="i">
         <image bindtap="bannerInto" data-id="{{item.jd_id}}" src="{{item.banner}}"></image>
     </swiper-item>
-</swiper>
+</swiper>-->
 <view class="welcome">欢迎加入，请填写申请信息</view>
 <view class="form_cont">
     <form bindsubmit="partSales_info">

@@ -89,6 +89,7 @@ Page(
         t.setLineWidth(5), t.setStrokeStyle(a), t.setLineCap("round"), t.beginPath(), t.arc(110, 110, 20, -Math.PI / 2, e * Math.PI - Math.PI / 2, !1), 
         t.stroke(), t.draw();
     },
+    //-2默认 -1申请失败 1申请成功 2审核中
     getMyDistribution: function() {
         var t = this, e = wx.getStorageSync("openid"), a = this.data.myList;
         app.util.request({
@@ -251,6 +252,20 @@ Page(
         wx.navigateTo({
             url: "myMoney/myMoney"
         });
+    },
+    goFenxiao: function() {
+        let list = this.data.myList
+        let state = this.data.distribution_status
+        if (state == 2) {
+            wx.showToast({
+                title: '正在审核，不要急~',
+                icon: 'none'
+            })
+        } else {
+            wx.navigateTo({
+                url: `${list[5].jumpPage}/${list[5].jumpPage}`
+            });
+        }
     },
     //触发登录，跳转
 
