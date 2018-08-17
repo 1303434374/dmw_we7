@@ -15,7 +15,8 @@ Page((_defineProperty(_Page = {
     data: {},
     onLoad: function(e) {
         var n = this, t = n.options.id;
-        n.getTuwenInto(t), n.getTitle();
+        n.getTuwenInto(t)
+        // n.getTitle();
     },
     getTitle: function() {
         app.util.request({
