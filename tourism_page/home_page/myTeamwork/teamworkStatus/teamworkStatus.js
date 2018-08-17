@@ -18,6 +18,7 @@ Page({
     },
     onShow: function() {
         var t = this.options.sponsor_id;
+        console.log(t);
         this.getGroupInfo(t);
     },
     onHide: function() {
@@ -69,6 +70,7 @@ Page({
     },
     getGroupInfo: function(e) {
         var s = this;
+      console.log('getGroupInfo');
         console.log(e), app.util.request({
             url: "entry/wxapp/GroupTeamInfo",
             data: {
@@ -84,6 +86,8 @@ Page({
                         sponsor_id: e
                     },
                     success: function(t) {
+                      console.log(t);
+                      console.log('GroupSuccess');
                         s.setData({
                             order_id: t.data.data,
                             t_success: !0
@@ -159,6 +163,7 @@ Page({
     },
     go_orderDeails: function() {
         var t = this.data.order_id;
+        console.log(t);
         wx.navigateTo({
             url: "../../../detail/order_detail/order_detail?id=" + t + "&types=4"
         });
