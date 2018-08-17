@@ -21,7 +21,7 @@
     <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="{{banner}}">
         <view class="swiper-item">
             <view class="topSearch">
-                <view class="selectCity">
+                <view class="selectCity" bindtap="moreHot">
                     <text>{{city}}</text>
                 </view>
                 <view class="searchInput">
@@ -72,7 +72,7 @@
     <view class='con-head-img'><image src='../resource/images/xsqg.png' mode='widthFix'></image></view>
     <view class='con-head-txt'>天天特价，限量狂欢</view>
   </view>
-  <view class='flex con'>
+  <view class='flex con' bindtap="moreActivity">
     <view class='con-left'>
       <image class='bgimg' src='../resource/images/bg1.jpg' mode='widthFix'></image>
       <image class='sign' src='../resource/images/ms.png' mode='widthFix'></image>
@@ -90,7 +90,7 @@
 
       <view class='introduce'>
         <image src='../resource/images/ms.jpg' mode='widthFix'></image>
-        <view class='int-txt'><text>介绍：\t………………\t……………………</text></view>
+        <view class='int-txt'><text>大魔王旅行：生活的轨迹在此相交......</text></view>
         <view class='seckill'>
           <image src='../resource/images/one.png' mode='widthFix'></image>
           <view class='txt'>￥168<text>元起</text></view>
@@ -121,13 +121,13 @@
   </view>
 </view>
 
-<view class='content'>
+<view class='content' style="padding-bottom:0;">
   <view class='con-head'>
     <view class='con-head-img'><image src='../resource/images/mryx.png' mode='widthFix'></image></view>
     <view class='con-head-txt'>不选贵的，只选对的</view>
   </view>
   
-  <view class='flex nav'>
+  <!--<view class='flex nav'>
     <view class='optimization'>
       <text class='a-text {{currentTab1 == 0 ? "on" : "" }}' data-current='0' catchtap='swichNav'>正在热卖</text>
     </view>
@@ -213,7 +213,43 @@
 
   <view class='content {{currentTab1 == 2 ? "" : "hid" }}'>
     
-  </view>
+  </view>-->
+
+</view>
+
+<view bindtap="{{!item.end_t&&item.type==1?'goTeamworkDeails':!item.end_t&&item.type==0?'goBargain':''}}" class="theme-item" data-id="{{item.id}}" wx:for="{{Active}}">
+    <view class="theme-item-img-box">
+        <image class="theme-item-img" src="{{item.image}}"></image>
+        <view class="theme-item-mask">
+            <view class="theme-item-tit">{{item.title}}</view>
+            <view class="theme-item-tit1">{{item.jd_title}}</view>
+            <view class="theme-item-tit2">{{item.jd_profile}}</view>
+        </view>
+        <view class="countdown" wx:if="{{item.e_timer||item.c_timer}}">
+            <view hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</view>
+            <view class="day">
+                <text style="font-size:{{item.end_t?34:40}}rpx;">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}</text>
+                <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="priceAndBtn">
+        <view class="priceAndBtn-left">
+            <view class="teamwork_price">
+                <view style="color:{{item.end_t?'#999':'#ef5d5e'}}">
+                    <text>{{item.type==1?'拼后价：':item.type==0?'最低价 :':''}}</text>
+                    <text style="font-size:40rpx;">￥{{item.now_price}}</text>
+                </view>
+                <view style="font-size:24rpx;" wx:if="{{item.type==1}}">{{item.become_num}}人团</view>
+                <text wx:if="{{item.type==0}}">原价 : ￥{{item.original_price}}</text>
+            </view>
+            <view style="font-size:24rpx;">
+                <view style="margin-right:20rpx;">{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
+                <view class="theme-options">{{item.cf_area}}出发 | 支持 : {{item.tourism_type}}</view>
+            </view>
+        </view>
+        <view class="priceAndBtn-right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':item.type==0?'去砍价':''}}</view>
+    </view>
 </view>
 
 <view class='foot-bg'><image src='../resource/images/bgbg.png'></image></view>

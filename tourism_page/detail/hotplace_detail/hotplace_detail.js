@@ -72,7 +72,7 @@ Page({
         }));
     },
     onLoad: function(t) {
-        this.getTitle();
+        // this.getTitle();
         var a = t.id, e = this;
         this.getScenicspot(a), this.getStroke(a), this.gettraffic(a), this.getCostinformation(a), 
         this.getCalendar(a), this.getScenicspotMessage(a), this.ScenicspotUser(a), this.setData({

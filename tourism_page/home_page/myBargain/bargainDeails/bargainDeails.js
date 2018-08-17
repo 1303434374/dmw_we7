@@ -72,7 +72,8 @@ Page((_defineProperty(_Page = {
             c_openid: e
         });
         var n = t.id;
-        this.getTitle(), this.getScenicspotMessage(), console.log(t);
+        // this.getTitle(), 
+        this.getScenicspotMessage(), console.log(t);
         var i = t.help;
         i && 1 == this.data.a_time_status && 1 == this.data.b_time_status ? (this.FriendBargain(n, t.c_openid), 
         this.setData({

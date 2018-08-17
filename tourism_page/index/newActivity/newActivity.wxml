@@ -14,9 +14,9 @@
 <view bindtap="select_type" class="type_item bargain_tpye {{sele_type==0?'sele_type':''}}" data-type="0" wx:if="{{show_type}}">砍价</view>
 <view bindtap="select_type" class="type_item teamwork_tpye {{sele_type==1?'sele_type':''}}" data-type="1" wx:if="{{show_type}}">拼团</view>
 <view bindtap="select_type" class="type_item all_type {{sele_type==2?'sele_type':''}}" data-type="2" wx:if="{{show_type}}">全部</view>
-<view bindtap="return_idx" class="return_idx">
+<!--<view bindtap="return_idx" class="return_idx">
     <image src="../../resource/icon/index_w.png"></image>
-</view>
+</view>-->
 <scroll-view scrollWithAnimation scrollY class="left-scroll">
     <view class="city-box">
         <view bindtap="ChangeCityActive" class="city {{currentCity==0?'currentCity':''}}" data-id="0">
@@ -54,10 +54,10 @@
                 <view class="bottom_right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':'去砍价'}}</view>
             </view>
             <view class="dayclock" wx:if="{{item.e_timer||item.c_timer}}">
-                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</text>
-                <view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
+                <text hidden="{{item.end_t}}" style="color:#ffc107;">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}<text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text></text>
+                <!--<view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
             <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
-                </view>
+                </view>-->
             </view>
         </view>
         <view bindtap="look_more" class="lookMore" data-type="ac_arr" hidden="{{Active.length<=1&&sele_type==2||sele_type!=2}}">
@@ -118,10 +118,10 @@
                 <view class="bottom_right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':'去砍价'}}</view>
             </view>
             <view class="dayclock" wx:if="{{item.e_timer||item.c_timer}}">
-                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}</text>
-                <view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
+                <text hidden="{{item.end_t}}">{{!item.start_t?'距开始仅剩':'距结束仅剩'}}{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}<text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text></text>
+                <!--<view class="dayclock_time">{{item.end_t?'活动结束':item.start_t&&item.e_clock?item.e_clock:item.c_clock}}
             <text hidden="{{item.end_t}}">{{item.now_t=='s'?'秒':item.now_t=='m'?'分':item.now_t=='h'?'小时':item.now_t=='d'?'天':''}}</text>
-                </view>
+                </view>-->
             </view>
         </view>
         <view bindtap="look_more" class="lookMore" data-type="t_arr" hidden="{{t_arr.length<=1&&sele_type==1||sele_type!=1}}">

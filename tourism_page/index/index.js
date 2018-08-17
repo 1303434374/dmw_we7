@@ -20,7 +20,7 @@ Page({
     },
     onLoad: function(t) {
         let that = this;
-        that.CountDown(that, 86500);
+        that.CountDown(that, 80000);
         var n = this, e = wx.getStorageSync("openid");
         if (t.scene) {
             var a = decodeURIComponent(t.scene);
@@ -333,25 +333,32 @@ Page({
         });
     },
     goSearch: function(t) {
-        var e = t.detail.value;
-        app.util.request({
-            url: "entry/wxapp/FindAddress",
-            data: {
-                keyword: e
-            },
-            success: function(t) {
-                1 == t.data.data.status ? wx.navigateTo({
-                    url: "../raiders/raidersDeails/raidersDeails?address_id=" + t.data.data.address_id
-                }) : wx.showModal({
-                    title: "搜索失败",
-                    content: "该地区没有信息!",
-                    showCancel: !1
-                });
-            }
-        }), this.setData({
-            inputFocus: !0,
-            inputVal: ""
-        });
+        var e = t.detail.value.replace(/\s+/g, '');
+        if (!e) {
+            wx.showToast({
+                title: '请输入搜索关键词',
+                icon: 'none'
+            })
+        } else {
+            app.util.request({
+                url: "entry/wxapp/FindAddress",
+                data: {
+                    keyword: e
+                },
+                success: function(t) {
+                    1 == t.data.data.status ? wx.navigateTo({
+                        url: "../raiders/raidersDeails/raidersDeails?address_id=" + t.data.data.address_id
+                    }) : wx.showModal({
+                        title: "搜索失败",
+                        content: "该地区没有信息!",
+                        showCancel: !1
+                    });
+                }
+            }), this.setData({
+                inputFocus: !0,
+                inputVal: ""
+            });
+        }
     },
     goRaidersDeails: function(t) {
         var e = t.currentTarget.dataset.address_id;
