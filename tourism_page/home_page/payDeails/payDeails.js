@@ -94,7 +94,7 @@ Page({
                 active_id: e.active_id,
                 receiving_id: a.id,
                 sponsor_id: e.id,
-                total: e.newTotal,
+                total: e.newTotal ? e.newTotal : e.total,
                 active_total: e.total,
                 people_name: n,
                 people_tel: o,
@@ -105,24 +105,30 @@ Page({
             success: function(t) {
                 if (console.log(t), 1 == t.data.data.status) {
                     if (1 == l) var a = i.options.order_id; else a = t.data.data.order_id;
-                    console.log(a), console.log(e.newTotal), 0 == e.newTotal ? app.util.request({
-                        url: "entry/wxapp/PayActiveOrder",
-                        data: {
-                            order_id: a
-                        },
-                        success: function(t) {
-                            console.log(t), 1 == t.data.data && (i.setData({
-                                s_order: !0
-                            }), wx.showToast({
-                                title: "下单成功",
-                                duration: 1e3
-                            }), setTimeout(function() {
-                                wx.redirectTo({
-                                    url: "/tourism_page/detail/order_detail/order_detail?id=" + a + "&types=" + c
-                                });
-                            }, 1500));
-                        }
-                    }) : 0 < e.newTotal && wx.showModal({
+                    console.log(a), console.log('newTotal=' + e.newTotal), 
+                    // 0 == e.newTotal ? 
+                    // app.util.request({
+                    //     url: "entry/wxapp/PayActiveOrder",
+                    //     data: {
+                    //         order_id: a
+                    //     },
+                    //     success: function(t) {
+                    //         console.log('sssss')
+                    //         console.log(t), 1 == t.data.data && (i.setData({
+                    //             s_order: !0
+                    //         }), wx.showToast({
+                    //             title: "下单成功",
+                    //             duration: 1e3
+                    //         }), setTimeout(function() {
+                    //             wx.redirectTo({
+                    //                 url: "/tourism_page/detail/order_detail/order_detail?id=" + a + "&types=" + c
+                    //             });
+                    //         }, 1500));
+                    //     }
+                    // }) 
+                    //  0 == e.newTotal ? '' : 0 < e.newTotal && wx.showModal({
+                    console.log("e.id="+a)
+                    wx.showModal({
                         title: "提示",
                         content: " 确认支付么？ ",
                         success: function(t) {
@@ -130,7 +136,7 @@ Page({
                                 url: "entry/wxapp/Pay",
                                 data: {
                                     openid: r,
-                                    total: e.newTotal
+                                    total: e.newTotal ? e.newTotal : e.total
                                 },
                                 header: {
                                     "Content-Type": "application/json"
@@ -154,7 +160,7 @@ Page({
                                                         duration: 1e3
                                                     }), setTimeout(function() {
                                                         wx.redirectTo({
-                                                            url: "/tourism_page/detail/order_detail/order_detail?id=" + e.id
+                                                            url: "/tourism_page/detail/order_detail/order_detail?id=" + a + "&types=3"
                                                         });
                                                     }, 1500)) : -2 == t.data.data ? wx.showModal({
                                                         title: "支付失败",

@@ -245,6 +245,10 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
             title: "电话不能为空",
             image: "../../resource/icon/error.png",
             duration: 1500
+        }); else if (this.data.total == 0) wx.showToast({
+            title: "请先添加人数",
+            image: "../../resource/icon/error.png",
+            duration: 1500
         }); else if (/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(a.tel)) {
             var i = t.detail.value, r = wx.getStorageSync("openid");
             t.detail.formId;

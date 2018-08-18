@@ -4,6 +4,7 @@
     <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==6?'currentNav':''}}" data-id="6">已过期</view>
     <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==-1?'currentNav':''}}" data-id="-1">待付款</view>
     <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==1?'currentNav':''}}" data-id="1">待核销</view>
+    <!--<view bindtap="changeCurrentNav" class="topNav-item {{currentNav==2?'currentNav':''}}" data-id="2">已核销</view>-->
     <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==3?'currentNav':''}}" data-id="3">待评价</view>
     <view bindtap="changeCurrentNav" class="topNav-item {{currentNav==4?'currentNav':''}}" data-id="4">已完成</view>
 </view>
