@@ -6,6 +6,7 @@ Page({
     },
     onLoad: function(t) {
         var a = t.nav;
+        console.log("进来时选中全部为空"+a);
         a && this.setData({
             currentNav: a
         }), this.getMyBargainList(0);
