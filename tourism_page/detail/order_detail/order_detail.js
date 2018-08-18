@@ -13,6 +13,7 @@ Page({
     },
     onReady: function() {},
     getMyOrder: function(n, e) {
+      console.log('type='+e+'==id'+n);
         var o = wx.getStorageSync("openid"), t = this;
         app.util.request({
             url: "entry/wxapp/MyOrder",
