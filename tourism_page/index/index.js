@@ -380,6 +380,7 @@ Page({
     },
     goBargain: function(t) {
         var e = t.currentTarget.dataset.id;
+        console.log(e)
         wx.navigateTo({
             url: "../home_page/myBargain/bargainDeails/bargainDeails?id=" + e
         });

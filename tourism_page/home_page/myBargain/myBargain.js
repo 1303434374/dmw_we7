@@ -77,9 +77,13 @@ Page({
         });
     },
     goBargainDeails: function(t) {
-        var a = t.currentTarget.dataset.id;
+        // var a = t.currentTarget.dataset.id;
+        // wx.navigateTo({
+        //     url: "../../detail/order_detail/order_detail?id=" + a + "&types=3"
+        // });
+        var a = t.currentTarget.dataset.uid;
         wx.navigateTo({
-            url: "../../detail/order_detail/order_detail?id=" + a + "&types=3"
+            url: "bargainDeails/bargainDeails?id=" + a
         });
     },
     fail_order: function(t) {

@@ -574,7 +574,7 @@ Page((_defineProperty(_Page = {
         url: "../../payDeails/payDeails?id=" + t + "&type=1"
     });
 }), _defineProperty(_Page, "show_bargainModel", function() {
-    var s = this, t = s.options.id, r = wx.getStorageSync("openid"), d = this.data.srcollSum, c = wx.getStorageSync("useInfo_d"), l = this.data.Bargain;
+    var s = this, t = s.options.id, r = wx.getStorageSync("openid"), d = this.data.srcollSum, c = wx.getStorageSync("userheaderimg"), l = this.data.Bargain;
     app.util.request({
         url: "entry/wxapp/BargainCreate",
         data: {
@@ -610,8 +610,8 @@ Page((_defineProperty(_Page = {
             });
             var e = t.data.data.total;
             d.push({
-                avatar: c.avatarUrl,
-                nickname: c.nickName,
+                avatar: c,
+                // nickname: c.nickName,
                 price: t.data.data.cut_price
             });
             var n = new Date(), i = t.data.data.out_time, o = n.getFullYear() + "/" + (n.getMonth() + 1) + "/" + n.getDate() + " " + n.getHours() + ":" + n.getMinutes() + ":" + n.getSeconds();
