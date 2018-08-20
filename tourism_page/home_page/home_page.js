@@ -319,6 +319,8 @@ Page(
     wx.showNavigationBarLoading(), setTimeout(function() {
         wx.stopPullDownRefresh(), wx.hideNavigationBarLoading(), e.getMyDistribution(), 
         e.getMemberInfo();
+        var a = wx.getStorageSync("openid");
+        e.getmemberinfo(a), e.MyAllNum(a);
     }, 1e3);
 },
 

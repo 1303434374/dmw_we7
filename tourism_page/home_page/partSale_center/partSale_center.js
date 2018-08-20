@@ -108,11 +108,11 @@ Page({
             content: "金币不足",
             showCancel: !1
         }) 
-        // : o < 1 ? wx.showModal({
-        //     title: "金币提现",
-        //     content: "金币不能小于1元",
-        //     showCancel: !1
-        // }) 
+        : o < 1 ? wx.showModal({
+            title: "金币提现",
+            content: "金币不能小于1元",
+            showCancel: !1
+        }) 
         : 
         app.util.request({
             url: "entry/wxapp/WithdrawDeposit",
