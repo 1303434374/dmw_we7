@@ -57,7 +57,7 @@
     <view class="price_tit">金币提现</view>
     <view class="price_input">
         <text style="font-size:32rpx;">￥</text>
-        <input bindinput="get_price" name="price" placeholder="请输入提现金额" type="number"></input>
+        <input bindinput="get_price" name="price" placeholder="请输入提现金额" type="digit"></input>
     </view>
     <view class="ky_price">可用余额
     <text style="color:#15e4d1;">{{MemberInfo.remaining}}元</text>
