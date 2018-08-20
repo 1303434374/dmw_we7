@@ -40,13 +40,13 @@
 
 <view class='flex nav'>
   <view class='optimization'>
-  余额：<text>0.00</text>
+  余额：<text>{{memberInfo.remaining}}</text>
   </view>
   <view class='optimization'>
-  粉丝：<text>0</text>
+  粉丝：<text>{{MyDownNum}}</text>
   </view>
   <view class='optimization'>
-  分销商：<text>0</text>
+  分销商：<text>{{MyDownNum}}</text>
   </view>
 </view>
 

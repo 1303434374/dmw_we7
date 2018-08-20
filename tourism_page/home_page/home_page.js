@@ -49,7 +49,7 @@ Page(
         var t = this;
         t.getMemberInfo();
         var a = wx.getStorageSync("openid");
-        
+        this.getmemberinfo(a), this.MyAllNum(a);
       if ("" == a || null == a){
         a = app.globalData.openid;
         }
@@ -132,6 +132,41 @@ Page(
             },
             fail: function(e) {
                 console.log(e);
+            }
+        });
+    },
+    getmemberinfo: function(t) {
+        var o = this;
+        app.util.request({
+            url: "entry/wxapp/Fxmember",
+            data: {
+                openid: t
+            },
+            success: function(t) {
+                console.log(t), o.setData({
+                    memberInfo: t.data.data
+                });
+            },
+            fail: function(t) {
+                console.log(t);
+            }
+        });
+    },
+    MyAllNum: function(t) {
+        var o = this;
+        app.util.request({
+            url: "entry/wxapp/MyAllNum",
+            data: {
+                openid: t
+            },
+            success: function(t) {
+                console.log(t), o.setData({
+                    MyDownNum: t.data.data.MyDownNum,
+                    MyOrderNum: t.data.data.MyOrderNum
+                });
+            },
+            fail: function(t) {
+                console.log(t);
             }
         });
     },
