@@ -17,7 +17,7 @@
         </view>
     </view>
 </view> -->
-<swiper autoplay="{{inputFocus}}" bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
+<!--<swiper autoplay="{{inputFocus}}" bindchange="currentItem" class="swiper_wrap" duration="500" interval="3000">
     <swiper-item current="{{index}}" wx:for="{{banner}}" wx:key="{{banner}}">
         <view class="swiper-item">
             <view class="topSearch">
@@ -40,7 +40,9 @@
             </view>
         </view>
     </swiper-item>
-</swiper>
+</swiper>-->
+
+
 <!--<swiper class="sortList-box {{listArr[0].length<=5?'rowList':''}}">
     <swiper-item wx:for="{{listArr}}" wx:key="{{listArr}}">
         <view class="sortList {{listArr[index].length<=4?'shortList':''}}">
@@ -52,11 +54,10 @@
     </swiper-item>
 </swiper>-->
 
-<view class="nearby-play you-may-like">
+<!--<view class="nearby-play you-may-like">
     <view class="nearby-play-tit you-may-like-tit">
         <view class="nearby-play-tit-left you-may-like-tit-left"></view>
         <view>今日可订</view>
-        <!--<view class="nearby-play-tit-right you-may-like-tit-right">感觉你会喜欢</view>-->
     </view>
     <view class="nearby-play-cont">
         <view bindtap="goLikeDeails" class="nearby-play-item" data-id="{{item.id}}" wx:for="{{LikeAddress}}" wx:if="{{item.to_index != 0}}">
@@ -67,6 +68,46 @@
         </view>
     </view>
     <view bindtap="moreData" class="moreData">{{LikeAddress.length>=LikeAddressList.length?'':'加载更多'}}</view>
+</view>-->
+
+<view class="header-container">
+    <view class="search">
+        <input placeholder="请输入地名进行查询" placeholder-style="placeholder" value="{{inputVal}}" bindconfirm="goSearch" />
+        <image src="../resource/icon/search2.png" />
+    </view>
+    <view class="nav" bindtap="moreHot">
+        <view class="item {{index == 0 ? 'active' : ''}}" wx:for="{{['热门','周边','湖南','湖北','广东','江西','上海','浙江','云南']}}" wx:key="key" data-index="{{index}}">
+            {{item}}
+        </view>
+        <image src="../resource/icon/down.png" />
+    </view>
+</view>
+<!--<view class="nav-container">
+    <view class="item {{index == current ? 'active' : ''}}" data-index="{{index}}" wx:for="{{['全部','玩水','亲子','玩乐','美食','……']}}" wx:key="key" catchtap='swichNavs'>
+        {{item}}
+    </view>
+</view>-->
+
+<view class='content' style="margin-top: 30rpx;">
+
+    <view bindtap="goLikeDeails" data-id="{{item.id}}" wx:for="{{LikeAddress}}" wx:if="{{item.to_index != 0}}">
+        <view class='content-head'>
+            <image src='{{item.image}}'></image>
+        <view class='label'>
+            <image src='../resource/images/label2.png' mode='widthFix'></image>
+            <text>情侣最爱</text>
+        </view>
+        <text class="price">￥{{item.price}}起</text>
+        </view>
+        <view class='content-foot'>
+            <text>{{item.title}}</text>
+            <view class='content-footer'>
+                <view class='order'><image src='../resource/images/ljdg-1.png' mode='widthFix'></image></view>
+                <view class='order'><image src='../resource/images/fx.png' mode='widthFix'></image></view>
+            </view>
+        </view>
+    </view>
+
 </view>
 
 <view class='foot-bg'><image src='../resource/images/bgbg.png'></image></view>

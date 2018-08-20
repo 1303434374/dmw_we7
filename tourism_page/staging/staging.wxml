@@ -10,7 +10,7 @@
                 <navigator class="link" url="../detail/staging_detail/staging_detail?id={{item.id}}&&come=分期">
                     <view class="top">
                         <image src="{{item.image}}" style="width:100%;height:100%"></image>
-                        <view class="place">{{item.cf_area}}出发 | 支持：{{item.tourism_type}}</view>
+                        <view class="place">{{item.cf_area}}出发</view>
                         <view class="money">￥<text class="sub-money">{{item.price}}</text>/期</view>
                     </view>
                     <view class="name">{{item.title}}</view>

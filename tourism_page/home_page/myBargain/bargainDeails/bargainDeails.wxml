@@ -37,7 +37,7 @@
                             <view class="main-tit">{{Bargain.title}}</view>
                             <view class="sub-tit">{{Bargain.jd_title}}</view>
                             <view class="sub-tit">{{Bargain.jd_profile}}</view>
-                            <view class="departureLocation">{{Bargain.cf_area}}出发|支持：{{Bargain.tourism_type}}</view>
+                            <view class="departureLocation">{{Bargain.cf_area}}出发</view>
                         </view>
                     </view>
                 </swiper-item>

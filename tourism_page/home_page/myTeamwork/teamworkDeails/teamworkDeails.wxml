@@ -39,7 +39,7 @@
                         <view class="main-tit">{{group.title}}</view>
                         <view class="sub-tit">{{group.jd_title}}</view>
                         <view class="sub-tit">{{group.jd_profile}}</view>
-                        <view class="departureLocation">{{group.cf_area}}出发|支持：{{group.tourism_type}}</view>
+                        <view class="departureLocation">{{group.cf_area}}出发</view>
                     </view>
                 </view>
             </swiper-item>

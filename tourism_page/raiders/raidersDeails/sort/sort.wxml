@@ -43,7 +43,7 @@
                 </view>
                 <view style="font-size:24rpx;">
                     <view style="margin-right:20rpx;">{{item.join_num}} {{item.type==1?'人已成团':'人已砍成功'}}</view>
-                    <view class="theme-options">{{item.cf_area}}出发 | 支持 : {{item.tourism_type}}</view>
+                    <view class="theme-options">{{item.cf_area}}出发</view>
                 </view>
             </view>
             <view class="priceAndBtn-right" style="background:{{item.end_t?'#999':'#ef5d5e'}}">{{item.type==1?'去开团':item.type==0?'去砍价':''}}</view>

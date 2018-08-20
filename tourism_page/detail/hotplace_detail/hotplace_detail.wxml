@@ -17,7 +17,7 @@
         </view>
         <view class="appraise">
             <view class="label">经典观光</view>
-            <view class="departureLocation">{{item.jd_area}}出发 | 支持：{{item.tourism_type}}</view>
+            <view class="departureLocation">{{item.jd_area}}出发</view>
             <view class="appraise-share">
                 <button class="shareBtn" openType="share"></button>
                 <image src="../../resource/images/shareBtn.png"></image>
