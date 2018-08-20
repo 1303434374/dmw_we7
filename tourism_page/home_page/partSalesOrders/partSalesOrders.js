@@ -94,8 +94,11 @@ Page(_defineProperty({
             }
         });
     }
-}, "goEvaluation", function() {
-    wx.navigateTo({
-        url: "../evaluation/evaluation"
-    });
-}));
+}
+// , 
+// "goEvaluation", function() {
+//     wx.navigateTo({
+//         url: "../evaluation/evaluation"
+//     });
+// }
+));

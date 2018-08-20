@@ -117,9 +117,15 @@ Array.prototype.remove = function(t, e) {
                     icon: "success",
                     duration: 500
                 }), setTimeout(function() {
-                    wx.redirectTo({
-                        url: r
-                    });
+                    if (r == '../myOrders/myOrders') {
+                        wx.switchTab({
+                            url: r
+                        })
+                    } else {
+                        wx.redirectTo({
+                            url: r
+                        });                        
+                    }
                 }, 1500)) : wx.showModal({
                     title: "评论失败",
                     content: "请联系客服",

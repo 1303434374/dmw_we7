@@ -77,7 +77,7 @@ page {
 }
 
 .orderImg {
-    width: 160rpx;
+    max-width: 160rpx;
     height: 160rpx;
 }
 
