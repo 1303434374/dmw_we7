@@ -55,6 +55,7 @@
                         <text>出发日期：{{choose_date.length > 2 ? choose_date : cur_year + '-' + cur_month + '-' + choose_date}}</text>
                         <text style="float:right">{{item.cf_area}}出发</text>
                     </view>
+                    <text>失效时间：当日{{item.colsetime }}</text>
                 </view>
                 <view class="order-address-tit">收货信息</view>
                 <view bindtap="go_address" class="order-address">
