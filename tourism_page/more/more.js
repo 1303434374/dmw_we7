@@ -63,6 +63,9 @@ Page({
         });
     },
     onShow: function() {
+      console.log('显示我');
+      //今日可订
+      this.getLikeAddress();
         this.IndexActive(), this.setData({
             jiazai: !0,
             count: 0,

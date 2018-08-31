@@ -389,6 +389,7 @@ Page((_defineProperty(_Page = {
         }, 1e3);
     }
 }), _defineProperty(_Page, "getBargaininfo", function(t) {
+  console.log('得到的id='+t);
     var e = this, a = wx.getStorageSync("openid");
     app.util.request({
         url: "entry/wxapp/BargainInfo",
@@ -397,6 +398,7 @@ Page((_defineProperty(_Page = {
             openid: a
         },
         success: function(t) {
+          console.log(t.data.data.create_time);
             if (console.log(t), t.data.data.create_time = t.data.data.create_time.replace(/\-/g, "/"), 
             t.data.data.finish_time = t.data.data.finish_time.replace(/\-/g, "/"), e.getStroke(t.data.data.jd_id), 
             e.unloadxingcheng(t.data.data.jd_id), -3 == t.data.data.active_finish_status && (e.setData({

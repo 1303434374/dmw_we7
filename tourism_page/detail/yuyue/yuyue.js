@@ -43,7 +43,7 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
             cur_year: r,
             weeks_ch: [ "日", "一", "二", "三", "四", "五", "六" ],
             jd_id: l,
-            cur_month: c,
+            cur_month:  c,
             currentMonth: o,
             currentDay: d,
             sele_day: s,
@@ -224,7 +224,8 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
     formSubmit: function(t) {
         var e = this.data.member, a = t.detail.value, s = this.data.receiving_info;
         console.log(s);
-        var n = this.data.choose_date;
+      var mm = this.data.cur_month < 10 ? '0' + this.data.cur_month : this.data.cur_month
+      var n = this.data.choose_date.length > 2 ? this.data.choose_date : this.data.cur_year + '-' + mm + '-' + this.data.choose_date;
         if ("" == s || null == s) wx.showToast({
             title: "请填写收货地址",
             image: "../../resource/icon/error.png",

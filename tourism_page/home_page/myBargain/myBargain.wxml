@@ -15,7 +15,7 @@
         <text style="color:#15e4d1;">{{item.status_title}}</text>
         </view>
     </view>
-    <view bindtap="goBargainDeails" class="order" data-id="{{item.id}}" data-uid="{{item.uniacid}}">
+    <view bindtap="goBargainDeails" class="order" data-aid="{{item.active_id}}" data-id="{{item.id}}" data-uid="{{item.uniacid}}">
         <image class="orderImg" src="{{item.jd_image}}"></image>
         <view class="orderInfor">
             <view>{{item.active_title}}</view>

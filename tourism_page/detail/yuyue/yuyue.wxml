@@ -52,7 +52,7 @@
                     <input hidden="true" name="go_date" value="{{choose_date}}"></input>
                     <view>{{item.title}}</view>
                     <view class="fs24 " style="margin-top:10rpx;color:#8A8A8A">
-                        <text>出发日期：{{cur_year}}-{{cur_month}}-{{choose_date}}</text>
+                        <text>出发日期：{{choose_date.length > 2 ? choose_date : cur_year + '-' + cur_month + '-' + choose_date}}</text>
                         <text style="float:right">{{item.cf_area}}出发</text>
                     </view>
                 </view>

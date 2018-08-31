@@ -82,7 +82,7 @@ Page({
         // wx.navigateTo({
         //     url: "../../detail/order_detail/order_detail?id=" + a + "&types=3"
         // });
-        var a = t.currentTarget.dataset.uid;
+        var a = t.currentTarget.dataset.aid;
         wx.navigateTo({
             url: "bargainDeails/bargainDeails?id=" + a
         });
