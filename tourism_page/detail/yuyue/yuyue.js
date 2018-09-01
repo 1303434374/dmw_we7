@@ -1,4 +1,4 @@
-var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year = null, choose_month = null, conf = {
+var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), util = require("../../wxParse/dataform.js"), choose_year = null, choose_month = null,conf = {
     data: {
         hasEmptyGrid: !1,
         showPicker: !1,
@@ -19,10 +19,13 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
         baoxianid: 0,
         show: !1,
         jd_id: "",
-        member: ""
+        member: "",
+        iscolse:false,
+        colsetime:''
     },
     array: [],
     onLoad: function(t) {
+       
         var e = t.come, a = t.id;
         this.getNumberMan(a), this.getMyMorenAddress();
         var s = wx.getStorageSync("sele_day");
@@ -461,6 +464,20 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
                 }
             }
             this.getNumberMan();
+          let colsetime = this.data.colsetime;
+          console.log('过期时间='+colsetime);
+          console.log('点了日期 =' + this.data.choose_date.trim());
+          let colsestamp = Date.parse(this.data.choose_date.trim() + " " + colsetime) / 1000;
+          let nowstamp = Date.parse(new Date()) / 1000;
+          if (nowstamp - colsestamp > 0) {
+           this.setData({
+              iscolse: true
+            });
+          }else{
+            this.setData({
+              iscolse: false
+            });
+          }
         } else wx.showModal({
             title: "温馨提示",
             content: "出行时间不能小于今天",
@@ -527,6 +544,21 @@ var app = getApp(), WxParse = require("../../wxParse/wxParse.js"), choose_year =
             },
             success: function(t) {
                 var e = t.data.data;
+                let  getcolotime=e[0]['colsetime'];
+                var timestamp = Date.parse(new Date());
+                 timestamp = timestamp / 1000;
+                let getdata=util.formatTimeTwo(timestamp,'Y-M-D');
+                let colsestamp= Date.parse(getdata+" "+getcolotime)/1000;
+                let nowstamp=Date.parse(new Date())/1000;
+              console.log('过期的时间戳' + colsestamp);
+                console.log('现在的时间戳'+nowstamp);
+              if (nowstamp - colsestamp>0){
+                console.log('已经过期');
+                a.setData({
+                  iscolse: true,
+                  colsetime: getcolotime
+                });
+                }
                 console.log(e), a.setData({
                     scenicspot: e
                 });

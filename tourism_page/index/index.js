@@ -1,5 +1,5 @@
 var app = getApp(), page = 1;
-
+var util = require('../../utils/util.js');
 Page({
     data: {
         downTime: '',//倒计时
@@ -19,6 +19,10 @@ Page({
         countTime: null
     },
     onLoad: function(t) {
+      var timestamp = Date.parse('2018-9-1');
+      timestamp = timestamp / 1000;
+      console.log("当前时间戳为：" + timestamp);
+      console.log('时间戳转自定义时间格式' + util.formatTimeTwo(timestamp,'Y-M-D h:m:s'));
         let that = this;
         that.CountDown(that, 80000);
         var n = this, e = wx.getStorageSync("openid");

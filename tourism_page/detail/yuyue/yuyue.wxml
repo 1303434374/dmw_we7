@@ -34,13 +34,14 @@
                 <view class="num_item box box-lr box-pack-between box-align-center" wx:for="{{flname}}" wx:key="item">
                     <view class="item_name fs28">{{item.name}}</view>
                     <view class="box box-lr box-align-center">
-                        <view class="item_money fs24">￥{{item.mprice}}</view>
+                        <view class="item_money fs24">￥{{cMonthData[index].mprice>0 ? item.mprice:0}}</view>
                         <input hidden="true" name="price" value="{{item.mprice}}"></input>
                         <view class="text">
                             <text bindtap="sub" class="prev" data-index="{{index}}">-</text>
                             <text style="border:2rpx solid #dedede;border-top:none;border-bottom:none">{{item.num}}</text>
                             <input hidden="true" name="num" value="{{item.num}}"></input>
-                            <text bindtap="add" class="add" data-index="{{index}}">+</text>
+                           
+                            <text  bindtap="add" class="add" data-index="{{index}}">+</text>
                         </view>
                     </view>
                 </view>
@@ -119,15 +120,17 @@
                     </view>
                 </view>
             </view>
-            <view class="submit box box-lr box-pack-between box-align-center" wx:if="{{choose_date}}">
+            <view class="submit box box-lr box-pack-between box-align-center" wx:if="{{choose_date&&cMonthData.length>0&&!iscolse}}">
                 <view>订单总额:
           <text style="color:#FF6F3E">{{total}}</text>
                     <input hidden="true" name="total" value="{{total}}"></input>
                     <input hidden="true" name="zongjia" value="{{zongjia}}"></input>
                     <image bindtap="look_order" class="up_arrow" src="{{dingdan?'../../resource/images/top.png':'../../resource/images/bottom.png'}}"></image>
                 </view>
+                
                 <button formType="submit" size="mini">提交订单</button>
             </view>
+             <button class="submit" style="background:#F0F0F0;color:#000" wx:if="{{iscolse}}">今日售票已结束</button>
             <button bindtap="click_btn" class="submit" style="background:#289AF6;color:#fff" wx:if="{{!choose_date}}">请选择出发日期</button>
         </form>
     </view>
