@@ -119,7 +119,7 @@ Page({
         var a = t.currentTarget.dataset.id, e = t.currentTarget.dataset.status, o = t.currentTarget.dataset.idx, n = this.data.List, i = this;
         wx.showModal({
             title: "订单状态",
-            content: "确定要删除吗？",
+          content: "确定要删除吗？",
             success: function(t) {
                 t.confirm && app.util.request({
                     url: "entry/wxapp/MyBargaindel",

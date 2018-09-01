@@ -34,7 +34,9 @@
             <view bindtap="goToPay" class="lookTeamwork" data-id="{{item.sponsor_id}}" data-order_id="{{item.id}}" data-type="{{item.active_type}}" wx:if="{{item.status==-1}}">去付款</view>
             <view bindtap="fail_order" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-order_id="{{item.id}}" data-type="{{item.active_type}}" wx:if="{{item.status==-1}}">取消订单</view>
             <view bindtap="goToMessage" class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==3}}">去评价</view>
-            <view bindtap="goToHexiao" class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==1}}">去核销</view>
+            <view bindtap="goToHexiao" class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==1&&!item.iscolse}}">去核销</view>
+            <view class="lookTeamwork" data-id="{{item.id}}" wx:if="{{item.status==1&&item.iscolse}}">已失效</view>
+            <view bindtap="del" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-status="1" wx:if="{{item.iscolse}}">删后重砍</view>
             <view bindtap="del" class="lookTeamwork" data-id="{{item.id}}" data-idx="{{index}}" data-status="{{item.status}}" wx:if="{{item.status==4||item.status==6||item.status==5}}">删除</view>
         </view>
     </view>

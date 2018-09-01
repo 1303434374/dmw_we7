@@ -27,6 +27,7 @@ Page({
         that.CountDown(that, 80000);
         var n = this, e = wx.getStorageSync("openid");
         if (t.scene) {
+          console.log('分享进来的是什么' + decodeURIComponent(t.scene));
             var a = decodeURIComponent(t.scene);
             "" != a && null != a && (n.setData({
                 invite_num: a
